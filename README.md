@@ -5,6 +5,7 @@
 - Einrückung mit Tabs!!!
 - Entwicklung nicht auf dem Master
 - keine Force-Merges ohne gesunden Menschenverstand!!!
+- sinnvolle Commit-Messages!!!
 
 ## TODOs:
 - .gitignore
