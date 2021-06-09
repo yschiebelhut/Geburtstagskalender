@@ -3,8 +3,23 @@
 
 ## Konventionen:
 - Einrückung mit Tabs!!!
+- Entwicklung nicht auf dem Master
+- keine Force-Merges ohne gesunden Menschenverstand!!!
 
 ## TODOs:
 - .gitignore
 - Struktur
 - weitere Abstimmung
+
+## Primäre Aufgabenverteilung
+HTML:
+- Hanna
+- Nico
+
+CSS:
+- Fanny
+
+XML & XSLT:
+- Clemens
+- Yannik
+- Joe
