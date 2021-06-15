@@ -6,7 +6,7 @@
 - Entwicklung nicht auf dem Master
 - keine Force-Merges ohne gesunden Menschenverstand!!!
 - sinnvolle Commit-Messages!!!
-- auto Formatierung vor jedem Commit. (VSCode unter Windows per default Strg + Alt + F)
+- auto Formatierung vor jedem Commit. (VSCode unter Windows per default Shift + Alt + F)
 
 ## TODOs:
 - .gitignore
