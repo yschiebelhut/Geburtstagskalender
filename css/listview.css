@@ -1,13 +1,15 @@
 a {
 	text-decoration: none;
 }
-.list{
+
+.list {
 	margin: 30px 10% 30px 10%;
 	width: 80%;
 	height: auto;
 	background-color: black;
 }
-.list-element{
+
+.list-element {
 	background-color: white;
 	width: 100%;
 	height: auto;
@@ -20,18 +22,21 @@ a {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
-.date{
+
+.date {
 	width: 33%;
 	float: left;
 	display: flex;
 	align-items: center;
 	margin-left: 10px;
 }
-.name{
+
+.name {
 	width: 33%;
 	align-items: center;
 }
-.countdown{
+
+.countdown {
 	width: 33%;
 	float: right;
 	display: flex;

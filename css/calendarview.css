@@ -1,13 +1,13 @@
-body{
+body {
 	align-items: center;
 	text-align: center;
 }
 
-header{
+header {
 	text-align: center;
 }
 
-#calendar-wrap{
+#calendar-wrap {
 	display: flex;
 	position: relative;
 	visibility: visible;
@@ -103,7 +103,21 @@ header{
 	color: #666;
 }
 
-#button-div{
+.button-div {
 	text-align: center;
 	width: 10%;
+}
+.nextPrivious-button{
+	font-size: 26px;
+}
+
+.button-box {
+	height: auto;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+#cancel {
+	margin-right: 50px;
 }

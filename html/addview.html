@@ -3,24 +3,24 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>Birthday calender</title>
-	<link href="../css/standard.css" type="text/css" rel="stylesheet" />
+	<title>Birthday calendar</title>
+	<link href="../css/default.css" type="text/css" rel="stylesheet" />
 	<link href="../css/addview.css" type="text/css" rel="stylesheet" />
 </head>
 
 <body>
 	<div class="menue">
 		<div class="menue-box" id="div-logo">
-			<img src="../images/logo.png" id="logo">
+			<img src="../images/logo.png" id="logo" />
 		</div>
 		<div class="menue-box">
 			<h1>My Calendar</h1>
 		</div>
-		<div class="menue-box" id="div-buttons">
-			<a href="calendarview.html"><button type="button" height="200px" id="button">Calendar</button></a>
-			<a href="listview.html"><button type="button" height="200px" id="button">List</button></a>
-			<div id="div-buttons">
-				<a href="addview.html" id="div-buttons"><img src="../images/plus.png" width="auto" height="70%"></a>
+		<div class="menue-button-box">
+			<a href="calendarview.html"><button type="button" height="200px" class="button">Calendar</button></a>
+			<a href="listview.html"><button type="button" height="200px" class="button">List</button></a>
+			<div class="plus">
+				<a href="addview.html" class="plus"><img src="../images/plus.png" width="auto" height="70%" /></a>
 			</div>
 		</div>
 	</div>
@@ -29,13 +29,13 @@
 	<div class="content-area">
 		<h1>new birthday</h1>
 		<p><input type="text" name="name" placeholder="Name" required /></p>
-		<p><input type="email" name="Datum" placeholder="Date" required /></p>
+		<p><input type="date" name="date" placeholder="Date" required /></p>
 		<p><textarea name="message" rows="8" cols="60" placeholder="Note" required></textarea></p>
 		<p><input type="text" name="reminder" placeholder="Reminder" /></p>
 
 		<div class="button-box">
-			<input class="button" type="submit" value="Save" name="submit" />
-			<input class="button" id="cancel" type="reset" value="Cancel" />
+			<input class="form-button" type="submit" value="Save" name="submit" />
+			<input class="form-button" id="cancel" type="reset" value="Cancel" />
 		</div>
 	</div>
 </body>

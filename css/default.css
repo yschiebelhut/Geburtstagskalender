@@ -7,7 +7,7 @@ body {
 	padding: 0;
 }
 
-.menue { /*div-box um das komplette Menü*/
+.menue { /*div-box around the complete menu*/
 	display: flex;
 	position: relative;
 	background-color: #080123;
@@ -20,21 +20,12 @@ body {
 	font-size: 1.5em;
 }
 
-.menue-box{ /*Aufteilung in drei Menü-boxen*/
+.menue-box { /*Divided into three menu boxes*/
 	width: 33.3%;
 }
 
-.menue-box h1{
-	margin: 0;
-}
-
-#div-logo{ 
-	float: left;
-	display: flex;
-	align-items: center;
-}
-
-#div-buttons{
+.menue-button-box{
+	width: 33.3%;
 	float: right;
 	display: flex;
 	justify-content: flex-end;
@@ -43,12 +34,31 @@ body {
 	height: 100%;
 }
 
-#button{
+.menue-box h1 {
+	margin: 0;
+}
+
+#div-logo { 
+	float: left;
+	display: flex;
+	align-items: center;
+}
+
+.plus {
+	float: right;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin-right: 10px;
+	height: 100%;
+}
+
+.button {
 	font-size: 26px;
 	margin-right: 30px;
 }
 
-#logo{
+#logo {
 	width: auto;
 	height: 100%;
 }
