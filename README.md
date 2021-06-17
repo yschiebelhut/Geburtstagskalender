@@ -7,9 +7,9 @@
 - keine Force-Merges ohne gesunden Menschenverstand!!!
 - sinnvolle Commit-Messages!!!
 - auto Formatierung vor jedem Commit. (VSCode unter Windows per default Shift + Alt + F)
+- .gitignore pflegen
 
 ## TODOs:
-- .gitignore
 - Struktur
 - weitere Abstimmung
 
