@@ -1,9 +1,10 @@
 const sqlite3 = require('sqlite3').verbose()
-let db
+const { open } = require('sqlite')
+const fs = require('fs');
+const { callbackify } = require('util');
+var db;
 
-main()
-
-async function main() {
+(async () => {
 	db = await new sqlite3.Database('db.sqlite', (err) => {
 		if (err) {
 			console.error(err.message)
@@ -11,20 +12,39 @@ async function main() {
 		console.log('Connected successfully')
 	})
 
+	// await db.getDatabaseInstance().serialize(async () => {
 	await db.serialize(async () => {
 		await createDBAndTable()
-		await createEntries()
+		await createEntriesFromJSON()
 	})
+})()
 
-	await db.close((err) => {
+module.exports.getDataForMonth = function (month) {
+	var result
+	db.all("SELECT * FROM birthdays WHERE month=?", month, (err, rows) => {
 		if (err) {
-			return console.error(err.message)
+			throw err
 		}
-		console.log('Close the database connection.')
+		rows.forEach((row) => {
+			console.log(row)
+		})
+		console.log(rows[0])
+		result = rows
+		console.log(result[0])
+	})
+	// console.log(result[1])
+	return result
+}
+
+function createDbConnection(filename) {
+	return open({
+		filename,
+		driver: sqlite3.Database
 	})
 }
 
 function createDBAndTable() {
+	console.log('[i] checking or creating creating table')
 	db.run('CREATE TABLE IF NOT EXISTS birthdays (\
 		id INTEGER PRIMARY KEY,\
 		name TEXT NOT NULL,\
@@ -33,10 +53,11 @@ function createDBAndTable() {
 		year INTEGER,\
 		notes TEXT DEFAULT ""\
 		)')
+	console.log('[i] table checked or created')
 }
 
-function createEntries() {
-	const fs = require('fs')
+function createEntriesFromJSON() {
+	console.log('[i] start reading table data from JSON')
 	let rawdata = fs.readFileSync('testdata.json')
 	let data = JSON.parse(rawdata)
 	data.forEach(entry => {
@@ -53,4 +74,5 @@ function createEntries() {
 			db.run('INSERT OR REPLACE INTO birthdays (id, name, day, month) VALUES(?,?,?,?)', entry.id, entry.name, entry.day, entry.month)
 		}
 	})
+	console.log('[i] finished reading table data from JSON')
 }
