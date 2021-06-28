@@ -16,12 +16,13 @@
 		var data = await handleDBJS.getDataForMonth(curMonth)
 		var options = { compact: true, ignoreComment: true, spaces: 4 };
 		var output = ""
+		output += "<birthdays>"
 		data.forEach((entry) => {
-			// does each XML doc need an root-tag? then I propose surrounding with <entries> tag
-			output += "<entry>"
+			output += "<bday>"
 			output += convert.json2xml(entry, options)
-			output += "</entry>"
+			output += "</bday>"
 		})
+		output += "</birthdays>"
 		const prettifyXml = require('prettify-xml')
 		var format = { indent: 4, newline: '\n' }
 		output = prettifyXml(output, format)
