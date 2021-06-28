@@ -4,8 +4,8 @@ let db
 main()
 
 async function main() {
-	db = await new sqlite3.Database('db.sqlite', (err) =>  {
-		if(err) {
+	db = await new sqlite3.Database('db.sqlite', (err) => {
+		if (err) {
 			console.error(err.message)
 		}
 		console.log('Connected successfully')
@@ -33,7 +33,6 @@ function createDBAndTable() {
 		year INTEGER,\
 		notes TEXT DEFAULT ""\
 		)')
-
 }
 
 function createEntries() {
