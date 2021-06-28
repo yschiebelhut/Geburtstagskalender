@@ -4,7 +4,7 @@
 <html>
   <head>
     <title>
-      <xsl:value-of select="test"/>
+      createEntry
     </title>
     <script type="text/javascript" scr="../js/createEntry.js">
       function sendData(){
@@ -21,9 +21,10 @@
           year : year,
           notes : notes
         }
+        console.log(data)
 
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", '/createEntry', false);
+        xhr.open("POST", '/createEntry', true);
 
         xhr.setRequestHeader("Content-Type", "application/json");
 
