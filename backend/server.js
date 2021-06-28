@@ -11,27 +11,34 @@
 	app.use(express.static('../frontend'))
 
 	app.get('/', async (req, res) => {
-		res.set("Content-Type", "text/xml")
+		res.set('Content-Type', 'text/xml')
 		var convert = require('xml-js')
 		var data = await handleDBJS.getDataForMonth(curMonth)
 		var options = { compact: true, ignoreComment: true, spaces: 4 };
-		var output = ""
-		output += "<birthdays>"
+		var output = ''
+		output += '<birthdays>'
 		data.forEach((entry) => {
-			output += "<bday>"
+			output += '<bday>'
 			output += convert.json2xml(entry, options)
-			output += "</bday>"
+			output += '</bday>'
 		})
-		output += "</birthdays>"
+		output += '</birthdays>'
+
 		const prettifyXml = require('prettify-xml')
 		var format = { indent: 4, newline: '\n' }
 		output = prettifyXml(output, format)
-		var xmlres = '<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="xslt/test.xsl"?>' + '\n' + output
+
+		var xmlres = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
+		xmlres += '<?xml-stylesheet type="text/xsl" href="xslt/test.xsl"?>' + '\n'
+		xmlres += '<!DOCTYPE birthdays SYSTEM "birthdays.dtd">' + '\n'
+		xmlres += output
+
+
 		console.log(xmlres)
 		res.send(xmlres)
 	})
 
-	app.post("/createEntry", (req, res) => {
+	app.post('/createEntry', (req, res) => {
 		console.log(req.body)
 	})
 
