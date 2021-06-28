@@ -1,45 +1,30 @@
 const sqlite3 = require('sqlite3').verbose()
 const { open } = require('sqlite')
 const fs = require('fs');
-const { callbackify } = require('util');
 var db;
 
-(async () => {
-	db = await new sqlite3.Database('db.sqlite', (err) => {
+(() => {
+	db = new sqlite3.Database('db.sqlite', (err) => {
 		if (err) {
 			console.error(err.message)
 		}
 		console.log('Connected successfully')
 	})
 
-	// await db.getDatabaseInstance().serialize(async () => {
-	await db.serialize(async () => {
-		await createDBAndTable()
-		await createEntriesFromJSON()
+	db.serialize(() => {
+		createDBAndTable()
+		createEntriesFromJSON()
 	})
 })()
 
-module.exports.getDataForMonth = function (month) {
-	var result
-	db.all("SELECT * FROM birthdays WHERE month=?", month, (err, rows) => {
-		if (err) {
-			throw err
-		}
-		rows.forEach((row) => {
-			console.log(row)
+module.exports.getDataForMonth = async function (month) {
+	return new Promise(function (resolve, reject) {
+		db.all("SELECT * FROM birthdays WHERE month=?", month, (err, rows) => {
+			if (err) {
+				throw err
+			}
+			resolve(rows)
 		})
-		console.log(rows[0])
-		result = rows
-		console.log(result[0])
-	})
-	// console.log(result[1])
-	return result
-}
-
-function createDbConnection(filename) {
-	return open({
-		filename,
-		driver: sqlite3.Database
 	})
 }
 

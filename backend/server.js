@@ -13,9 +13,6 @@ console.log(month);
 (async () => {
 	const handleDBJS = await require('./handleDB')
 	const result = await handleDBJS.getDataForMonth(month)
-	// result.forEach((row) => {
-	// 	console.log(row)
-	// })
 	console.log(result)
 })()
 
