@@ -42,5 +42,23 @@
 		"day": 19,
 		"month": 4,
 		"notes": "I only do notes!"
+	},
+	{
+		"id": 7,
+		"name": "A",
+		"day": 10,
+		"month": 6
+	},
+	{
+		"id": 8,
+		"name": "B",
+		"day": 12,
+		"month": 6
+	},
+	{
+		"id": 9,
+		"name": "A",
+		"day": 10,
+		"month": 7
 	}
 ]
