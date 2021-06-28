@@ -8,7 +8,9 @@
     </title>
   </head>
   <body>
-    Hello World!
+    <form action="/frontend/js/createEntry.js">
+      <label
+    </form>    
   </body>
 </html>
 </xsl:template>
