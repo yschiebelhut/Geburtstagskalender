@@ -3,17 +3,17 @@ const { open } = require('sqlite')
 const fs = require('fs');
 var db;
 
-(() => {
-	db = new sqlite3.Database('db.sqlite', (err) => {
+(async () => {
+	db = await new sqlite3.Database('db.sqlite', (err) => {
 		if (err) {
 			console.error(err.message)
 		}
 		console.log('Connected successfully')
 	})
 
-	db.serialize(() => {
-		createDBAndTable()
-		createEntriesFromJSON()
+	await db.serialize(async () => {
+		await createDBAndTable()
+		await createEntriesFromJSON()
 	})
 })()
 
