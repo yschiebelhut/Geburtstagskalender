@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 })
 
 app.post("/createEntry", (req,res)=>{
-  console.log(req.body)
+  console.log(req.body.name)
 })
 
 app.listen(port, () => {
