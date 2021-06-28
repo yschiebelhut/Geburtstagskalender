@@ -14,7 +14,7 @@ function sendData(){
   }
 
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", '/server', false);
+  xhr.open("POST", '/createEntry', false);
 
   xhr.setRequestHeader("Content-Type", "application/json");
 
