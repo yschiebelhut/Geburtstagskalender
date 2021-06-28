@@ -18,6 +18,10 @@ app.get('/', (req, res) => {
 	res.send(xmlres)
 })
 
+app.post("/createEntry", (req,res)=>{
+  console.log(req.body)
+})
+
 app.listen(port, () => {
 	console.log(`Example app listening at http://localhost:${port}`)
 })
