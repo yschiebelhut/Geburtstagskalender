@@ -6,10 +6,17 @@
     <title>
       <xsl:value-of select="test"/>
     </title>
+    <script type="text/javascript" scr="/frontend/js/createEntry.js"></script>
   </head>
   <body>
-    <form action="/frontend/js/createEntry.js">
-      <label
+    <form>
+      <input type="text" id="name" name="name">
+      <input type="number" id="day" name="day">
+      <input type="number" id="month" name="month">
+      <input type="number" id="year" name="year">
+      <input type="text" id="notes" name="notes">
+      <input type="button" id="submit" value="Save" onclick="sendData()">
+      <input type="button" id="cancel" value="Back" onclick="cancel()">
     </form>    
   </body>
 </html>
