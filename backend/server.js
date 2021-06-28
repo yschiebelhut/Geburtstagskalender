@@ -8,7 +8,13 @@ app.use(express.static('../frontend'))
 
 const today = new Date()
 var month = today.getMonth() + 1
-console.log(month)
+console.log(month);
+
+(async () => {
+	const handleDBJS = await require('./handleDB')
+	const result = await handleDBJS.getDataForMonth(month)
+	console.log(result)
+})()
 
 app.get('/', (req, res) => {
 	res.set("Content-Type", "text/xml")
@@ -19,7 +25,7 @@ app.get('/', (req, res) => {
 })
 
 app.post("/createEntry", (req,res)=>{
-  console.log(req.body)
+  console.log(req.body.name)
 })
 
 app.listen(port, () => {
