@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+
+const path = require("path")
 const xml = require("xml")
 
 app.use(express.static('../frontend'))
@@ -22,6 +24,10 @@ app.get('/', (req, res) => {
 	var xmlres = '<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="xslt/test.xsl"?>' + xml(testobj)
 	console.log(xmlres)
 	res.send(xmlres)
+})
+
+app.get("/createEntry", (req,res)=>{
+  res.sendFile(path.join(__dirname,'../frontend/html/createEntry.html'));
 })
 
 app.post("/createEntry", (req,res)=>{
