@@ -61,3 +61,7 @@ function createEntriesFromJSON() {
 	})
 	console.log('[i] finished reading table data from JSON')
 }
+
+module.exports.createNewEntry = function (data){
+	db.run("INSERT INTO birthdays (name, day, month, notes) VALUES(?,?,?,?)", data.name, data.day, data.month, data.notes)
+}
