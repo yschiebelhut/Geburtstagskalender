@@ -4,6 +4,7 @@
 <birthdays>
 	<monthname>June</monthname>
 	<bday>
+		<daysleft>1</daysleft>
 		<id>7</id>
 		<name>A</name>
 		<day>10</day>
