@@ -39,7 +39,7 @@
 		res.set('Content-Type', 'text/xml')
 		var xmlres = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
 		xmlres += '<?xml-stylesheet type="text/xsl" href="/frontend/xslt/listview.xsl"?>' + '\n'
-		xmlres += '<!DOCTYPE birthdays SYSTEM "backend/birthdays.dtd">' + '\n'
+		xmlres += '<!DOCTYPE birthdays SYSTEM "/backend/birthdays.dtd">' + '\n'
 		xmlres += await getXMLBody()
 
 		console.log(xmlres)
@@ -50,7 +50,7 @@
 		res.set('Content-Type', 'text/xml')
 		var xmlres = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
 		xmlres += '<?xml-stylesheet type="text/xsl" href="/frontend/xslt/calendarview.xsl"?>' + '\n'
-		xmlres += '<!DOCTYPE birthdays SYSTEM "backend/birthdays.dtd">' + '\n'
+		xmlres += '<!DOCTYPE birthdays SYSTEM "/backend/birthdays.dtd">' + '\n'
 		xmlres += await getXMLBody()
 
 		console.log(xmlres)
