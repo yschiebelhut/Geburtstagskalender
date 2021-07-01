@@ -7,41 +7,8 @@
 			<title>Birthday calendar</title>
 			<link href="../css/default.css" type="text/css" rel="stylesheet" />
 			<link href="../css/addview.css" type="text/css" rel="stylesheet" />
-		
-			<script type="text/javascript" >
-				function sendData(){
-					var name = document.getElementById("name").value
-					var date = document.getElementById("date").value
-					var notes = document.getElementById("notes").value
 
-					var date_ar = date.split("-")
-					var year = date_ar[0]
-					var month = date_ar[1]
-					var day = date_ar[2]
-
-					var data = {
-					name : name,
-					day : day,
-					month : month,
-					year : year,
-					notes : notes
-					}
-					data = JSON.stringify(data)
-					console.log(data)
-
-					var xhr = new XMLHttpRequest();
-					xhr.open("POST", '/createEntry', true);
-
-					xhr.setRequestHeader("Content-Type", "application/json");
-
-					xhr.onreadystatechange = function() {
-						if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-						console.log("sent data")
-						}
-					}
-					xhr.send(data);
-				}
-   			</script>
+			<script type="text/javascript" src="/frontend/js/createEntry.js"></script>
 		</head>
 
 		<body>
@@ -63,7 +30,7 @@
 
 			<!-- Formular-Container-->
 			<div class="content-area">
-				
+
 					<h1>new birthday</h1>
 					<p><input id="name" type="text" name="name" placeholder="Name" required /></p>
 					<p><input id="date" type="date" name="date" placeholder="Date" required /></p>
@@ -74,7 +41,7 @@
 						<input id="submit" class="form-button" type="submit" value="Save" onclick="sendData()" />
 						<input id="cancel" class="form-button" type="reset" value="Cancel" onclick="cancel()"/>
 					</div>
-				
+
 			</div>
 		</body>
 
