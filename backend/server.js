@@ -45,7 +45,7 @@
 	})
 
 	app.get('/createEntry', (req, res) => {
-		res.sendFile(path.join(__dirname, '../frontend/html/createEntry.html'))
+		res.sendFile(path.join(__dirname, '../frontend/html/addview.html'))
 	})
 
 	app.listen(port, () => {
