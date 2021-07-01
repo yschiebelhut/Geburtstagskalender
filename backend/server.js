@@ -38,7 +38,7 @@
 	app.get('/listview', async (req, res) => {
 		res.set('Content-Type', 'text/xml')
 		var xmlres = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
-		xmlres += '<?xml-stylesheet type="text/xsl" href="frontend/xslt/listview.xsl"?>' + '\n'
+		xmlres += '<?xml-stylesheet type="text/xsl" href="/frontend/xslt/listview.xsl"?>' + '\n'
 		xmlres += '<!DOCTYPE birthdays SYSTEM "backend/birthdays.dtd">' + '\n'
 		xmlres += await getXMLBody()
 
@@ -49,7 +49,7 @@
 	app.get('/calendarview', async (req, res) => {
 		res.set('Content-Type', 'text/xml')
 		var xmlres = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
-		xmlres += '<?xml-stylesheet type="text/xsl" href="frontend/xslt/calendarview.xsl"?>' + '\n'
+		xmlres += '<?xml-stylesheet type="text/xsl" href="/frontend/xslt/calendarview.xsl"?>' + '\n'
 		xmlres += '<!DOCTYPE birthdays SYSTEM "backend/birthdays.dtd">' + '\n'
 		xmlres += await getXMLBody()
 
@@ -76,6 +76,10 @@
 
 	app.get('/createEntry', (req, res) => {
 		res.sendFile(path.join(__dirname, '../frontend/html/addview.html'))
+	})
+
+	app.get("/Calendar", (req,res)=>{
+		res.sendFile(path.join(__dirname,"../frontend/html/calendarview.html"))
 	})
 
 	app.listen(port, () => {
