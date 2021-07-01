@@ -40,7 +40,7 @@
 
 			var bdDate = new Date()
 			bdDate.setHours(0,0,0,0)
-			bdDate.setMonth(curMonth)
+			bdDate.setMonth(curMonth-1)
 			bdDate.setDate(entry["day"])
 			if(entry["month"]<curMonth){
 				bdDate.setFullYear(bdDate.getFullYear()+1)
