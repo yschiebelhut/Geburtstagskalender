@@ -31,7 +31,7 @@
 		output = prettifyXml(output, format)
 
 		var xmlres = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
-		xmlres += '<?xml-stylesheet type="text/xsl" href="frontend/xslt/test.xsl"?>' + '\n'
+		xmlres += '<?xml-stylesheet type="text/xsl" href="/frontend/xslt/listview.xsl"?>' + '\n'
 		xmlres += '<!DOCTYPE birthdays SYSTEM "backend/birthdays.dtd">' + '\n'
 		xmlres += output
 
