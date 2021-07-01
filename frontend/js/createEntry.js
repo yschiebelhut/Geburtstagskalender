@@ -30,7 +30,7 @@ function sendData(){
       }
       xhr.send(data);
   }else{
-    console.log("PLS GIVE MORE INFORMATION!")
+    alert("PLS GIVE MORE INFORMATION!")
   }
 
 }
