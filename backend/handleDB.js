@@ -19,7 +19,7 @@ var db;
 
 module.exports.getDataForMonth = async function (month) {
 	return new Promise(function (resolve, reject) {
-		db.all("SELECT * FROM birthdays WHERE month=?", month, (err, rows) => {
+		db.all("SELECT * FROM birthdays WHERE month=? ORDER BY day ASC", month, (err, rows) => {
 			if (err) {
 				reject(err)
 			}
