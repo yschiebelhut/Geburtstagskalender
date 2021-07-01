@@ -47,7 +47,7 @@
                                 <xsl:value-of select="name" />
                             </div>
                             <div class="countdown">
-                                3 days
+                                <xsl:value-of select="daysleft" /> days
                             </div>
                         </div>
                     </a>
