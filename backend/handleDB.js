@@ -17,6 +17,17 @@ var db;
 	})
 })()
 
+module.exports.getDataForID = async function (id) {
+	return new Promise(function (resolve, reject) {
+		db.get("SELECT * FROM birthdays WHERE id=?", id, (err, row) => {
+			if (err) {
+				reject(err)
+			}
+			resolve(row)
+		})
+	})
+}
+
 module.exports.getDataForMonth = async function (month) {
 	return new Promise(function (resolve, reject) {
 		db.all("SELECT * FROM birthdays WHERE month=? ORDER BY day ASC", month, (err, rows) => {
@@ -62,6 +73,6 @@ function createEntriesFromJSON() {
 	console.log('[i] finished reading table data from JSON')
 }
 
-module.exports.createNewEntry = function (data){
+module.exports.createNewEntry = function (data) {
 	db.run("INSERT INTO birthdays (name, day, month, notes) VALUES(?,?,?,?)", data.name, data.day, data.month, data.notes)
 }
