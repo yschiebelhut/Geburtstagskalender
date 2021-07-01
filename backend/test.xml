@@ -2,6 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="xslt/test.xsl"?>
 <!DOCTYPE birthdays SYSTEM "birthdays.dtd">
 <birthdays>
+	<monthname>June</monthname>
 	<bday>
 		<id>7</id>
 		<name>A</name>
