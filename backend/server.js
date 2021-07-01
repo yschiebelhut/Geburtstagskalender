@@ -42,6 +42,8 @@
 
 	app.post('/createEntry', (req, res) => {
 		console.log(req.body)
+		handleDBJS.createNewEntry(req.body)
+		console.log("finished")
 	})
 
 	app.get('/createEntry', (req, res) => {
