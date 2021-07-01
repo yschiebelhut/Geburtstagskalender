@@ -12,9 +12,11 @@ function sendData(){
     year : year,
     notes : notes
   }
+  data = JSON.stringify(data)
+  console.log(data)
 
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", '/createEntry', false);
+  xhr.open("POST", '/createEntry', true);
 
   xhr.setRequestHeader("Content-Type", "application/json");
 

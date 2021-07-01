@@ -40,6 +40,17 @@
 		res.send(xmlres)
 	})
 
+	app.post('/nextMonth', (req, res) => {
+		curMonth = (curMonth % 12) + 1
+	})
+
+	app.post('/previousMonth', (req, res) => {
+		curMonth = curMonth - 1
+		if (curMonth === 0) {
+			curMonth = 12
+		}
+	})
+
 	app.post('/createEntry', (req, res) => {
 		console.log(req.body)
 		handleDBJS.createNewEntry(req.body)
@@ -48,6 +59,10 @@
 
 	app.get('/createEntry', (req, res) => {
 		res.sendFile(path.join(__dirname, '../frontend/html/addview.html'))
+	})
+
+	app.get("/Calendar", (req,res)=>{
+		res.sendFile(path.join(__dirname,"../frontend/html/calendarview.html"))
 	})
 
 	app.listen(port, () => {
