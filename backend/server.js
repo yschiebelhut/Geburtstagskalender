@@ -38,13 +38,15 @@
 			output += '<bday>'
 
 
-			var bdDate = new Date(bdDate.setHours(0,0,0,0))
+			var bdDate = new Date()
+			bdDate.setHours(0,0,0,0)
 			bdDate.setMonth(curMonth)
 			bdDate.setDate(entry["day"])
 			if(entry["month"]<curMonth){
 				bdDate.setFullYear(bdDate.getFullYear()+1)
 			}
-			var curDate = new Date(curDate.setHours(0,0,0,0))
+			var curDate = new Date()
+			curDate.setHours(0,0,0,0)
 			var timeDiff =bdDate.getTime()-curDate.getTime()
 			var diffDays = timeDiff / (1000*3600*24)
 
