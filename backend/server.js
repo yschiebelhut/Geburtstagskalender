@@ -5,6 +5,21 @@
 	const path = require('path')
 	const bodyParser = require("body-parser")
 
+	const months = {
+		1:"January",
+		2:"February ",
+		3:"March",
+		4:"April",
+		5:"May",
+		6:"June",
+		7:"July",
+		8:"August",
+		9:"September",
+		10:"October",
+		11:"November",
+		12:"December"
+	}
+
 	var curMonth = new Date().getMonth() + 1
 
 	const handleDBJS = require('./handleDB')
@@ -18,6 +33,7 @@
 		var options = { compact: true, ignoreComment: true, spaces: 4 };
 		var output = ''
 		output += '<birthdays>'
+		output+="<monthname>"+ months[curMonth] +"</monthname>"
 		data.forEach((entry) => {
 			output += '<bday>'
 			output += convert.json2xml(entry, options)
