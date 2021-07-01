@@ -90,6 +90,7 @@
 		console.log(req.body)
 		handleDBJS.createNewEntry(req.body)
 		console.log("finished")
+		res.send("")
 	})
 
 	app.get('/createEntry', (req, res) => {
