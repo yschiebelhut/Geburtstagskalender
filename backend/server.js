@@ -59,6 +59,7 @@
 
 	app.post('/nextMonth', (req, res) => {
 		curMonth = (curMonth % 12) + 1
+		res.send("")
 	})
 
 	app.post('/previousMonth', (req, res) => {
@@ -66,6 +67,7 @@
 		if (curMonth === 0) {
 			curMonth = 12
 		}
+		res.send("")
 	})
 
 	app.post('/createEntry', (req, res) => {
@@ -78,7 +80,7 @@
 		res.sendFile(path.join(__dirname, '../frontend/html/addview.html'))
 	})
 
-	app.get("/Calendar", (req,res)=>{
+	app.get("/calendar", (req,res)=>{
 		res.sendFile(path.join(__dirname,"../frontend/html/calendarview.html"))
 	})
 

@@ -21,9 +21,9 @@
                     <h1>My Calendar</h1>
                 </div>
                 <div class="menue-button-box">
-                    <a href="/frontend/html/calendarview.html"><button type="button" height="200px" class="button">Calendar</button></a>
+                    <a href="/calendar"><button type="button" height="200px" class="button">Calendar</button></a>
                     <div class="plus">
-                        <a href="/frontend/html/addview.html" class="plus"><img src="/frontend/images/plus.png" width="auto" height="70%" /></a>
+                        <a href="/createEntry" class="plus"><img src="/frontend/images/plus.png" width="auto" height="70%" /></a>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@
 
             <!-- Listen-Container-->
             <div class="list">
-                <a href="popup.html">
+                <a href="/frontend/html/popup.html">
                     <div class="list-element">
                         <div class="date">
                             24.05
