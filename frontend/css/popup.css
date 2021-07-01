@@ -1,0 +1,15 @@
+.content-area {
+	margin: 30px 10% 30px 10%;
+	width: 80%;
+	height: auto;
+	background-color: gray;
+	color: black;
+	border-radius: 18px;
+	padding: 20px;
+}
+
+.content-area h {
+	margin-top: 0px;
+	font-size: 60px;
+	font-weight: 100;
+}
