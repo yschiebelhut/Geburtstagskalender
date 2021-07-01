@@ -78,7 +78,7 @@
 		res.sendFile(path.join(__dirname, '../frontend/html/addview.html'))
 	})
 
-	app.get("/Calendar", (req,res)=>{
+	app.get("/calendar", (req,res)=>{
 		res.sendFile(path.join(__dirname,"../frontend/html/calendarview.html"))
 	})
 
