@@ -12,8 +12,7 @@
 	app.use(express.static('../'))
 	app.use(bodyParser.json())
 
-	app.get('/', async (req, res) => {
-		res.set('Content-Type', 'text/xml')
+	var getXMLBody = async function() {
 		var convert = require('xml-js')
 		var data = await handleDBJS.getDataForMonth(curMonth)
 		var options = { compact: true, ignoreComment: true, spaces: 4 };
@@ -29,12 +28,30 @@
 		const prettifyXml = require('prettify-xml')
 		var format = { indent: 4, newline: '\n' }
 		output = prettifyXml(output, format)
+		return output
+	}
 
+	app.get('/', async (req, res) => {
+		res.redirect('/listview')
+	})
+
+	app.get('/listview', async (req, res) => {
+		res.set('Content-Type', 'text/xml')
 		var xmlres = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
 		xmlres += '<?xml-stylesheet type="text/xsl" href="/frontend/xslt/listview.xsl"?>' + '\n'
-		xmlres += '<!DOCTYPE birthdays SYSTEM "backend/birthdays.dtd">' + '\n'
-		xmlres += output
+		xmlres += '<!DOCTYPE birthdays SYSTEM "/backend/birthdays.dtd">' + '\n'
+		xmlres += await getXMLBody()
 
+		console.log(xmlres)
+		res.send(xmlres)
+	})
+
+	app.get('/calendarview', async (req, res) => {
+		res.set('Content-Type', 'text/xml')
+		var xmlres = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
+		xmlres += '<?xml-stylesheet type="text/xsl" href="/frontend/xslt/calendarview.xsl"?>' + '\n'
+		xmlres += '<!DOCTYPE birthdays SYSTEM "/backend/birthdays.dtd">' + '\n'
+		xmlres += await getXMLBody()
 
 		console.log(xmlres)
 		res.send(xmlres)
