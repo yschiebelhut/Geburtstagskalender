@@ -31,58 +31,28 @@
 
             <!-- Listen-Container-->
             <div class="list">
-                <a href="/frontend/html/popup.html">
-                    <div class="list-element">
-                        <div class="date">
-                            24.05
+                <h2><xsl:value-of select="birthdays/monthname" /></h2>
+
+                <xsl:for-each select="birthdays/bday">
+
+                    <a>
+                        <xsl:attribute name="href">/popup?<xsl:value-of select="id" /></xsl:attribute>
+                        
+                        <div class="list-element">
+                            <div class="date">
+                                <xsl:value-of select="day" />.
+                                <xsl:value-of select="month" />
+                            </div>
+                            <div class="name">
+                                <xsl:value-of select="name" />
+                            </div>
+                            <div class="countdown">
+                                3 days
+                            </div>
                         </div>
-                        <div class="name">
-                            Tim Köppfel
-                        </div>
-                        <div class="countdown">
-                            3 days
-                        </div>
-                    </div>
-                </a>
-                <a href="/frontend/html/popup.html">
-                    <div class="list-element">
-                        <div class="date">
-                            24.05
-                        </div>
-                        <div class="name">
-                            Tim Köppfel
-                        </div>
-                        <div class="countdown">
-                            3 days
-                        </div>
-                    </div>
-                </a>
-                <a href="/frontend/html/popup.html">
-                    <div class="list-element">
-                        <div class="date">
-                            24.05
-                        </div>
-                        <div class="name">
-                            Tim Köppfel
-                        </div>
-                        <div class="countdown">
-                            3 days
-                        </div>
-                    </div>
-                </a>
-                <a href="/frontend/html/popup.html">
-                    <div class="list-element">
-                        <div class="date">
-                            24.05
-                        </div>
-                        <div class="name">
-                            Tim Köppfel
-                        </div>
-                        <div class="countdown">
-                            3 days
-                        </div>
-                    </div>
-                </a>
+                    </a>
+
+                </xsl:for-each>
             </div>
         </body>
 
