@@ -7,11 +7,8 @@ function previousMonth(){
         console.log("-1")
       }
     }
-  xhr.send();
-
-  xhr = new XMLHttpRequest();
-  xhr.open("GET", '/', true);
-  xhr.send();
+  xhr.send()
+  location.reload()
 }
 
 function nextMonth(){
@@ -23,9 +20,7 @@ function nextMonth(){
         console.log("+1")
       }
     }
-  xhr.send("{}");
-
-  xhr = new XMLHttpRequest();
-  xhr.open("GET", '/', true);
   xhr.send();
+  location.reload()
+
 }
