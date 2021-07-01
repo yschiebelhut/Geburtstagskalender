@@ -9,7 +9,7 @@
 
 	const handleDBJS = require('./handleDB')
 
-	app.use(express.static('../frontend'))
+	app.use(express.static('../'))
 	app.use(bodyParser.json())
 
 	app.get('/', async (req, res) => {
@@ -31,8 +31,8 @@
 		output = prettifyXml(output, format)
 
 		var xmlres = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
-		xmlres += '<?xml-stylesheet type="text/xsl" href="xslt/test.xsl"?>' + '\n'
-		xmlres += '<!DOCTYPE birthdays SYSTEM "birthdays.dtd">' + '\n'
+		xmlres += '<?xml-stylesheet type="text/xsl" href="frontend/xslt/test.xsl"?>' + '\n'
+		xmlres += '<!DOCTYPE birthdays SYSTEM "backend/birthdays.dtd">' + '\n'
 		xmlres += output
 
 
