@@ -3,12 +3,14 @@
 	const app = express()
 	const port = 3000
 	const path = require('path')
+	const bodyParser = require("body-parser")
 
 	var curMonth = new Date().getMonth() + 1
 
 	const handleDBJS = require('./handleDB')
 
 	app.use(express.static('../frontend'))
+	app.use(bodyParser.json())
 
 	app.get('/', async (req, res) => {
 		res.set('Content-Type', 'text/xml')
