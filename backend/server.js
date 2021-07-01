@@ -4,20 +4,24 @@
 	const port = 3000
 	const path = require('path')
 	const bodyParser = require("body-parser")
+	const convert = require('xml-js')
+	const json2xmlOptions = { compact: true, ignoreComment: true, spaces: 4 };
+	const prettifyXml = require('prettify-xml')
+	const xmlFormat = { indent: 4, newline: '\n' }
 
 	const months = {
-		1:"January",
-		2:"February ",
-		3:"March",
-		4:"April",
-		5:"May",
-		6:"June",
-		7:"July",
-		8:"August",
-		9:"September",
-		10:"October",
-		11:"November",
-		12:"December"
+		1: "January",
+		2: "February",
+		3: "March",
+		4: "April",
+		5: "May",
+		6: "June",
+		7: "July",
+		8: "August",
+		9: "September",
+		10: "October",
+		11: "November",
+		12: "December"
 	}
 
 	var curMonth = new Date().getMonth() + 1
@@ -27,23 +31,41 @@
 	app.use(express.static('../'))
 	app.use(bodyParser.json())
 
-	var getXMLBody = async function() {
+	app.get('/popup', async (req, res) => {
 		var convert = require('xml-js')
-		var data = await handleDBJS.getDataForMonth(curMonth)
-		var options = { compact: true, ignoreComment: true, spaces: 4 };
+		var data = await handleDBJS.getDataForID(req.query.id)
 		var output = ''
 		output += '<birthdays>'
-		output+="<monthname>"+ months[curMonth] +"</monthname>"
+		output += '<monthname>' + months[data.month] + '</monthname>'
+		output += '<bday>'
+		output += convert.json2xml(data, json2xmlOptions)
+		output += '</bday>'
+		output += '</birthdays>'
+		output = prettifyXml(output, xmlFormat)
+
+		res.set('Content-Type', 'text/xml')
+		var xmlres = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
+		xmlres += '<?xml-stylesheet type="text/xsl" href="/frontend/xslt/popup.xsl"?>' + '\n'
+		xmlres += '<!DOCTYPE birthdays SYSTEM "/backend/birthdays.dtd">' + '\n'
+		xmlres += output
+
+		console.log(xmlres)
+		res.send(xmlres)
+	})
+
+	var getXMLBody = async function () {
+		var data = await handleDBJS.getDataForMonth(curMonth)
+		var output = ''
+		output += '<birthdays>'
+		output += "<monthname>" + months[curMonth] + "</monthname>"
 		data.forEach((entry) => {
 			output += '<bday>'
-			output += convert.json2xml(entry, options)
+			output += convert.json2xml(entry, json2xmlOptions)
 			output += '</bday>'
 		})
 		output += '</birthdays>'
 
-		const prettifyXml = require('prettify-xml')
-		var format = { indent: 4, newline: '\n' }
-		output = prettifyXml(output, format)
+		output = prettifyXml(output, xmlFormat)
 		return output
 	}
 
@@ -97,8 +119,8 @@
 		res.sendFile(path.join(__dirname, '../frontend/html/addview.html'))
 	})
 
-	app.get("/calendar", (req,res)=>{
-		res.sendFile(path.join(__dirname,"../frontend/html/calendarview.html"))
+	app.get("/calendar", (req, res) => {
+		res.sendFile(path.join(__dirname, "../frontend/html/calendarview.html"))
 	})
 
 	app.listen(port, () => {
