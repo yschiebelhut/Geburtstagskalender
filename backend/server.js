@@ -42,6 +42,7 @@
 
 	app.post('/nextMonth', (req, res) => {
 		curMonth = (curMonth % 12) + 1
+		res.send("")
 	})
 
 	app.post('/previousMonth', (req, res) => {
@@ -49,6 +50,7 @@
 		if (curMonth === 0) {
 			curMonth = 12
 		}
+		res.send("")
 	})
 
 	app.post('/createEntry', (req, res) => {
