@@ -8,13 +8,16 @@
 			<link href="../css/default.css" type="text/css" rel="stylesheet" />
 			<link href="../css/addview.css" type="text/css" rel="stylesheet" />
 		
-			<script type="text/javascript" scr="../js/createEntry.js">
+			<script type="text/javascript" >
 				function sendData(){
 					var name = document.getElementById("name").value
-					var day = document.getElementById("day").value
-					var month = document.getElementById("name").value
-					var year = document.getElementById("day").value
-					var notes = document.getElementById("name").value
+					var date = document.getElementById("date").value
+					var notes = document.getElementById("notes").value
+
+					var date_ar = date.split("-")
+					var year = date_ar[0]
+					var month = date_ar[1]
+					var day = date_ar[2]
 
 					var data = {
 					name : name,
@@ -60,7 +63,7 @@
 
 			<!-- Formular-Container-->
 			<div class="content-area">
-				<form>
+				
 					<h1>new birthday</h1>
 					<p><input id="name" type="text" name="name" placeholder="Name" required /></p>
 					<p><input id="date" type="date" name="date" placeholder="Date" required /></p>
@@ -71,7 +74,7 @@
 						<input id="submit" class="form-button" type="submit" value="Save" onclick="sendData()" />
 						<input id="cancel" class="form-button" type="reset" value="Cancel" onclick="cancel()"/>
 					</div>
-				</form>
+				
 			</div>
 		</body>
 
