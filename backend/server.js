@@ -152,6 +152,13 @@
 		res.sendFile(path.join(__dirname, "../frontend/html/calendarview.html"))
 	})
 
+	/*
+	Um den Kalender aufzurufen wird eine Zuordnung der Daten zu den Divs benötigt
+	-> getDay Funktion für den ersten des Monats ausführen
+	-> Basierend auf getDay die restlichen Tage berechnen und zum XML hinzufügen
+	-> Die Geburtstage müssen ebenfalls die Information enthalten in welchem Div sie angezeigt werden
+	*/
+
 	app.listen(port, () => {
 		console.log(`Example app listening at http://localhost:${port}`)
 	})
