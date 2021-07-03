@@ -6,7 +6,7 @@
 
         <head>
             <meta charset="utf-8" />
-            <title>Birthday calendar</title>
+            <title>Birthday Calendar</title>
             <link href="/frontend/css/default.css" type="text/css" rel="stylesheet" />
             <link href="/frontend/css/listview.css" type="text/css" rel="stylesheet" />
         </head>

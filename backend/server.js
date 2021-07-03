@@ -84,8 +84,22 @@
 		return output
 	}
 
+	function getCalendarDate () {
+		var date = new Date(), y = date.getFullYear(), m = curMonth - 1;
+		var firstDay = new Date(y, m, 1);
+		var lastDay = new Date(y, m + 1, 0);
+
+		console.log(curMonth)
+		console.log("First Day: " + firstDay.getDay())
+		console.log("Last Day: " + lastDay.getDay())
+	}
+
 	app.get('/', async (req, res) => {
 		res.redirect('/listview')
+	})
+
+	app.get("/test", async (req, res) => {
+		getCalendarDate()
 	})
 
 	app.get('/listview', async (req, res) => {
