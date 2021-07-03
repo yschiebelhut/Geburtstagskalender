@@ -139,9 +139,9 @@
 	})
 
 	/*
-	Um den Kalender aufzurufen wird eine Zuordnung des Daten zu den Divs benötigt
-	-> API abfragen welcher Wochentag der 1. eines Monats ist
-	-> Basierend auf Abfrage die restlichen Tage berechnen und zum XML hinzufügen
+	Um den Kalender aufzurufen wird eine Zuordnung der Daten zu den Divs benötigt
+	-> getDay Funktion für den ersten des Monats ausführen
+	-> Basierend auf getDay die restlichen Tage berechnen und zum XML hinzufügen
 	-> Die Geburtstage müssen ebenfalls die Information enthalten in welchem Div sie angezeigt werden
 	*/
 
