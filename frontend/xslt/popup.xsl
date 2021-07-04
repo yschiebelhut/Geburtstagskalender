@@ -7,14 +7,14 @@
         <head>
             <meta charset="utf-8" />
             <title>Birthday calendar</title>
-            <link href="../css/default.css" type="text/css" rel="stylesheet" />
-            <link href="../css/popup.css" type="text/css" rel="stylesheet" />
+            <link href="/frontend/css/default.css" type="text/css" rel="stylesheet" />
+            <link href="/frontend/css/popup.css" type="text/css" rel="stylesheet" />
         </head>
 
         <body>
             <div class="menue">
                 <div class="menue-box" id="div-logo">
-                    <img src="../images/logo.png" id="logo" />
+                    <img src="/frontend/images/logo.png" id="logo" />
                 </div>
                 <div class="menue-box">
                     <h1>My Calendar</h1>
@@ -23,15 +23,15 @@
                     <a href="/calendar"><button type="button" height="200px" class="button">Calendar</button></a>
                     <a href="/listview"><button type="button" height="200px" class="button">List</button></a>
                     <div class="plus">
-                        <a href="/createEntry" class="plus"><img src="../images/plus.png" width="auto" height="70%" /></a>
+                        <a href="/createEntry" class="plus"><img src="/frontend/images/plus.png" width="auto" height="70%" /></a>
                     </div>
                 </div>
             </div>
 
             <div class="content-area">
-                <h1>Tim's Geburtstag</h1>
-                <p>Date: 02.07.</p>
-                <p>Note: <br> Geburtstagsfeier am 04.07. <br>Kuchen backen</p>
+                <h1><xsl:value-of select="/birthdays/bday/name" />'s Birthday</h1>
+                <p>Date:<xsl:value-of select="/birthdays/bday/day" />.<xsl:value-of select="/birthdays/bday/month" />.</p>
+                <p>Note:<br /><xsl:value-of select="/birthdays/bday/notes" /></p>
             </div>
         </body>
 

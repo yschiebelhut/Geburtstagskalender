@@ -36,7 +36,7 @@
                 <xsl:for-each select="birthdays/bday">
 
                     <a>
-                        <xsl:attribute name="href">/popup?<xsl:value-of select="id" /></xsl:attribute>
+                        <xsl:attribute name="href">/popup?id=<xsl:value-of select="id" /></xsl:attribute>
                         
                         <div class="list-element">
                             <div class="date">
