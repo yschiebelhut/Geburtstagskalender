@@ -5,10 +5,10 @@ function previousMonth(){
   xhr.onreadystatechange = function() {
       if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
         console.log("-1")
+        location.reload()
       }
     }
   xhr.send()
-  location.reload()
 }
 
 function nextMonth(){
@@ -18,9 +18,9 @@ function nextMonth(){
   xhr.onreadystatechange = function() {
       if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
         console.log("+1")
+        location.reload()
       }
     }
   xhr.send();
-  location.reload()
 
 }

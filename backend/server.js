@@ -24,8 +24,15 @@
 		12: "December"
 	}
 
-	var curMonth = new Date().getMonth() + 1
-	var curYear = new Date().getFullYear()
+	var curMonth
+	var curYear
+
+	// function to reset date to current month and year
+	var resetDate = function() {
+		curMonth = new Date().getMonth() + 1
+		curYear = new Date().getFullYear()
+	}
+	resetDate() // server should start with data for current month
 
 	const handleDBJS = require('./handleDB')
 
@@ -112,10 +119,7 @@
 		var lastDayDate = lastDay.getDate() // Letzter Monatstag (Datum) -> 29, 30, 31
 		var lastDayDay = lastDay.getDay() // Letzter Wochentag -> 0-6
 
-		console.log('FirstDayDay: ' + firstDayDay)
-		console.log('LastDayDay: ' + lastDayDay)
-
-		if (firstDayDay == 0 ) firstDayDay = 7
+		if (firstDayDay === 0 ) firstDayDay = 7
 
 		var index = 2 - firstDayDay
 
@@ -187,20 +191,24 @@
 
 	app.post('/nextMonth', (req, res) => {
 		curMonth++
-		if(curMonth ==  13) {
+		if(curMonth ===  13) {
 			curYear++
 			curMonth = 1
 		}
-		
 		res.send("")
 	})
 
 	app.post('/previousMonth', (req, res) => {
-		curMonth = curMonth - 1
+		curMonth--
 		if (curMonth === 0) {
 			curMonth = 12
 			curYear--
 		}
+		res.send("")
+	})
+
+	app.post('/today', (req, res) => {
+		resetDate()
 		res.send("")
 	})
 
