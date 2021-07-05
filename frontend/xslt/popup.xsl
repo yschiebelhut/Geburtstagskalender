@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-<xsl:template match="/">
-
-    <html>
+    <xsl:template match="/">
+        <html>
 
         <head>
             <meta charset="utf-8" />
             <title>Birthday calendar</title>
-            <link href="/frontend/css/default.css" type="text/css" rel="stylesheet" />
-            <link href="/frontend/css/popup.css" type="text/css" rel="stylesheet" />
-            <script src="/frontend/js/popup.js"></script>
+
+            <link href="frontend/css/default.css" type="text/css" rel="stylesheet" />
+            <link href="frontend/css/addview.css" type="text/css" rel="stylesheet" />
+
+            <script type="text/javascript" src="/frontend/js/popup.js"></script>
         </head>
 
         <body>
@@ -23,25 +24,47 @@
                 </div>
                 <div class="menue-button-box">
                     <div class="plus">
-                        <a href="/createEntry" class="plus"><img src="/frontend/images/plus.png" width="auto" height="70%" /></a>
+                        <a href="/createEntry" class="plus"><img src="/frontend/images/plus_v2.png" width="auto"
+                                height="70%" /></a>
                     </div>
                 </div>
             </div>
 
+            <!-- Formular-Container-->
             <div class="content-area">
-                <a href="/back">
-                  <button>back</button>
-                </a>
+                <h1>
+                    <xsl:value-of select="/birthdays/bday/name" />'s Birthday
+                </h1>
+                <p>
+                    <input id="name" type="text" name="name" placeholder="Name">
+                    <xsl:attribute name="value">
+                        <xsl:value-of select="/birthdays/bday/name" />
+                    </xsl:attribute>
+                    </input>
+                </p>
+                <p>
+                    <input id="date" type="date" name="date" placeholder="Date">
+                    <xsl:attribute name="value">
+                        <xsl:value-of select="/birthdays/bday/fulldate" />
+                    </xsl:attribute>
+                    </input>
+                </p>
+                <p>
+                    <textarea id="notes" type="text" name="message" rows="8" cols="60" placeholder="Note">
+                    <xsl:attribute name="text">
+                        <xsl:value-of select="/birthdays/bday/notes"/>
+                    </xsl:attribute>
+                    </textarea>
+                </p>
 
-                <button onclick="navToEdit()">edit</button>
-
-                <h1><xsl:value-of select="/birthdays/bday/name" />'s Birthday</h1>
-                <p>Date:&#160;<xsl:value-of select="/birthdays/bday/day" />.<xsl:value-of select="/birthdays/bday/month" />.</p>
-                <p>Note:<br /><xsl:value-of select="/birthdays/bday/notes" /></p>
+                <div class="button-box">
+                    <input id="submit" class="form-button" type="submit" value="Delete" />
+                    <input id="submit" class="form-button" type="submit" value="Change" onclick="sendData()" />
+                    <a href="/back"><input id="cancel" class="form-button" type="reset" value="Cancel" /></a>
+                </div>
             </div>
         </body>
 
-    </html>
-
-</xsl:template>
+        </html>
+    </xsl:template>
 </xsl:stylesheet>

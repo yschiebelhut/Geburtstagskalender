@@ -46,6 +46,7 @@ header {
 #calendar ul.weekdays {
 	height: 40px;
 	background: #8e352e;
+	width: 99.45%;
 }
 
 #calendar ul.weekdays li {
@@ -131,5 +132,15 @@ header {
 	justify-content: center;
 	align-items: center;
 	margin-right: 10px;
-	height: 100%;
+}
+.next-previous-button{
+	background-color: #080123;
+	border-style: none;	
+}
+.next-previous-button:hover{
+	background-color: grey;
+}
+
+#calendar .days li:hover {
+    background: none;
 }

@@ -40,27 +40,6 @@
 	app.use(express.static('../'))
 	app.use(bodyParser.json())
 
-	app.get('/popup', async (req, res) => {
-		var convert = require('xml-js')
-		var data = await handleDBJS.getDataForID(req.query.id)
-		var output = ''
-		output += '<birthdays>'
-		output += '<monthname>' + months[data.month] + '</monthname>'
-		output += '<bday>'
-		output += convert.json2xml(data, json2xmlOptions)
-		output += '</bday>'
-		output += '</birthdays>'
-		output = prettifyXml(output, xmlFormat)
-
-		res.set('Content-Type', 'text/xml')
-		var xmlres = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
-		xmlres += '<?xml-stylesheet type="text/xsl" href="/frontend/xslt/popup.xsl"?>' + '\n'
-		xmlres += '<!DOCTYPE birthdays SYSTEM "/backend/birthdays.dtd">' + '\n'
-		xmlres += output
-
-		res.send(xmlres)
-	})
-
 	var getXMLBody = async function () {
 		var data = await handleDBJS.getListData()
 		var output = ''
@@ -223,7 +202,7 @@
 		res.send("")
 	})
 
-	app.get("/edit", async (req,res)=>{
+	app.get("/popup", async (req,res)=>{
 		var id = req.query.id
 		res.set('Content-Type', 'text/xml')
 		var data = await handleDBJS.getDataForID(id)
@@ -242,8 +221,8 @@
 
 		res.set('Content-Type', 'text/xml')
 		var xmlres = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
-		xmlres += '<?xml-stylesheet type="text/xsl" href="/frontend/xslt/editview.xsl"?>' + '\n'
-		xmlres += '<!DOCTYPE birthdays SYSTEM "/backend/edit.dtd">' + '\n'
+		xmlres += '<?xml-stylesheet type="text/xsl" href="/frontend/xslt/popup.xsl"?>' + '\n'
+		xmlres += '<!DOCTYPE birthdays SYSTEM "/backend/popup.dtd">' + '\n'
 		xmlres += output
 
 		console.log(xmlres)

@@ -21,7 +21,7 @@
                 </div>
                 <div class="menue-button-box">
                     <div class="plus">
-                        <a href="/createEntry" class="plus"><img src="/frontend/images/plus.png" width="auto" height="70%" /></a>
+                        <a href="/createEntry" class="plus"><img src="/frontend/images/plus_v2.png" width="auto" height="70%" /></a>
                     </div>
                 </div>
             </div>
@@ -37,7 +37,7 @@
             <div id="calendar-wrap">
 
                 <div class="button-div">
-                    <button class="changeMonth-button" onclick="previousMonth()">&lt;</button>
+                    <button class="changeMonth-button next-previous-button" onclick="previousMonth()"><img src="/frontend/images/previous.png" width="100px" height="auto"/></button>
                 </div>
 
                 <div id="calendar">
@@ -90,7 +90,7 @@
                 </div>
 
                 <div class="button-div">
-                    <button class="changeMonth-button" onclick="nextMonth()"> &gt; </button>
+                    <button class="changeMonth-button next-previous-button" onclick="nextMonth()"><img src="/frontend/images/next.png" width="100px" height="auto"/></button>
                 </div>
             </div>
         </body>
