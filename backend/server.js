@@ -26,7 +26,7 @@
 
 	var curMonth
 	var curYear
-	var lastPage ="list"
+	var lastPage ="/listview"
 
 	// function to reset date to current month and year
 	var resetDate = function () {
@@ -41,6 +41,7 @@
 	app.use(bodyParser.json())
 
 	app.get('/popup', async (req, res) => {
+		lastPage = "/popup?id="+req.query.id
 		var convert = require('xml-js')
 		var data = await handleDBJS.getDataForID(req.query.id)
 		var output = ''
@@ -98,7 +99,7 @@
 	})
 
 	app.get('/listview', async (req, res) => {
-		lastPage="list"
+		lastPage="/listview"
 		res.set('Content-Type', 'text/xml')
 		var xmlres = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
 		xmlres += '<?xml-stylesheet type="text/xsl" href="/frontend/xslt/listview.xsl"?>' + '\n'
@@ -111,7 +112,7 @@
 
 	app.get('/calendarview', async (req, res) => {
 
-		lastPage="calendar"
+		lastPage="/calendarview"
 		var date = new Date(), y = curYear, m = curMonth - 1;
 		var firstDay = new Date(y, m, 1);
 		var lastDay = new Date(y, m + 1, 0);
@@ -191,11 +192,7 @@
 	})
 
 	app.get("/back", (req,res)=>{
-		if(lastPage=="list"){
-			res.redirect('/listview')
-		}else{
-			res.redirect('/calendarview')
-		}
+		res.redirect(lastPage)
 	})
 
 	app.post('/nextMonth', (req, res) => {
