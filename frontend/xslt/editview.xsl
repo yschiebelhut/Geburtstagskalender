@@ -33,8 +33,8 @@
 			<div class="content-area">
 
 					<h1>edit birthday</h1>
-					<p><input id="name" type="text" name="name" placeholder="Name" required /></p>
-					<p><input id="date" type="date" name="date" placeholder="Date" required /></p>
+					<p><input id="name" type="text" name="name" placeholder="Name"/></p>
+					<p><input id="date" type="date" name="date" placeholder="Date"/></p>
 					<p><textarea id="notes" type="text" name="message" rows="8" cols="60" placeholder="Note" ></textarea></p>
 					<p><input type="text" name="reminder" placeholder="Reminder" /></p>
 
