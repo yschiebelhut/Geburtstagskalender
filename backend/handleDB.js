@@ -52,7 +52,7 @@ module.exports.getListData = async function () {
 					break
 				}
 			}
-			for (var i = 0; i < movedEntries; i++) {
+			for (var i = 0; i < rows.length - movedEntries; i++) {
 				rows[i].year = new Date().getFullYear()
 			}
 			for (var i = 0; i < rows.length; i++) {
