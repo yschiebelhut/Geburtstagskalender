@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/frontend/xslt/listview.xsl"?>
+<!DOCTYPE birthdays SYSTEM "birthdays.dtd">
+<birthdays>
+    <monthname>June</monthname>
+    <year>2021</year>
+    <bday>
+        <daysleft>-25</daysleft>
+        <id>7</id>
+        <name>A</name>
+        <day>10</day>
+        <month>6</month>
+        <year/>
+        <notes/>
+    </bday>
+    <bday>
+        <daysleft>-23</daysleft>
+        <id>8</id>
+        <name>B</name>
+        <day>12</day>
+        <month>6</month>
+        <year/>
+        <notes/>
+    </bday>
+</birthdays>

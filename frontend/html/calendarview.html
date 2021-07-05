@@ -4,27 +4,26 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Birthday calendar</title>
-	<link href="../css/default.css" type="text/css" rel="stylesheet" />
-	<link href="../css/calendarview.css" type="text/css" rel="stylesheet" />
+	<link href="/frontend/css/default.css" type="text/css" rel="stylesheet" />
+	<link href="/frontend/css/calendarview.css" type="text/css" rel="stylesheet" />
+	<script src="/frontend/js/calendarview.js"></script>
 </head>
 
 <body>
 	<div class="menue">
 		<div class="menue-box" id="div-logo">
-			<img src="../images/logo.png" id="logo" />
+			<img src="/frontend/images/logo.png" id="logo" />
 		</div>
 		<div class="menue-box">
 			<h1>My Calendar</h1>
 		</div>
 		<div class="menue-button-box">
-			<a href="listview.html"><button type="button" height="200px" class="button">List</button></a>
+			<a href="/listview"><button type="button" height="200px" class="button">List</button></a>
 			<div class="plus">
-				<a href="addview.html" class="plus"><img src="../images/plus.png" width="auto" height="70%" /></a>
+				<a href="/createEntry" class="plus"><img src="/frontend/images/plus.png" width="auto" height="70%" /></a>
 			</div>
 		</div>
 	</div>
-
-	</div> <!-- /. header -->
 
 	<header>
 		<h1>July 2021</h1>
@@ -33,7 +32,7 @@
 	<div id="calendar-wrap">
 
 		<div class="button-div">
-			<button class="nextPrivious-button">previous</button>
+			<button class="nextPrivious-button" onclick="previousMonth()">previous</button>
 		</div>
 
 		<div id="calendar">
@@ -214,7 +213,7 @@
 		</div>
 
 		<div class="button-div">
-			<button class="nextPrivious-button">next</button>
+			<button class="nextPrivious-button" onclick="nextMonth()">next</button>
 		</div>
 	</div>
 </body>
