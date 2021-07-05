@@ -27,6 +27,7 @@
 	var curMonth
 	var curYear
 	var lastPage ="list"
+	var editId
 
 	// function to reset date to current month and year
 	var resetDate = function () {
@@ -222,8 +223,8 @@
 	})
 
 	app.post("/edit", (req,res)=>{
-		var data = req.body
-		res.send("")
+		editId = req.body.id
+		res.send("aaaaa")
 	})
 
 	app.post("/editEntry", (req,res)=>{
@@ -231,13 +232,17 @@
 		res.send("")
 	})
 
-	app.get("/edit", (req,res)=>{
+	app.get("/edit", async (req,res)=>{
 		res.set('Content-Type', 'text/xml')
+		var data = await handleDBJS.getDataForID(editId)
+		console.log(data)
+		data.fulldate=curYear+"-"+data.month+"-"+data.day
 		var xmlhead = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
 		xmlhead += '<?xml-stylesheet type="text/xsl" href="/frontend/xslt/editview.xsl"?>' + '\n'
-		xmlhead += "<test>test</test>"
-		res.send(xmlhead)
-		console.log("xml sent")
+		xmlres = xmlhead + convert.json2xml(data, json2xmlOptions)
+		xmlres = prettifyXml(xmlres, xmlFormat)
+		console.log(xmlres)
+		res.send(xmlhead+"<test>test</test>")
 	})
 
 	app.post('/createEntry', (req, res) => {

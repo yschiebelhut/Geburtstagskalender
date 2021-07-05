@@ -31,7 +31,7 @@
 
             <div class="content-area">
                 <a href="/back">
-                  <button>cancel</button>
+                  <button>back</button>
                 </a>
 
                 <button onclick="navToEdit()">edit</button>
