@@ -27,7 +27,6 @@
 	var curMonth
 	var curYear
 	var lastPage ="list"
-	var editId
 
 	// function to reset date to current month and year
 	var resetDate = function () {
@@ -222,19 +221,16 @@
 		res.send("")
 	})
 
-	app.post("/edit", (req,res)=>{
-		editId = req.body.id
-		res.send("aaaaa")
-	})
-
 	app.post("/editEntry", (req,res)=>{
-		console.log("yeppers")
+		console.log(req.body)
+
 		res.send("")
 	})
 
 	app.get("/edit", async (req,res)=>{
+		var id = req.query.id
 		res.set('Content-Type', 'text/xml')
-		var data = await handleDBJS.getDataForID(editId)
+		var data = await handleDBJS.getDataForID(id)
 		console.log(data)
 		if(data.month<10)data.month = "0"+data.month
 		if(data.day<10)data.day="0"+data.day

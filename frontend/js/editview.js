@@ -8,7 +8,7 @@ function sendData(){
 
 
 
-  if(name && day && month && year && notes){
+  if(name && day && month && year){
     var data = {
       name : name,
       day : day,

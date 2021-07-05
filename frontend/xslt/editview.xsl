@@ -9,7 +9,7 @@
 			<link href="frontend/css/default.css" type="text/css" rel="stylesheet" />
 			<link href="frontend/css/addview.css" type="text/css" rel="stylesheet" />
 
-			<script type="text/javascript" src="/frontend/js/createEntry.js"></script>
+			<script type="text/javascript" src="/frontend/js/editview.js"></script>
 		</head>
 
 		<body>
