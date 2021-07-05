@@ -221,6 +221,16 @@
 		res.send("")
 	})
 
+	app.post("/edit", (req,res)=>{
+		console.log(req.body)
+		res.set('Content-Type', 'text/xml')
+		var xmlhead = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
+		xmlhead += '<?xml-stylesheet type="text/xsl" href="/frontend/xslt/calendarview.xsl"?>' + '\n'
+		xmlhead += "<test>test</test>"
+		res.send(xmlhead)
+		console.log("xml sent")
+	})
+
 	app.post('/createEntry', (req, res) => {
 		console.log(req.body)
 		handleDBJS.createNewEntry(req.body)

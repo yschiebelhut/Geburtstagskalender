@@ -1,3 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:template match="/">
 	<html>
 		<head>
 			<meta charset="utf-8" />
@@ -18,7 +21,7 @@
 					<h1>My Calendar</h1>
 				</div>
 				<div class="menue-button-box">
-					<a href="/calendarview"><button type="button" height="200px" class="button">Calendar</button></a>
+					<a href="/calendar"><button type="button" height="200px" class="button">Calendar</button></a>
 					<a href="/listview"><button type="button" height="200px" class="button">List</button></a>
 					<div class="plus">
 						<a href="/createEntry" class="plus"><img src="/frontend/images/plus.png" width="auto" height="70%" /></a>
@@ -29,7 +32,7 @@
 			<!-- Formular-Container-->
 			<div class="content-area">
 
-					<h1>new birthday</h1>
+					<h1>edit birthday</h1>
 					<p><input id="name" type="text" name="name" placeholder="Name" required /></p>
 					<p><input id="date" type="date" name="date" placeholder="Date" required /></p>
 					<p><textarea id="notes" type="text" name="message" rows="8" cols="60" placeholder="Note" ></textarea></p>
@@ -46,3 +49,5 @@
 		</body>
 
 	</html>
+</xsl:template>
+</xsl:stylesheet>
