@@ -236,13 +236,26 @@
 		res.set('Content-Type', 'text/xml')
 		var data = await handleDBJS.getDataForID(editId)
 		console.log(data)
+		if(data.month<10)data.month = "0"+data.month
+		if(data.day<10)data.day="0"+data.day
 		data.fulldate=curYear+"-"+data.month+"-"+data.day
-		var xmlhead = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
-		xmlhead += '<?xml-stylesheet type="text/xsl" href="/frontend/xslt/editview.xsl"?>' + '\n'
-		xmlres = xmlhead + convert.json2xml(data, json2xmlOptions)
-		xmlres = prettifyXml(xmlres, xmlFormat)
+		var output = ''
+		output += '<birthdays>'
+		output += '<monthname>' + months[data.month] + '</monthname>'
+		output += '<bday>'
+		output += convert.json2xml(data, json2xmlOptions)
+		output += '</bday>'
+		output += '</birthdays>'
+		output = prettifyXml(output, xmlFormat)
+
+		res.set('Content-Type', 'text/xml')
+		var xmlres = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
+		xmlres += '<?xml-stylesheet type="text/xsl" href="/frontend/xslt/editview.xsl"?>' + '\n'
+		xmlres += '<!DOCTYPE birthdays SYSTEM "/backend/edit.dtd">' + '\n'
+		xmlres += output
+
 		console.log(xmlres)
-		res.send(xmlhead+"<test>test</test>")
+		res.send(xmlres)
 	})
 
 	app.post('/createEntry', (req, res) => {
