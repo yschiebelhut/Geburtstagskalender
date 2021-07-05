@@ -9,7 +9,6 @@
 - auto Formatierung vor jedem Commit. (VSCode unter Windows per default Shift + Alt + F)
 
 ## TODOs:
-- .gitignore
 - Struktur
 - weitere Abstimmung
 
