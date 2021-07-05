@@ -26,7 +26,7 @@
 
 	var curMonth
 	var curYear
-	var lastPage ="list"
+	var lastPage ="/listview"
 
 	// function to reset date to current month and year
 	var resetDate = function () {
@@ -62,27 +62,27 @@
 	})
 
 	var getXMLBody = async function () {
-		var data = await handleDBJS.getDataForMonth(curMonth)
+		var data = await handleDBJS.getListData()
 		var output = ''
-		output += '<birthdays>'
-		output += "<monthname>" + months[curMonth] + "</monthname>" + "\n"
-		output += "<year>" + curYear + "</year>" + "\n"
+		output += '<birthdays>' + '\n'
+		output += '<day>' + new Date().getDate() + '</day>' + '\n'
+		output += '<monthname>' + months[curMonth] + '</monthname>' + '\n'
+		output += '<year>' + curYear + '</year>' + '\n'
 		data.forEach((entry) => {
 			output += '<bday>'
 
 			var bdDate = new Date()
 			bdDate.setHours(0, 0, 0, 0)
-			bdDate.setMonth(curMonth - 1)
+			bdDate.setMonth(entry["month"]-1)
 			bdDate.setDate(entry["day"])
-
-			bdDate.setFullYear(curYear)
+			bdDate.setFullYear(entry["year"])
 
 			var curDate = new Date()
 			curDate.setHours(0, 0, 0, 0)
 			var timeDiff = bdDate.getTime() - curDate.getTime()
 			var diffDays = timeDiff / (1000 * 3600 * 24)
 
-			output += "<daysleft>" + diffDays + "</daysleft>"
+			output += "<daysleft>" + Math.floor(diffDays) + "</daysleft>"
 
 			output += convert.json2xml(entry, json2xmlOptions)
 			output += '</bday>'
@@ -98,7 +98,7 @@
 	})
 
 	app.get('/listview', async (req, res) => {
-		lastPage="list"
+		lastPage="/listview"
 		res.set('Content-Type', 'text/xml')
 		var xmlres = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
 		xmlres += '<?xml-stylesheet type="text/xsl" href="/frontend/xslt/listview.xsl"?>' + '\n'
@@ -111,7 +111,7 @@
 
 	app.get('/calendarview', async (req, res) => {
 
-		lastPage="calendar"
+		lastPage="/calendarview"
 		var date = new Date(), y = curYear, m = curMonth - 1;
 		var firstDay = new Date(y, m, 1);
 		var lastDay = new Date(y, m + 1, 0);
@@ -191,11 +191,7 @@
 	})
 
 	app.get("/back", (req,res)=>{
-		if(lastPage=="list"){
-			res.redirect('/listview')
-		}else{
-			res.redirect('/calendarview')
-		}
+		res.redirect(lastPage)
 	})
 
 	app.post('/nextMonth', (req, res) => {
@@ -221,23 +217,37 @@
 		res.redirect("/calendarview")
 	})
 
-	app.post("/edit", (req,res)=>{
-		var data = req.body
-		res.send("")
-	})
-
 	app.post("/editEntry", (req,res)=>{
-		console.log("yeppers")
+		console.log(req.body)
+
 		res.send("")
 	})
 
-	app.get("/edit", (req,res)=>{
+	app.get("/edit", async (req,res)=>{
+		var id = req.query.id
 		res.set('Content-Type', 'text/xml')
-		var xmlhead = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
-		xmlhead += '<?xml-stylesheet type="text/xsl" href="/frontend/xslt/editview.xsl"?>' + '\n'
-		xmlhead += "<test>test</test>"
-		res.send(xmlhead)
-		console.log("xml sent")
+		var data = await handleDBJS.getDataForID(id)
+		console.log(data)
+		if(data.month<10)data.month = "0"+data.month
+		if(data.day<10)data.day="0"+data.day
+		data.fulldate=curYear+"-"+data.month+"-"+data.day
+		var output = ''
+		output += '<birthdays>'
+		output += '<monthname>' + months[data.month] + '</monthname>'
+		output += '<bday>'
+		output += convert.json2xml(data, json2xmlOptions)
+		output += '</bday>'
+		output += '</birthdays>'
+		output = prettifyXml(output, xmlFormat)
+
+		res.set('Content-Type', 'text/xml')
+		var xmlres = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
+		xmlres += '<?xml-stylesheet type="text/xsl" href="/frontend/xslt/editview.xsl"?>' + '\n'
+		xmlres += '<!DOCTYPE birthdays SYSTEM "/backend/edit.dtd">' + '\n'
+		xmlres += output
+
+		console.log(xmlres)
+		res.send(xmlres)
 	})
 
 	app.post('/createEntry', (req, res) => {

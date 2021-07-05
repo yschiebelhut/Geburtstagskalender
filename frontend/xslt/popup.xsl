@@ -30,13 +30,13 @@
 
             <div class="content-area">
                 <a href="/back">
-                  <button>cancel</button>
+                  <button>back</button>
                 </a>
 
                 <button onclick="navToEdit()">edit</button>
 
                 <h1><xsl:value-of select="/birthdays/bday/name" />'s Birthday</h1>
-                <p>Date:<xsl:value-of select="/birthdays/bday/day" />.<xsl:value-of select="/birthdays/bday/month" />.</p>
+                <p>Date:&#160;<xsl:value-of select="/birthdays/bday/day" />.<xsl:value-of select="/birthdays/bday/month" />.</p>
                 <p>Note:<br /><xsl:value-of select="/birthdays/bday/notes" /></p>
             </div>
         </body>
