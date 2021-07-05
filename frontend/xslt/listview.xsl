@@ -21,7 +21,7 @@
                     <h1>My Calendar</h1>
                 </div>
                 <div class="menue-button-box">
-                    <a href="/calendar"><button type="button" height="200px" class="button">Calendar</button></a>
+                    <a href="/calendarview"><button type="button" height="200px" class="button">Calendar</button></a>
                     <div class="plus">
                         <a href="/createEntry" class="plus"><img src="/frontend/images/plus.png" width="auto" height="70%" /></a>
                     </div>

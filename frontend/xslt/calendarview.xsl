@@ -27,10 +27,8 @@
                 </div>
             </div>
 
-            </div> <!-- /. header -->
-
             <header>
-                <h1>July 2021</h1>
+                <h1><xsl:value-of select="container/monthname" />&#160;<xsl:value-of select="container/year" /></h1>
             </header>
 
             <div id="calendar-wrap">
@@ -52,168 +50,40 @@
 
                     <!-- Days from previous month -->
 
-                    <ul class="days">
-                        <li class="day other-month">
-                            <div class="date">28</div>
-                        </li>
-                        <li class="day other-month">
-                            <div class="date">29</div>
-                        </li>
-                        <li class="day other-month">
-                            <div class="date">30</div>
-                        </li>
+                    <xsl:for-each select="/container/row">
+                        
+                        <ul class="days">
+                        
+                            <xsl:for-each select="entry">
 
-                        <!-- Days in current month -->
+                                <xsl:if test="inMonth = 'true'">
+                                    <li class="day">
+                                        <div class="date"><xsl:value-of select="index" /></div>
 
-                        <li class="day">
-                            <div class="date">1</div>
-                        </li>
-                        <li class="day">
-                            <div class="date">2</div>
-                            <a href="popup.html">
-                                <div class="details">
-                                    Tim
-                                </div>
-                            </a>
-                        </li>
-                        <li class="day">
-                            <div class="date">3</div>
-                        </li>
-                        <li class="day">
-                            <div class="date">4</div>
-                        </li>
-                    </ul>
+                                        <xsl:for-each select="bday">
 
-                    <!-- Row #2 -->
+                                            <a>
+                                                <xsl:attribute name="href">/popup?id=<xsl:value-of select="id" /></xsl:attribute>
+                                                <div class="details">
+                                                    <xsl:value-of select="name" />
+                                                </div>
+                                            </a>
 
-                    <ul class="days">
-                        <li class="day">
-                            <div class="date">5</div>
-                        </li>
-                        <li class="day">
-                            <div class="date">6</div>
-                        </li>
-                        <li class="day">
-                            <div class="date">7</div>
-                        </li>
-                        <li class="day">
-                            <div class="date">8</div>
-                        </li>
-                        <li class="day">
-                            <div class="date">9</div>
-                        </li>
-                        <li class="day">
-                            <div class="date">10</div>
-                        </li>
-                        <li class="day">
-                            <div class="date">11</div>
-                        </li>
-                    </ul>
+                                        </xsl:for-each>
 
-                    <!-- Row #3 -->
+                                    </li>
+                                </xsl:if>
+                                
+                                <xsl:if test="inMonth = 'false'">
+                                    <li class="day other-month"></li>
+                                </xsl:if>
 
-                    <ul class="days">
-                        <li class="day">
-                            <div class="date">12</div>
-                        </li>
-                        <li class="day">
-                            <div class="date">13</div>
-                        </li>
-                        <li class="day">
-                            <div class="date">14</div>
-                        </li>
-                        <li class="day">
-                            <div class="date">15</div>
-                        </li>
-                        <li class="day">
-                            <div class="date">16</div>
-                        </li>
-                        <li class="day">
-                            <div class="date">17</div>
-                        </li>
-                        <li class="day">
-                            <div class="date">18</div>
-                        </li>
-                    </ul>
 
-                    <!-- Row #4 -->
+                            </xsl:for-each>
 
-                    <ul class="days">
-                        <li class="day">
-                            <div class="date">19</div>
-                        </li>
-                        <li class="day">
-                            <div class="date">20</div>
-                        </li>
-                        <li class="day">
-                            <div class="date">21</div>
-                        </li>
-                        <li class="day">
-                            <div class="date">22</div>
-                        </li>
-                        <li class="day">
-                            <div class="date">23</div>
-                        </li>
-                        <li class="day">
-                            <div class="date">24</div>
-                        </li>
-                        <li class="day">
-                            <div class="date">25</div>
-                        </li>
-                    </ul>
+                        </ul>
+                    </xsl:for-each>
 
-                    <!-- Row #5 -->
-
-                    <ul class="days">
-                        <li class="day">
-                            <div class="date">26</div>
-                        </li>
-                        <li class="day">
-                            <div class="date">27</div>
-
-                        </li>
-                        <li class="day">
-                            <div class="date">28</div>
-                        </li>
-                        <li class="day">
-                            <div class="date">29</div>
-                        </li>
-                        <li class="day">
-                            <div class="date">30</div>
-                        </li>
-                        <li class="day">
-                            <div class="date">31</div>
-                        </li>
-                        <li class="day other-month">
-                            <div class="date">1</div> <!-- Next Month-->
-                        </li>
-                    </ul>
-
-                    <!-- Row #6 -->
-
-                    <ul class="days">
-                        <li class="day other-month">
-                            <div class="date">2</div>
-                        </li>
-                        <li class="day other-month">
-                            <div class="date">3</div>
-                        </li>
-                        <li class="day other-month">
-                            <div class="date">4</div>
-                        </li>
-                        <li class="day other-month">
-                            <div class="date">5</div>
-                        </li>
-                        <li class="day other-month">
-                            <div class="date">6</div>
-                        </li>
-                        <li class="day other-month">
-                            <div class="date">7</div>
-                        </li>
-                        <li class="day other-month">
-                            <div class="date">8</div>
-                        </li>
-                    </ul>
                 </div>
 
                 <div class="button-div">

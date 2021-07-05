@@ -25,6 +25,7 @@
 	}
 
 	var curMonth = new Date().getMonth() + 1
+	var curYear = new Date().getFullYear()
 
 	const handleDBJS = require('./handleDB')
 
@@ -62,18 +63,18 @@
 			output += '<bday>'
 
 			var bdDate = new Date()
-			bdDate.setHours(0,0,0,0)
-			bdDate.setMonth(curMonth-1)
+			bdDate.setHours(0, 0, 0, 0)
+			bdDate.setMonth(curMonth - 1)
 			bdDate.setDate(entry["day"])
-			if(entry["month"]<curMonth){
-				bdDate.setFullYear(bdDate.getFullYear()+1)
+			if (entry["month"] < curMonth) {
+				bdDate.setFullYear(bdDate.getFullYear() + 1)
 			}
 			var curDate = new Date()
-			curDate.setHours(0,0,0,0)
-			var timeDiff =bdDate.getTime()-curDate.getTime()
-			var diffDays = timeDiff / (1000*3600*24)
+			curDate.setHours(0, 0, 0, 0)
+			var timeDiff = bdDate.getTime() - curDate.getTime()
+			var diffDays = timeDiff / (1000 * 3600 * 24)
 
-			output+= "<daysleft>" + diffDays + "</daysleft>"
+			output += "<daysleft>" + diffDays + "</daysleft>"
 
 			output += convert.json2xml(entry, json2xmlOptions)
 			output += '</bday>'
@@ -84,22 +85,8 @@
 		return output
 	}
 
-	function getCalendarDate () {
-		var date = new Date(), y = date.getFullYear(), m = curMonth - 1;
-		var firstDay = new Date(y, m, 1);
-		var lastDay = new Date(y, m + 1, 0);
-
-		console.log(curMonth)
-		console.log("First Day: " + firstDay.getDay())
-		console.log("Last Day: " + lastDay.getDay())
-	}
-
 	app.get('/', async (req, res) => {
 		res.redirect('/listview')
-	})
-
-	app.get("/test", async (req, res) => {
-		getCalendarDate()
 	})
 
 	app.get('/listview', async (req, res) => {
@@ -113,19 +100,97 @@
 		res.send(xmlres)
 	})
 
-	app.get('/calendarview', async (req, res) => {
-		res.set('Content-Type', 'text/xml')
-		var xmlres = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
-		xmlres += '<?xml-stylesheet type="text/xsl" href="/frontend/xslt/calendarview.xsl"?>' + '\n'
-		xmlres += '<!DOCTYPE birthdays SYSTEM "/backend/birthdays.dtd">' + '\n'
-		xmlres += await getXMLBody()
 
-		console.log(xmlres)
+	app.get('/calendarview', async (req, res) => {
+
+		var date = new Date(), y = curYear, m = curMonth - 1;
+		var firstDay = new Date(y, m, 1);
+		var lastDay = new Date(y, m + 1, 0);
+
+		var firstDayDay = firstDay.getDay() //Erster Monatstag (Wochentag) -> 0 - 6
+		var lastDayDate = lastDay.getDate() // Letzter Monatstag (Datum) -> 29, 30, 31
+		var lastDayDay = lastDay.getDay() // Letzter Wochentag -> 0-6
+
+		console.log('FirstDayDay: ' + firstDayDay)
+		console.log('LastDayDay: ' + lastDayDay)
+
+		if (firstDayDay == 0 ) firstDayDay = 7
+
+		var index = 2 - firstDayDay
+
+		res.set('Content-Type', 'text/xml')
+		var xmlres = '<container>' + '\n'
+		xmlres += "<monthname>" + months[curMonth] + "</monthname>" + "\n"
+		xmlres += "<year>" + curYear + "</year>" + "\n"
+		var abort = false
+
+		while(!abort){
+
+			xmlres += '<row>' + '\n'
+
+			for (let j = 0; j < 7; j++) {
+
+				xmlres += '<entry>' + '\n'
+				if (index >= 1 && index <= lastDayDate) {
+					xmlres += '<index>' + index + '</index>' + '\n'
+					xmlres += '<inMonth>true</inMonth>' + '\n'
+
+					var data = await handleDBJS.getDataForDay(curMonth, index)
+
+					data.forEach(entry => {
+						xmlres += '<bday>'
+
+						var bdDate = new Date()
+						bdDate.setHours(0, 0, 0, 0)
+						bdDate.setMonth(curMonth - 1)
+						bdDate.setDate(entry["day"])
+						if (entry["month"] < curMonth) {
+							bdDate.setFullYear(bdDate.getFullYear() + 1)
+						}
+						var curDate = new Date()
+						curDate.setHours(0, 0, 0, 0)
+						var timeDiff = bdDate.getTime() - curDate.getTime()
+						var diffDays = timeDiff / (1000 * 3600 * 24)
+
+						xmlres += "<daysleft>" + diffDays + "</daysleft>"
+
+						xmlres += convert.json2xml(entry, json2xmlOptions)
+						xmlres += '</bday>'
+					});
+				}
+
+				else {
+					xmlres += '<inMonth>false</inMonth>' + '\n'
+				}
+
+				xmlres += '</entry>' + '\n'
+				index++
+
+				if(index > lastDayDate) abort = true
+			}
+
+			xmlres += '</row>' + '\n'
+
+		}
+
+		xmlres += '</container>' + '\n'
+		xmlres = prettifyXml(xmlres, xmlFormat)
+
+		var xmlhead = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
+		xmlhead += '<?xml-stylesheet type="text/xsl" href="/frontend/xslt/calendarview.xsl"?>' + '\n'
+		xmlhead += '<!DOCTYPE calendar SYSTEM "/backend/calendar.dtd">' + '\n'
+
+		xmlres = xmlhead + xmlres
 		res.send(xmlres)
 	})
 
 	app.post('/nextMonth', (req, res) => {
-		curMonth = (curMonth % 12) + 1
+		curMonth++
+		if(curMonth ==  13) {
+			curYear++
+			curMonth = 1
+		}
+		
 		res.send("")
 	})
 
@@ -133,6 +198,7 @@
 		curMonth = curMonth - 1
 		if (curMonth === 0) {
 			curMonth = 12
+			curYear--
 		}
 		res.send("")
 	})
@@ -148,13 +214,9 @@
 		res.sendFile(path.join(__dirname, '../frontend/html/addview.html'))
 	})
 
-	app.get("/calendar", (req, res) => {
-		res.sendFile(path.join(__dirname, "../frontend/html/calendarview.html"))
-	})
-
 	/*
 	Um den Kalender aufzurufen wird eine Zuordnung der Daten zu den Divs benötigt
-	-> getDay Funktion für den ersten des Monats ausführen
+	done -> getDay Funktion für den ersten des Monats ausführen
 	-> Basierend auf getDay die restlichen Tage berechnen und zum XML hinzufügen
 	-> Die Geburtstage müssen ebenfalls die Information enthalten in welchem Div sie angezeigt werden
 	*/
