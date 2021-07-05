@@ -28,7 +28,7 @@
             </div>
 
             <header>
-                <h1><xsl:value-of select="container/monthname" />&#160;<xsl:value-of select="container/year" /></h1>
+                <h1><xsl:value-of select="calendar/monthname" />&#160;<xsl:value-of select="calendar/year" /></h1>
             </header>
 
             <div id="calendar-wrap">
@@ -50,7 +50,7 @@
 
                     <!-- Days from previous month -->
 
-                    <xsl:for-each select="/container/row">
+                    <xsl:for-each select="/calendar/row">
                         
                         <ul class="days">
                         

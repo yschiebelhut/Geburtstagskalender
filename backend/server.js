@@ -28,7 +28,7 @@
 	var curYear
 
 	// function to reset date to current month and year
-	var resetDate = function() {
+	var resetDate = function () {
 		curMonth = new Date().getMonth() + 1
 		curYear = new Date().getFullYear()
 	}
@@ -57,7 +57,6 @@
 		xmlres += '<!DOCTYPE birthdays SYSTEM "/backend/birthdays.dtd">' + '\n'
 		xmlres += output
 
-		console.log(xmlres)
 		res.send(xmlres)
 	})
 
@@ -74,9 +73,9 @@
 			bdDate.setHours(0, 0, 0, 0)
 			bdDate.setMonth(curMonth - 1)
 			bdDate.setDate(entry["day"])
-			
+
 			bdDate.setFullYear(curYear)
-			
+
 			var curDate = new Date()
 			curDate.setHours(0, 0, 0, 0)
 			var timeDiff = bdDate.getTime() - curDate.getTime()
@@ -104,7 +103,6 @@
 		xmlres += '<!DOCTYPE birthdays SYSTEM "/backend/birthdays.dtd">' + '\n'
 		xmlres += await getXMLBody()
 
-		console.log(xmlres)
 		res.send(xmlres)
 	})
 
@@ -115,21 +113,21 @@
 		var firstDay = new Date(y, m, 1);
 		var lastDay = new Date(y, m + 1, 0);
 
-		var firstDayDay = firstDay.getDay() //Erster Monatstag (Wochentag) -> 0 - 6
+		var firstDayDay = firstDay.getDay() // Erster Monatstag (Wochentag) -> 0 - 6
 		var lastDayDate = lastDay.getDate() // Letzter Monatstag (Datum) -> 29, 30, 31
 		var lastDayDay = lastDay.getDay() // Letzter Wochentag -> 0-6
 
-		if (firstDayDay === 0 ) firstDayDay = 7
+		if (firstDayDay === 0) firstDayDay = 7
 
 		var index = 2 - firstDayDay
 
 		res.set('Content-Type', 'text/xml')
-		var xmlres = '<container>' + '\n'
+		var xmlres = '<calendar>' + '\n'
 		xmlres += "<monthname>" + months[curMonth] + "</monthname>" + "\n"
 		xmlres += "<year>" + curYear + "</year>" + "\n"
 		var abort = false
 
-		while(!abort){
+		while (!abort) {
 
 			xmlres += '<row>' + '\n'
 
@@ -171,14 +169,14 @@
 				xmlres += '</entry>' + '\n'
 				index++
 
-				if(index > lastDayDate) abort = true
+				if (index > lastDayDate) abort = true
 			}
 
 			xmlres += '</row>' + '\n'
 
 		}
 
-		xmlres += '</container>' + '\n'
+		xmlres += '</calendar>' + '\n'
 		xmlres = prettifyXml(xmlres, xmlFormat)
 
 		var xmlhead = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
@@ -191,7 +189,7 @@
 
 	app.post('/nextMonth', (req, res) => {
 		curMonth++
-		if(curMonth ===  13) {
+		if (curMonth === 13) {
 			curYear++
 			curMonth = 1
 		}
