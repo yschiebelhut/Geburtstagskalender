@@ -51,9 +51,7 @@
 
 					<div class="button-box">
 						<input id="submit" class="form-button" type="submit" value="Save" onclick="sendData()" />
-						<a href="/back">
-							<input id="cancel" class="form-button" type="reset" value="Cancel" onclick="cancel()"/>
-						</a>
+						<input id="cancel" class="form-button" type="reset" value="Cancel" onclick="cancel()"/>
 					</div>
 
 			</div>

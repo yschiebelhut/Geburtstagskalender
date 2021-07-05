@@ -41,7 +41,6 @@
 	app.use(bodyParser.json())
 
 	app.get('/popup', async (req, res) => {
-		lastPage = "/popup?id="+req.query.id
 		var convert = require('xml-js')
 		var data = await handleDBJS.getDataForID(req.query.id)
 		var output = ''
