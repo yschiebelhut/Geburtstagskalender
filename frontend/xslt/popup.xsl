@@ -9,6 +9,7 @@
             <title>Birthday calendar</title>
             <link href="/frontend/css/default.css" type="text/css" rel="stylesheet" />
             <link href="/frontend/css/popup.css" type="text/css" rel="stylesheet" />
+            <script src="/frontend/js/popup.js"></script>
         </head>
 
         <body>
@@ -29,6 +30,12 @@
             </div>
 
             <div class="content-area">
+                <a href="/back">
+                  <button>back</button>
+                </a>
+
+                <button onclick="navToEdit()">edit</button>
+
                 <h1><xsl:value-of select="/birthdays/bday/name" />'s Birthday</h1>
                 <p>Date:&#160;<xsl:value-of select="/birthdays/bday/day" />.<xsl:value-of select="/birthdays/bday/month" />.</p>
                 <p>Note:<br /><xsl:value-of select="/birthdays/bday/notes" /></p>

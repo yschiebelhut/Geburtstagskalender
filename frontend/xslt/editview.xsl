@@ -1,3 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:template match="/">
 	<html>
 		<head>
 			<meta charset="utf-8" />
@@ -6,7 +9,7 @@
 			<link href="frontend/css/default.css" type="text/css" rel="stylesheet" />
 			<link href="frontend/css/addview.css" type="text/css" rel="stylesheet" />
 
-			<script type="text/javascript" src="/frontend/js/createEntry.js"></script>
+			<script type="text/javascript" src="/frontend/js/editview.js"></script>
 		</head>
 
 		<body>
@@ -29,20 +32,31 @@
 			<!-- Formular-Container-->
 			<div class="content-area">
 
-					<h1>new birthday</h1>
-					<p><input id="name" type="text" name="name" placeholder="Name" required /></p>
-					<p><input id="date" type="date" name="date" placeholder="Date" required /></p>
-					<p><textarea id="notes" type="text" name="message" rows="8" cols="60" placeholder="Note" ></textarea></p>
-					<p><input type="text" name="reminder" placeholder="Reminder" /></p>
+					<h1>edit birthday</h1>
+					<p><input id="name" type="text" name="name" placeholder="Name">
+            <xsl:attribute name="value">
+              <xsl:value-of select="/birthdays/bday/name" />
+            </xsl:attribute>
+          </input></p>
+					<p><input id="date" type="date" name="date" placeholder="Date">
+            <xsl:attribute name="value">
+              <xsl:value-of select="/birthdays/bday/fulldate"/>
+            </xsl:attribute>
+          </input></p>
+					<p><textarea id="notes" type="text" name="message" rows="8" cols="60" placeholder="Note" >
+            <xsl:attribute name="value">
+              <xsl:value-of select="/birthdays/bday/notes"/>
+            </xsl:attribute>
+          </textarea></p>
 
 					<div class="button-box">
 						<input id="submit" class="form-button" type="submit" value="Save" onclick="sendData()" />
-						<a href="/back">
-							<input id="cancel" class="form-button" type="reset" value="Cancel" onclick="cancel()"/>
-						</a>
+						<input id="cancel" class="form-button" type="reset" value="Cancel" onclick="cancel()"/>
 					</div>
 
 			</div>
 		</body>
 
 	</html>
+</xsl:template>
+</xsl:stylesheet>

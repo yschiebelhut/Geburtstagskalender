@@ -26,7 +26,7 @@
 
 	var curMonth
 	var curYear
-	var lastPage ="list"
+	var lastPage ="/listview"
 
 	// function to reset date to current month and year
 	var resetDate = function () {
@@ -98,7 +98,7 @@
 	})
 
 	app.get('/listview', async (req, res) => {
-		lastPage="list"
+		lastPage="/listview"
 		res.set('Content-Type', 'text/xml')
 		var xmlres = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
 		xmlres += '<?xml-stylesheet type="text/xsl" href="/frontend/xslt/listview.xsl"?>' + '\n'
@@ -111,7 +111,7 @@
 
 	app.get('/calendarview', async (req, res) => {
 
-		lastPage="calendar"
+		lastPage="/calendarview"
 		var date = new Date(), y = curYear, m = curMonth - 1;
 		var firstDay = new Date(y, m, 1);
 		var lastDay = new Date(y, m + 1, 0);
@@ -191,11 +191,7 @@
 	})
 
 	app.get("/back", (req,res)=>{
-		if(lastPage=="list"){
-			res.redirect('/listview')
-		}else{
-			res.redirect('/calendarview')
-		}
+		res.redirect(lastPage)
 	})
 
 	app.post('/nextMonth', (req, res) => {
@@ -221,6 +217,39 @@
 		res.send("")
 	})
 
+	app.post("/editEntry", (req,res)=>{
+		console.log(req.body)
+
+		res.send("")
+	})
+
+	app.get("/edit", async (req,res)=>{
+		var id = req.query.id
+		res.set('Content-Type', 'text/xml')
+		var data = await handleDBJS.getDataForID(id)
+		console.log(data)
+		if(data.month<10)data.month = "0"+data.month
+		if(data.day<10)data.day="0"+data.day
+		data.fulldate=curYear+"-"+data.month+"-"+data.day
+		var output = ''
+		output += '<birthdays>'
+		output += '<monthname>' + months[data.month] + '</monthname>'
+		output += '<bday>'
+		output += convert.json2xml(data, json2xmlOptions)
+		output += '</bday>'
+		output += '</birthdays>'
+		output = prettifyXml(output, xmlFormat)
+
+		res.set('Content-Type', 'text/xml')
+		var xmlres = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
+		xmlres += '<?xml-stylesheet type="text/xsl" href="/frontend/xslt/editview.xsl"?>' + '\n'
+		xmlres += '<!DOCTYPE birthdays SYSTEM "/backend/edit.dtd">' + '\n'
+		xmlres += output
+
+		console.log(xmlres)
+		res.send(xmlres)
+	})
+
 	app.post('/createEntry', (req, res) => {
 		console.log(req.body)
 		handleDBJS.createNewEntry(req.body)
@@ -231,13 +260,6 @@
 	app.get('/createEntry', (req, res) => {
 		res.sendFile(path.join(__dirname, '../frontend/html/addview.html'))
 	})
-
-	/*
-	Um den Kalender aufzurufen wird eine Zuordnung der Daten zu den Divs benötigt
-	done -> getDay Funktion für den ersten des Monats ausführen
-	-> Basierend auf getDay die restlichen Tage berechnen und zum XML hinzufügen
-	-> Die Geburtstage müssen ebenfalls die Information enthalten in welchem Div sie angezeigt werden
-	*/
 
 	app.listen(port, () => {
 		console.log(`Example app listening at http://localhost:${port}`)

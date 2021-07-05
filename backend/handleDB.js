@@ -115,3 +115,13 @@ function createEntriesFromJSON() {
 module.exports.createNewEntry = function (data) {
 	db.run("INSERT INTO birthdays (name, day, month, notes) VALUES(?,?,?,?)", data.name, data.day, data.month, data.notes)
 }
+
+module.exports.deleteEntry = function(id) {
+	db.run("DELETE FROM birthdays WHERE id=?", id)
+	console.log("deleted entry successfully")
+}
+
+module.exports.editEntry = function(data){
+	db.run("UPDATE birthdays SET name=?, day =?, month=?, year=?, notes=? WHERE id=?", data.name, data.day, data.month, data.year, data.notes, data.id)
+}
+
