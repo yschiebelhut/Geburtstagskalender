@@ -58,7 +58,8 @@
 		var data = await handleDBJS.getDataForMonth(curMonth)
 		var output = ''
 		output += '<birthdays>'
-		output += "<monthname>" + months[curMonth] + "</monthname>"
+		output += "<monthname>" + months[curMonth] + "</monthname>" + "\n"
+		output += "<year>" + curYear + "</year>" + "\n"
 		data.forEach((entry) => {
 			output += '<bday>'
 
@@ -66,9 +67,9 @@
 			bdDate.setHours(0, 0, 0, 0)
 			bdDate.setMonth(curMonth - 1)
 			bdDate.setDate(entry["day"])
-			if (entry["month"] < curMonth) {
-				bdDate.setFullYear(bdDate.getFullYear() + 1)
-			}
+			
+			bdDate.setFullYear(curYear)
+			
 			var curDate = new Date()
 			curDate.setHours(0, 0, 0, 0)
 			var timeDiff = bdDate.getTime() - curDate.getTime()

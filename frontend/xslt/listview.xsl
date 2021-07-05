@@ -31,7 +31,7 @@
 
             <!-- Listen-Container-->
             <div class="list">
-                <h2><xsl:value-of select="birthdays/monthname" /></h2>
+                <h2><xsl:value-of select="birthdays/monthname" />&#160;<xsl:value-of select="birthdays/year"/></h2>
 
                 <xsl:for-each select="birthdays/bday">
 
