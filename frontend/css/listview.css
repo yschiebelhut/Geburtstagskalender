@@ -1,0 +1,45 @@
+a {
+	text-decoration: none;
+}
+
+.list {
+	margin: 30px 10% 30px 10%;
+	width: 80%;
+	height: auto;
+}
+
+.list-element {
+	background-color: white;
+	width: 100%;
+	height: auto;
+	padding: 10px;
+	color: black;
+
+	display: flex;
+	position: relative;
+	border-radius: 18px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.date {
+	width: 33%;
+	float: left;
+	display: flex;
+	align-items: center;
+	margin-left: 10px;
+}
+
+.name {
+	width: 33%;
+	align-items: center;
+}
+
+.countdown {
+	width: 33%;
+	float: right;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin-right: 10px;
+}
