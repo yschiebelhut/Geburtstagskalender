@@ -62,27 +62,27 @@
 	})
 
 	var getXMLBody = async function () {
-		var data = await handleDBJS.getDataForMonth(curMonth)
+		var data = await handleDBJS.getListData()
 		var output = ''
-		output += '<birthdays>'
-		output += "<monthname>" + months[curMonth] + "</monthname>" + "\n"
-		output += "<year>" + curYear + "</year>" + "\n"
+		output += '<birthdays>' + '\n'
+		output += '<day>' + new Date().getDate() + '</day>' + '\n'
+		output += '<monthname>' + months[curMonth] + '</monthname>' + '\n'
+		output += '<year>' + curYear + '</year>' + '\n'
 		data.forEach((entry) => {
 			output += '<bday>'
 
 			var bdDate = new Date()
 			bdDate.setHours(0, 0, 0, 0)
-			bdDate.setMonth(curMonth - 1)
+			bdDate.setMonth(entry["month"]-1)
 			bdDate.setDate(entry["day"])
-
-			bdDate.setFullYear(curYear)
+			bdDate.setFullYear(entry["year"])
 
 			var curDate = new Date()
 			curDate.setHours(0, 0, 0, 0)
 			var timeDiff = bdDate.getTime() - curDate.getTime()
 			var diffDays = timeDiff / (1000 * 3600 * 24)
 
-			output += "<daysleft>" + diffDays + "</daysleft>"
+			output += "<daysleft>" + Math.floor(diffDays) + "</daysleft>"
 
 			output += convert.json2xml(entry, json2xmlOptions)
 			output += '</bday>'

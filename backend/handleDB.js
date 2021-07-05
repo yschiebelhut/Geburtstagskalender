@@ -28,11 +28,40 @@ module.exports.getDataForID = async function (id) {
 	})
 }
 
-module.exports.getDataForMonth = async function (month) {
+module.exports.getListData = async function () {
 	return new Promise(function (resolve, reject) {
-		db.all("SELECT * FROM birthdays WHERE month=? ORDER BY day ASC", month, (err, rows) => {
+		db.all("SELECT * FROM birthdays ORDER BY month, day ASC", (err, rows) => {
 			if (err) {
 				reject(err)
+			}
+			const curDay = new Date().getDay() + 1
+			const curMonth = new Date().getMonth() + 1
+			var movedEntries = 0
+			while (true) {
+				if (movedEntries == rows.length) {
+					break
+				}
+				let entryDay = rows[0].day
+				let entryMonth = rows[0].month
+				if ((entryMonth < curMonth) || ((entryMonth === curMonth) && (entryDay < curDay))) {
+					var row = rows.splice(0, 1)[0]
+					row.year = new Date().getFullYear() + 1
+					rows.push(row)
+					movedEntries++
+				} else {
+					break
+				}
+			}
+			for (var i = 0; i < movedEntries; i++) {
+				rows[i].year = new Date().getFullYear()
+			}
+			for (var i = 0; i < rows.length; i++) {
+				if (rows[i].day < 10) {
+					rows[i].day = "0" + rows[i].day
+				}
+				if (rows[i].month < 10) {
+					rows[i].month = "0" + rows[i].month
+				}
 			}
 			resolve(rows)
 		})
