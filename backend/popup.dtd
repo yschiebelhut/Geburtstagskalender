@@ -1,6 +1,6 @@
 <!ELEMENT birthdays (monthname, year, bday*)>
 <!ELEMENT monthname (#PCDATA)>
-<!ELEMENT bday (daysleft,id,name,day,month,year,notes, fulldate)>
+<!ELEMENT bday (daysleft,id,name,day,month,year, notes, fulldate)>
 <!ELEMENT daysleft (#PCDATA)>
 <!ELEMENT id (#PCDATA)>
 <!ELEMENT name (#PCDATA)>

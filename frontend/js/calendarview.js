@@ -22,7 +22,6 @@ function nextMonth(){
       }
     }
   xhr.send();
-
 }
 
 
