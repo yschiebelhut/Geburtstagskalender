@@ -216,9 +216,9 @@
 		res.send("")
 	})
 
-	app.post('/today', (req, res) => {
+	app.get('/today', (req, res) => {
 		resetDate()
-		res.send("")
+		res.redirect("/calendarview")
 	})
 
 	app.post("/edit", (req,res)=>{

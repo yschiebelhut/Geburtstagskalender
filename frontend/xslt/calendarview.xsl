@@ -13,14 +13,13 @@
 
         <body>
             <div class="menue">
-                <div class="menue-box" id="div-logo">
-                    <img src="/frontend/images/logo.png" id="logo" />
+                <div class="menue-box" id="menue-div-buttons">
+                    <a href="/listview"><button type="button" height="200px" class="button">List</button></a>
                 </div>
                 <div class="menue-box">
                     <h1>My Calendar</h1>
                 </div>
                 <div class="menue-button-box">
-                    <a href="/listview"><button type="button" height="200px" class="button">List</button></a>
                     <div class="plus">
                         <a href="/createEntry" class="plus"><img src="/frontend/images/plus.png" width="auto" height="70%" /></a>
                     </div>
@@ -28,13 +27,17 @@
             </div>
 
             <header>
-                <h1><xsl:value-of select="calendar/monthname" />&#160;<xsl:value-of select="calendar/year" /></h1>
+                <div class="today-area">
+                    <h1><xsl:value-of select="calendar/monthname" />&#160;<xsl:value-of select="calendar/year" /></h1>
+                    <a href="/today" ><button class="changeMonth-button" id="today-button">today</button></a>
+                </div>
+
             </header>
 
             <div id="calendar-wrap">
 
                 <div class="button-div">
-                    <button class="nextPrivious-button" onclick="previousMonth()">previous</button>
+                    <button class="changeMonth-button" onclick="previousMonth()">&lt;</button>
                 </div>
 
                 <div id="calendar">
@@ -87,7 +90,7 @@
                 </div>
 
                 <div class="button-div">
-                    <button class="nextPrivious-button" onclick="nextMonth()">next</button>
+                    <button class="changeMonth-button" onclick="nextMonth()"> &gt; </button>
                 </div>
             </div>
         </body>

@@ -107,7 +107,7 @@ header {
 	text-align: center;
 	width: 10%;
 }
-.nextPrivious-button{
+.changeMonth-button{
 	font-size: 26px;
 }
 
@@ -120,4 +120,16 @@ header {
 
 #cancel {
 	margin-right: 50px;
+}
+
+#today-button{
+	margin-left: 15px;;
+}
+
+.today-area{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 10px;
+	height: 100%;
 }
