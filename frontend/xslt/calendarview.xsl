@@ -11,7 +11,7 @@
             <script src="/frontend/js/calendarview.js"></script>
         </head>
 
-        <body>
+        <body onload = "showToday()">
             <div class="menue">
                 <div class="menue-box" id="menue-div-buttons">
                     <a href="/listview"><button type="button" height="200px" class="button">List</button></a>
@@ -54,14 +54,19 @@
                     <!-- Days from previous month -->
 
                     <xsl:for-each select="/calendar/row">
-                        
+
                         <ul class="days">
-                        
+
                             <xsl:for-each select="entry">
 
                                 <xsl:if test="inMonth = 'true'">
                                     <li class="day">
-                                        <div class="date"><xsl:value-of select="index" /></div>
+                                        <div class="date">
+                                          <xsl:attribute name = "id">
+                                            <xsl:value-of select="index" />
+                                          </xsl:attribute>
+                                          <xsl:value-of select="index" />
+                                        </div>
 
                                         <xsl:for-each select="bday">
 
@@ -76,7 +81,7 @@
 
                                     </li>
                                 </xsl:if>
-                                
+
                                 <xsl:if test="inMonth = 'false'">
                                     <li class="day other-month"></li>
                                 </xsl:if>

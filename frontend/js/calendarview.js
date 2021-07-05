@@ -24,3 +24,15 @@ function nextMonth(){
   xhr.send();
 
 }
+
+
+function showToday(){
+  var requested = window.location.search
+  if(requested){
+    var today = new Date()
+    var day = Math.floor(today.toDateString().split(" ")[2])
+    console.log(day)
+    document.getElementById(day).setAttribute("style", "border:2px solid red; background-color: rgb(255, 125, 115);");
+  }
+
+}
