@@ -6,8 +6,6 @@ function sendData(){
   var year = date[0]
   var notes = document.getElementById("notes").value
 
-
-
   if(name && day && month && year && notes){
     var data = {
       name : name,
@@ -16,11 +14,12 @@ function sendData(){
       year : year,
       notes : notes
     }
+
     data = JSON.stringify(data)
     console.log(data)
+
     var xhr = new XMLHttpRequest();
     xhr.open("POST", '/createEntry', true);
-
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.onreadystatechange = function() {
@@ -32,5 +31,4 @@ function sendData(){
   }else{
     alert("PLS GIVE MORE INFORMATION!")
   }
-
 }

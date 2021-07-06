@@ -12,7 +12,7 @@
         </head>
 
         <body>
-            <!-- Menue-Leiste -->
+            <!-- header on the page with title and buttons -->
             <div class="menue">
                 <div class="menue-box" id="menue-div-buttons">
                     <a href="/calendarview"><button type="button" height="200px" class="button">Calendar</button></a>
@@ -27,17 +27,15 @@
                 </div>
             </div>
             
-
-            <!-- Listen-Container-->
             <div class="list">
-                <h2><xsl:value-of select="birthdays/day" />&#160;<xsl:value-of select="birthdays/monthname" />&#160;<xsl:value-of select="birthdays/year"/></h2>
+                <h2><xsl:value-of select="birthdays/day" />&#160;<xsl:value-of select="birthdays/monthname" />&#160;<xsl:value-of select="birthdays/year"/></h2> <!-- displays the current date by getting the data via xslt -->
 
-                <xsl:for-each select="birthdays/bday">
+                <xsl:for-each select="birthdays/bday"> <!-- xsl loop to display all birthday entries for the coming year -->
 
                     <a>
-                        <xsl:attribute name="href">/popup?id=<xsl:value-of select="id" /></xsl:attribute>
+                        <xsl:attribute name="href">/popup?id=<xsl:value-of select="id" /></xsl:attribute> <!-- every birthday entry is build as a link to the detail and update page while passing the entry's id -->
                         
-                        <div class="list-element">
+                        <div class="list-element"> <!-- birthday entry contains the name of a person, the date of the next birthday and the days left until the birthday -->
                             <div class="date">
                                 <xsl:value-of select="day" />.<xsl:value-of select="month" />.<xsl:value-of select="year" />
                             </div>
