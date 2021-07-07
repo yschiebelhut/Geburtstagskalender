@@ -13,31 +13,39 @@
 
         <body>
             <!-- Menue-Leiste -->
-            <div class="menue">
-                <div class="menue-box" id="menue-div-buttons">
-                    <a href="/calendarview"><button type="button" height="200px" class="button">Calendar</button></a>
-                </div>
-                <div class="menue-box">
-                    <h1>My Calendar</h1>
-                </div>
-                <div class="menue-button-box">
-                    <div class="plus">
-                        <a href="/createEntry" class="plus"><img src="/frontend/images/plus_v2.png" width="auto" height="70%" /></a>
-                    </div>
-                </div>
-            </div>
+            <!-- Header/Menu Start-->
+			<div class="menue">
+				<div class="menue-box">
+					<h1 id="calendar_title" >My Calendar</h1>
+				</div>
+				<div class="menue-box">
+					<a href="/today"><h3>6 July 2021</h3></a>
+				</div>
+				<div class="menue-button-box">
+					<div class="plus">
+						<div id="menue-div-buttons">
+							<a ><img class="list" height="70%" src="/frontend/images/icon/marked_List.png" ></img></a> 
+                          
+							<a href="/calendarview"><img class="calendar" height="70%" src="/frontend/images/icon/Calendar.png" ></img></a> 
+					    </div>
+					<a href="/createEntry" class="plus-btn"><img src="/frontend/images/icon/Add.png" width="auto" height="70%" /></a>
+					</div>
+				</div>
+			</div>
+			<!-- Header/Menu End-->
             
 
             <!-- Listen-Container-->
-            <div class="list">
+            <div class="liste">
                 <h2><xsl:value-of select="birthdays/day" />&#160;<xsl:value-of select="birthdays/monthname" />&#160;<xsl:value-of select="birthdays/year"/></h2>
 
                 <xsl:for-each select="birthdays/bday">
 
-                    <a>
+                   <div class="list-element">
+                    <a >
                         <xsl:attribute name="href">/popup?id=<xsl:value-of select="id" /></xsl:attribute>
                         
-                        <div class="list-element">
+                        <div class="birthdate-element">
                             <div class="date">
                                 <xsl:value-of select="day" />.<xsl:value-of select="month" />.<xsl:value-of select="year" />
                             </div>
@@ -47,8 +55,12 @@
                             <div class="countdown">
                                 <xsl:value-of select="daysleft" /> days
                             </div>
+                            
                         </div>
                     </a>
+                    <a class="cross-btn" href="/deleteEntry" ><img src="/frontend/images/icon/Delete_Cross.png" width="auto" height="40%" /></a>
+                            
+                    </div>
 
                 </xsl:for-each>
             </div>
