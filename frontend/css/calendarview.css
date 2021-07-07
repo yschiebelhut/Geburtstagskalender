@@ -63,10 +63,6 @@ header {
 	height: 180px;
 }
 
-#calendar .days li:hover {
-	background: #d3d3d3;
-}
-
 #calendar .date {
 	text-align: center;
 	margin-bottom: 5px;
@@ -139,8 +135,4 @@ header {
 }
 .next-previous-button:hover{
 	background-color: grey;
-}
-
-#calendar .days li:hover {
-    background: none;
 }
