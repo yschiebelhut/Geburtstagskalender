@@ -55,21 +55,19 @@
 
 						<a>
 							<xsl:attribute name="href">/popup?id=<xsl:value-of select="id" /></xsl:attribute>
-							<!-- <div class="list-element"> -->
+							<div class="list-element">
 								<div class="birthdate-element">
-									<div class="date"><xsl:value-of select="day" />.<xsl:value-of select="month" />.<xsl:value-of select="year" /></div>
-									<div class="name"><xsl:value-of select="name" /></div>
-									<div class="countdown">
+									<div class="date subdiv"><xsl:value-of select="day" />.<xsl:value-of select="month" />.<xsl:value-of select="year" /></div>
+									<div class="name subdiv"><xsl:value-of select="name" /></div>
+									<div class="countdown subdiv">
 										<xsl:value-of select="daysleft" />&#160;days
-										<div class="absolut">
-											<a class="delete-link">
-												<xsl:attribute name="href">/deleteEntry?id=<xsl:value-of select="id" /></xsl:attribute>
-												<img class="cross-btn" src="/frontend/images/icon/Delete_Cross.png" />
-											</a>
-										</div>
+										<!-- <button class="delete-link">
+											<xsl:attribute name="href">/deleteEntry?id=<xsl:value-of select="id" /></xsl:attribute>
+											<img class="cross-btn" src="/frontend/images/icon/Delete_Cross.png" />
+										</button> -->
 									</div>
 								</div>
-							<!-- </div> -->
+							</div>
 						</a>
 
 					</xsl:for-each>

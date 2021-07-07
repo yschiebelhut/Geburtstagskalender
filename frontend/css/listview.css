@@ -29,14 +29,12 @@ a {
 	width: 100%;
 	background-color: rgba(0, 0, 0, 1);
 	
-	/* height: auto; */
 	padding: 10px;
 	color: white;
 
 	display: inline-flex;
 	flex-wrap: nowrap;
 	flex-direction: row;
-	/* position: relative; */
 	justify-content: space-between;
 	align-items: center;
 
@@ -46,51 +44,28 @@ a {
 	margin-bottom: 5px;
 }
 
-.date {
+.subdiv {
+	display: inline-flex;
+	flex-grow: 1;
 	width: 100%;
 	height: 100%;
-	flex-grow: 1;
-	/* position: absolute; */
-	background-color: red;
-	display: flex;
-	align-items: center;
+}
+
+.date {
 	justify-content: flex-start;
 }
 
 .name {
-	width: 100%;
-	height: 100%;
-	flex-grow: 1;
-	/* position: relative; */
-	background-color: green;
-	display: flex;
-	align-items: center;
 	justify-content: center;
 }
 
 .countdown {
-	width: 100%;
-	height: 100%;
-	flex-grow: 1;
-	/* position: relative; */
-	background-color: blue;
-	display: flex;
-	align-items: center;
 	justify-content: flex-end;
 }
 
-.absolut {
-	background-color: yellow;
-	width: 40px;
-}
-
-.cross-btn {
+/* .cross-btn {
 	margin-right: 10px;
 	height: 1.5em;
+	width: auto;
 	padding: 10px;
-}
-
-.delete-link {
-	width: 100%;
-	height:auto;
-}
+} */
