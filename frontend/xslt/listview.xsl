@@ -62,10 +62,10 @@
 									<div class="countdown">
 										<xsl:value-of select="daysleft" />&#160;days
 										<div class="absolut">
-											<!-- <a>
+											<a class="delete-link">
 												<xsl:attribute name="href">/deleteEntry?id=<xsl:value-of select="id" /></xsl:attribute>
 												<img class="cross-btn" src="/frontend/images/icon/Delete_Cross.png" />
-											</a> -->
+											</a>
 										</div>
 									</div>
 								</div>
