@@ -16,15 +16,15 @@
 					<h1 id="calendar_title" >My Calendar</h1>
 				</div>
 				<div class="menue-box">
-					<h3>6 July 2021</h3>
+					<a href="/today"><h3>6 July 2021</h3></a>
 				</div>
 				<div class="menue-button-box">
 					<div class="plus">
 						<div id="menue-div-buttons">
-						<a href="/listview"><img height="70%" class="list"  src="/frontend/images/icon/List.png"></button></a>
-						<a href="/calendarview"><img class="calendar" height="70%" img src="/frontend/images/icon/Calendar.png" width="auto" height="70%"></button></a>
+							<a href="/listview"><img height="70%" class="list" src="/frontend/images/icon/List.png"></img></a>
+							<a href="/calendarview"><img class="calendar" height="70%" src="/frontend/images/icon/Calendar.png" ></img></a> 
 					</div>
-					<a href="/createEntry" class="plus"><img src="/frontend/images/icon/Add.png" width="auto" height="70%" /></a>
+					<a href="/createEntry" class="plus-btn"><img src="/frontend/images/icon/Add.png" width="auto" height="70%" /></a>
 					</div>
 				</div>
 			</div>
@@ -45,7 +45,7 @@
 					
 
 					<div class="button-box">
-						<input class="Create-btn " type="submit" name="save" value="    Create">
+						<input class="Create-btn " type="submit" name="save" value="    Create" onclick="sendData()">
 						
 						
 					</div>
