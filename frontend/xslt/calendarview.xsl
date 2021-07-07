@@ -11,32 +11,42 @@
         </head>
 
         <body onload = "showToday()">
-            <div class="menue"> <!-- header on the page with title and buttons -->
-                <div class="menue-box" id="menue-div-buttons">
-                    <a href="/listview"><button type="button" height="200px" class="button">List</button></a>
-                </div>
-                <div class="menue-box">
-                    <h1>My Calendar</h1>
-                </div>
-                <div class="menue-button-box">
-                    <div class="plus"> 
-                        <a href="/createEntry" class="plus"><img src="/frontend/images/plus_v2.png" width="auto" height="70%" /></a> <!-- button to create a new entry for the birthday calendar by linking to the /createEntry route -->
-                    </div>
-                </div>
-            </div>
+            <!-- header on the page with title and buttons -->
+			<div class="menue">
+				<div class="menue-box">
+					<h1 id="calendar_title" >My Calendar</h1>
+				</div>
+				<div class="menue-box">
+					<a href="/today"><h3>6 July 2021</h3></a>
+				</div>
+				<div class="menue-button-box">
+					<div class="plus">
+						<div id="menue-div-buttons">
+						<a href="/listview"><img height="70%" class="list" src="/frontend/images/icon/List.png"></img></a>
+						<a ><img class="calendar" height="70%" src="/frontend/images/icon/marked_Calendar.png" ></img></a> 
+					    </div>
+					<a href="/createEntry" class="plus-btn"><img src="/frontend/images/icon/Add.png" width="auto" height="70%" /></a>
+					</div>
+				</div>
+			</div>
+			<!-- Header/Menu End-->
 
             <header>
                 <div class="today-area">
-                    <h1><xsl:value-of select="calendar/monthname" />&#160;<xsl:value-of select="calendar/year" /></h1> <!-- displays the month the calendar is currently showing -->
-                    <a href="/today" ><button class="changeMonth-button" id="today-button">today</button></a> <!-- button that always leads back to the month of the current date in calendarview when being clicked -->
+                     
+                    <a onclick="previousMonth()" ><img height="40%" class="next-previous-button" src="/frontend/images/icon/Previous.png"></img></a>
+                  
+                    <h1><xsl:value-of select="calendar/monthname" />&#160;<xsl:value-of select="calendar/year" /></h1>
+                    <!-- <a href="/today" ><button class="changeMonth-button" id="today-button">today</button></a> -->
+                    <a onclick="nextMonth()" ><img height="40%" class="next-previous-button" src="/frontend/images/icon/Next.png"></img></a>
+                    
                 </div>
 
             </header>
 
             <div id="calendar-wrap">
-                <div class="button-div"> <!-- button to switch to the calendarview for the previous month  -->
-                    <button class="changeMonth-button next-previous-button" onclick="previousMonth()"><img src="/frontend/images/previous.png" width="100px" height="auto"/></button>
-                </div>
+
+                
 
                 <!-- calendar header line with all weekdays -->
                 <div id="calendar">
@@ -82,9 +92,7 @@
                     </xsl:for-each>
                 </div>
 
-                <div class="button-div"> <!-- button to switch to the calendarview for the next month -->
-                    <button class="changeMonth-button next-previous-button" onclick="nextMonth()"><img src="/frontend/images/next.png" width="100px" height="auto"/></button>
-                </div>
+            
             </div>
         </body>
     </html>

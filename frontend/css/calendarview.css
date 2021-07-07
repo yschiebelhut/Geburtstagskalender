@@ -11,13 +11,16 @@ header {
 	display: flex;
 	position: relative;
 	visibility: visible;
-	width: 100%;
+	
 	align-self: center;
+	margin-left: 100px;
+	margin-right: 100px;
 }
 
 #calendar {
-	width: 80%;
+	width: 100%;
 	visibility: visible;
+	
 }
 
 #calendar a {
@@ -36,16 +39,19 @@ header {
 	display: block;
 	float: left;
 	width: 14.285%;
-	padding: 5px;
+	padding: 10px;
+	
 	box-sizing:border-box;
-	border: 1px solid #ccc;
+	border: 1px solid white;
+	border-radius: 30px;
 	margin-right: -1px;
 	margin-bottom: -1px;
+	background-color: rgba(0, 0, 0, 0.5);
 }
 
 #calendar ul.weekdays {
 	height: 40px;
-	background: #8e352e;
+	background: rgba(0, 0, 0, 0.7);
 	width: 99.45%;
 }
 
@@ -61,13 +67,17 @@ header {
 
 #calendar .days li {
 	height: 180px;
+	
+	
 }
+
+
 
 #calendar .date {
 	text-align: center;
 	margin-bottom: 5px;
 	padding: 4px;
-	background: #333;
+	background: rgba(255, 0, 76, 1);
 	color: #fff;
 	width: 20px;
 	border-radius: 50%;
@@ -78,25 +88,26 @@ header {
 	clear: both;
 	display: block;
 	font-size: 13px;
-	border-radius: 4px;
+	border-radius: 20px;
 	padding: 5px;
 	margin-top: 40px;
 	margin-bottom: 5px;
 	line-height: 14px;
-	background: #e4f2f2;
-	border: 1px solid #b5dbdc;
-	color: #009aaf;
+	background: rgba(255, 0, 76, 1);
+	
+	color: #ffffff;
 	text-decoration: none;
+	margin: 3px 0 7px 0;
+}
+#calendar .details:hover{
+	color: rgba(255, 0, 76, 1);
+	background: white;
 }
 
-#calendar .details {
-	color: #666;
-	margin: 3px 0 7px 0;
-	text-decoration: none;	
-}
+
 
 #calendar .other-month {
-	background: #f5f5f5;
+	background-color: rgba(255, 0, 76, 0.5);
 	color: #666;
 }
 
@@ -104,9 +115,7 @@ header {
 	text-align: center;
 	width: 10%;
 }
-.changeMonth-button{
-	font-size: 26px;
-}
+
 
 .button-box {
 	height: auto;
@@ -130,9 +139,11 @@ header {
 	margin-right: 10px;
 }
 .next-previous-button{
-	background-color: #080123;
+	
 	border-style: none;	
+	margin: 15px;
+	height: 30px;
 }
 .next-previous-button:hover{
-	background-color: grey;
+	background-color: grey;	
 }

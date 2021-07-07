@@ -14,21 +14,25 @@
         </head>
 
         <body>
-            <div class="menue"> <!-- header on the page with title and buttons -->
-                <div class="menue-box" id="menue-div-buttons">
-                    <a href="/calendarview"><button type="button" height="200px" class="button">Calendar</button></a>
-                    <a href="/listview"><button type="button" height="200px" class="button">List</button></a>
-                </div>
-                <div class="menue-box">
-                    <h1>My Calendar</h1>
-                </div>
-                <div class="menue-button-box">
-                    <div class="plus">
-                        <a href="/createEntry" class="plus"><img src="/frontend/images/plus_v2.png" width="auto"
-                                height="70%" /></a>
-                    </div>
-                </div>
-            </div>
+            <!-- Header/Menu Start-->
+			<div class="menue">
+				<div class="menue-box">
+					<h1 id="calendar_title" >My Calendar</h1>
+				</div>
+				<div class="menue-box">
+					<a href="/today"><h3>6 July 2021</h3></a>
+				</div>
+				<div class="menue-button-box">
+					<div class="plus">
+						<div id="menue-div-buttons">
+							<a href="/listview"><img height="70%" class="list" src="/frontend/images/icon/List.png"></img></a>
+							<a href="/calendarview"><img class="calendar" height="70%" src="/frontend/images/icon/Calendar.png" ></img></a> 
+					</div>
+					<a href="/createEntry" class="plus-btn"><img src="/frontend/images/icon/Add.png" width="auto" height="70%" /></a>
+					</div>
+				</div>
+			</div>
+			<!-- Header/Menu End-->
 
             <div class="content-area"> <!-- container for the interaction field of the page -->
                 <h1>

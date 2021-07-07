@@ -2,24 +2,42 @@ a {
 	text-decoration: none;
 }
 
-.list {
+.liste {
 	margin: 30px 10% 30px 10%;
 	width: 80%;
 	height: auto;
 }
 
 .list-element {
-	background-color: white;
+	background-color: rgba(0, 0, 0, 1);
 	width: 100%;
 	height: auto;
 	padding: 10px;
-	color: black;
+	color: white;
+	align-items:baseline;
+	vertical-align: middle;
 
 	display: flex;
 	position: relative;
 	border-radius: 18px;
-	margin-top: 10px;
-	margin-bottom: 10px;
+	border:1px solid rgba(255, 0, 76, 1);
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.birthdate-element {
+	width: 200%;
+	background-color: rgba(0, 0, 0, 1);
+	
+	height: auto;
+	padding: 10px;
+	color: white;
+
+	display: flex;
+	position: relative;
+	border-radius: 18px;
+	border:1px solid rgba(255, 0, 76, 1);
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
 .date {
@@ -42,4 +60,14 @@ a {
 	justify-content: flex-end;
 	align-items: center;
 	margin-right: 10px;
+}
+.cross-btn {
+	
+	float: right;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin-right: 10px;
+	height: 100%;
+	
 }
