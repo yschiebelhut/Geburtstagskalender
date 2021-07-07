@@ -10,8 +10,8 @@
 		</head>
 
 		<body> 
-			<!-- Header/Menu Start-->
-			<div class="menue">
+			
+			<div class="menue"> <!-- header on the page with title and buttons -->
 				<div class="menue-box">
 					<h1 id="calendar_title" >My Calendar</h1>
 				</div>
@@ -28,29 +28,27 @@
 					</div>
 				</div>
 			</div>
-			<!-- Header/Menu End-->
 
-			<!-- Formular-Container-->
-			<div class="content-area">
+			<div class="content-area"> <!-- content area of the page -->
 
 				<div class="heading-area">
-					<a href="/back"><img class="back"  src="/frontend/images/icon/Back.png"></button></a>
+					<a href="/back"><img class="back"  src="/frontend/images/icon/Back.png"></button></a> <!-- button that leads back to the origin page -->
 					<h1>Create new Birthday</h1>
-					<a href="/back"><img  class="close"  src="/frontend/images/icon/Close.png"></button></a>
+					<a href="/back"><img  class="close"  src="/frontend/images/icon/Close.png"></button></a> <!-- button that leads back to the origin page -->
 				</div>
 					
+					<!-- input fields to create a brithday entry: name, date of birth and notes -->
 					<p ><input class="input" id="name" type="text" name="name" placeholder="Name" required /></p>
 					<p ><input class="input" id="date" type="date" name="date" placeholder="Date" required /></p>
 					<p><textarea id="notes" type="text" name="message"  placeholder="Note" ></textarea></p>
 					
 
 					<div class="button-box">
-						<input class="Create-btn " type="submit" name="save" value="    Create" onclick="sendData()">
+						<input class="Create-btn " type="submit" name="save" value="    Create" onclick="sendData()"> <!-- create button that triggers and INSERT-SQL statement to create a brithday entry in the database -->
 						
 						
 					</div>
 
 			</div>
 		</body>
-
 	</html>

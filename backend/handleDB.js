@@ -3,7 +3,7 @@ const { open } = require('sqlite')
 const fs = require('fs');
 var db;
 
-(async () => {
+(async () => { //function to connect the node server with the database
 	db = await new sqlite3.Database('db.sqlite', (err) => {
 		if (err) {
 			console.error(err.message)
@@ -17,7 +17,7 @@ var db;
 	})
 })()
 
-module.exports.getDataForID = async function (id) {
+module.exports.getDataForID = async function (id) { //sql select statement to get the data for a special entry with a specific id
 	return new Promise(function (resolve, reject) {
 		db.get("SELECT * FROM birthdays WHERE id=?", id, (err, row) => {
 			if (err) {
@@ -28,7 +28,7 @@ module.exports.getDataForID = async function (id) {
 	})
 }
 
-module.exports.getListData = async function () {
+module.exports.getListData = async function () { //sql function to get all data for the next 365 days in listview
 	return new Promise(function (resolve, reject) {
 		db.all("SELECT * FROM birthdays ORDER BY month, day ASC", (err, rows) => {
 			if (err) {
@@ -68,7 +68,7 @@ module.exports.getListData = async function () {
 	})
 }
 
-module.exports.getDataForDay = async function (month, day) {
+module.exports.getDataForDay = async function (month, day) { //sql select statement to get the data from all entries for a special date
 	return new Promise(function (resolve, reject) {
 		db.all("SELECT * FROM birthdays WHERE month=? AND day =? ORDER BY day ASC", month, day, (err, rows) => {
 			if (err) {
@@ -79,7 +79,7 @@ module.exports.getDataForDay = async function (month, day) {
 	})
 }
 
-function createDBAndTable() {
+function createDBAndTable() { //sql function that sets up the database structure with all requirements
 	console.log('[i] checking or creating creating table')
 	db.run('CREATE TABLE IF NOT EXISTS birthdays (\
 		id INTEGER PRIMARY KEY,\
@@ -92,7 +92,7 @@ function createDBAndTable() {
 	console.log('[i] table checked or created')
 }
 
-function createEntriesFromJSON() {
+function createEntriesFromJSON() { //test function: will be deleted
 	console.log('[i] start reading table data from JSON')
 	let rawdata = fs.readFileSync('testdata.json')
 	let data = JSON.parse(rawdata)
@@ -112,16 +112,15 @@ function createEntriesFromJSON() {
 	console.log('[i] finished reading table data from JSON')
 }
 
-module.exports.createNewEntry = function (data) {
+module.exports.createNewEntry = function (data) { //sql function to insert a new entry into the database
 	db.run("INSERT INTO birthdays (name, day, month, notes) VALUES(?,?,?,?)", data.name, data.day, data.month, data.notes)
 }
 
-module.exports.deleteEntry = function(id) {
+module.exports.deleteEntry = function(id) { //sql function to delete a birthday entry
 	db.run("DELETE FROM birthdays WHERE id=?", id)
 	console.log("deleted entry successfully")
 }
 
-module.exports.editEntry = function(data){
+module.exports.editEntry = function(data){ //sql function to update a birthday entry 
 	db.run("UPDATE birthdays SET name=?, day =?, month=?, year=?, notes=? WHERE id=?", data.name, data.day, data.month, data.year, data.notes, data.id)
 }
-

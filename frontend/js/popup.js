@@ -1,4 +1,5 @@
-function sendData(){
+function sendData() {
+
   var name = document.getElementById("name").value
   var date = document.getElementById("date").value.split("-")
   var day = date[2]
@@ -6,33 +7,30 @@ function sendData(){
   var year = date[0]
   var notes = document.getElementById("notes").value
 
-
-
-  if(name && day && month && year){
+  if (name && day && month && year) {
     var data = {
-      name : name,
-      day : day,
-      month : month,
-      year : year,
-      notes : notes
+      name: name,
+      day: day,
+      month: month,
+      year: year,
+      notes: notes
     }
+
     data = JSON.stringify(data)
-    console.log(data)
+
     var xhr = new XMLHttpRequest();
     xhr.open("POST", '/editEntry', true);
-
     xhr.setRequestHeader("Content-Type", "application/json");
 
-    xhr.onreadystatechange = function() {
-        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-          console.log("sent data")
-          window.location.href="/back"
-        }
+    xhr.onreadystatechange = function () {
+      if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+        console.log("sent data")
+        window.location.href = "/back"
       }
-      xhr.send(data);
-  }else{
+    }
+
+    xhr.send(data);
+  } else {
     alert("PLS GIVE MORE INFORMATION!")
   }
-
 }
-

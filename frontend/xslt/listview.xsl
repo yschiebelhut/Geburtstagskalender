@@ -39,7 +39,7 @@
             <div class="liste">
                 <h2><xsl:value-of select="birthdays/day" />&#160;<xsl:value-of select="birthdays/monthname" />&#160;<xsl:value-of select="birthdays/year"/></h2>
 
-                <xsl:for-each select="birthdays/bday">
+                <xsl:for-each select="birthdays/bday"> <!-- xsl loop to display all birthday entries for the coming year -->
 
                    <div class="list-element">
                     <a >

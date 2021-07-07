@@ -34,37 +34,36 @@
 			</div>
 			<!-- Header/Menu End-->
 
-            <!-- Formular-Container-->
-            <div class="content-area">
+            <div class="content-area"> <!-- container for the interaction field of the page -->
                 <h1>
-                    <xsl:value-of select="/birthdays/bday/name" />'s Birthday
+                    <xsl:value-of select="/birthdays/bday/name" />'s Birthday <!-- get the name of the person by xslt and display as content title -->
                 </h1>
                 <p>
                     <input id="name" type="text" name="name" placeholder="Name">
                     <xsl:attribute name="value">
-                        <xsl:value-of select="/birthdays/bday/name" />
+                        <xsl:value-of select="/birthdays/bday/name" /> <!-- input field for the name that gets automatically filled by xslt -->
                     </xsl:attribute>
                     </input>
                 </p>
                 <p>
                     <input id="date" type="date" name="date" placeholder="Date">
                     <xsl:attribute name="value">
-                        <xsl:value-of select="/birthdays/bday/fulldate" />
+                        <xsl:value-of select="/birthdays/bday/fulldate" /> <!-- date picker that initially is set with the person's day of birth -->
                     </xsl:attribute>
                     </input>
                 </p>
                 <p>
                     <textarea id="notes" type="text" name="message" rows="8" cols="60" placeholder="Note">
                     <xsl:attribute name="text">
-                        <xsl:value-of select="/birthdays/bday/notes"/>
+                        <xsl:value-of select="/birthdays/bday/notes"/> <!-- textbox that contains all notes that are written for this birthday entry -->
                     </xsl:attribute>
                     </textarea>
                 </p>
 
                 <div class="button-box">
-                    <input id="submit" class="form-button" type="submit" value="Delete" />
-                    <input id="submit" class="form-button" type="submit" value="Change" onclick="sendData()" />
-                    <a href="/back"><input id="cancel" class="form-button" type="reset" value="Cancel" /></a>
+                    <input id="submit" class="form-button" type="submit" value="Delete" /> <!-- the birthday entry will be deleted from the database if the button gets clicked -->
+                    <input id="submit" class="form-button" type="submit" value="Change" onclick="sendData()" /> <!-- if data gets changed then the butto will trigger an UPDATE-SQL statement to update the database entry -->
+                    <a href="/back"><input id="cancel" class="form-button" type="reset" value="Cancel" /></a> <!-- button leads back to the origin view (list view or calendar view) -->
                 </div>
             </div>
         </body>

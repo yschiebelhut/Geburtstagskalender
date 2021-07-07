@@ -27,20 +27,18 @@
 	var curMonth
 	var curYear
 	var lastPage ="/listview"
-
-	// function to reset date to current month and year
-	var resetDate = function () {
+	var resetDate = function () { // function to reset date to current month and year
 		curMonth = new Date().getMonth() + 1
 		curYear = new Date().getFullYear()
 	}
-	resetDate() // server should start with data for current month
 
-	const handleDBJS = require('./handleDB')
+	resetDate() // server should start with data for current month
+	const handleDBJS = require('./handleDB') // 'import' the functions of handleDB.js to server.js to make them usable in this file
 
 	app.use(express.static('../'))
 	app.use(bodyParser.json())
 
-	var getXMLBody = async function () {
+	var getXMLBody = async function () { // function to build the xml structure for the birthday entries
 		var data = await handleDBJS.getListData()
 		var output = ''
 		output += '<birthdays>' + '\n'
@@ -48,8 +46,8 @@
 		output += '<monthname>' + months[curMonth] + '</monthname>' + '\n'
 		output += '<year>' + curYear + '</year>' + '\n'
 		data.forEach((entry) => {
+			
 			output += '<bday>'
-
 			var bdDate = new Date()
 			bdDate.setHours(0, 0, 0, 0)
 			bdDate.setMonth(entry["month"]-1)
@@ -62,21 +60,20 @@
 			var diffDays = timeDiff / (1000 * 3600 * 24)
 
 			output += "<daysleft>" + Math.floor(diffDays) + "</daysleft>"
-
 			output += convert.json2xml(entry, json2xmlOptions)
 			output += '</bday>'
 		})
+		
 		output += '</birthdays>'
-
 		output = prettifyXml(output, xmlFormat)
 		return output
 	}
 
-	app.get('/', async (req, res) => {
+	app.get('/', async (req, res) => { //root-route gets redirected to the /listview route
 		res.redirect('/listview')
 	})
 
-	app.get('/listview', async (req, res) => {
+	app.get('/listview', async (req, res) => { // this route opens listview.xsl with birthdays.dtd as .dtd
 		lastPage="/listview"
 		res.set('Content-Type', 'text/xml')
 		var xmlres = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
@@ -88,16 +85,16 @@
 	})
 
 
-	app.get('/calendarview', async (req, res) => {
+	app.get('/calendarview', async (req, res) => { // this route opens calendarview.xsl with calendar.dtd as .dtd
 
 		lastPage="/calendarview"
 		var date = new Date(), y = curYear, m = curMonth - 1;
 		var firstDay = new Date(y, m, 1);
 		var lastDay = new Date(y, m + 1, 0);
 
-		var firstDayDay = firstDay.getDay() // Erster Monatstag (Wochentag) -> 0 - 6
-		var lastDayDate = lastDay.getDate() // Letzter Monatstag (Datum) -> 29, 30, 31
-		var lastDayDay = lastDay.getDay() // Letzter Wochentag -> 0-6
+		var firstDayDay = firstDay.getDay() // weekday -> 0 - 6 (Sunday is 0)
+		var lastDayDate = lastDay.getDate() // date of the last day in month -> 29, 30, 31
+		var lastDayDay = lastDay.getDay() // weekday of the last day in month -> 0-6
 
 		if (firstDayDay === 0) firstDayDay = 7
 
@@ -109,11 +106,11 @@
 		xmlres += "<year>" + curYear + "</year>" + "\n"
 		var abort = false
 
-		while (!abort) {
+		while (!abort) { // these loops create the xml for the 2-dimensional calendar
 
 			xmlres += '<row>' + '\n'
 
-			for (let j = 0; j < 7; j++) {
+			for (let j = 0; j < 7; j++) { // to display all date successfully the calendar is created with 6 possible weeks per month 
 
 				xmlres += '<entry>' + '\n'
 				if (index >= 1 && index <= lastDayDate) {
@@ -129,33 +126,28 @@
 						bdDate.setHours(0, 0, 0, 0)
 						bdDate.setMonth(curMonth - 1)
 						bdDate.setDate(entry["day"])
-						if (entry["month"] < curMonth) {
-							bdDate.setFullYear(bdDate.getFullYear() + 1)
-						}
+						if (entry["month"] < curMonth) bdDate.setFullYear(bdDate.getFullYear() + 1)
+
 						var curDate = new Date()
 						curDate.setHours(0, 0, 0, 0)
 						var timeDiff = bdDate.getTime() - curDate.getTime()
 						var diffDays = timeDiff / (1000 * 3600 * 24)
 
 						xmlres += "<daysleft>" + diffDays + "</daysleft>"
-
 						xmlres += convert.json2xml(entry, json2xmlOptions)
 						xmlres += '</bday>'
 					});
 				}
 
-				else {
-					xmlres += '<inMonth>false</inMonth>' + '\n'
-				}
+				else xmlres += '<inMonth>false</inMonth>' + '\n'
 
 				xmlres += '</entry>' + '\n'
 				index++
 
-				if (index > lastDayDate) abort = true
+				if (index > lastDayDate) abort = true // due to the 6 possible weeks it can happen that one month only has 5 filled week and one week is completely empty, in this case the empty row won't created by this if statement
 			}
 
 			xmlres += '</row>' + '\n'
-
 		}
 
 		xmlres += '</calendar>' + '\n'
@@ -169,11 +161,11 @@
 		res.send(xmlres)
 	})
 
-	app.get("/back", (req,res)=>{
+	app.get("/back", (req,res)=>{ // route that leads back to the origin page
 		res.redirect(lastPage)
 	})
 
-	app.post('/nextMonth', (req, res) => {
+	app.post('/nextMonth', (req, res) => { // route that get's activated by the 'next' button in calendarview.xsl to get the data for the next month
 		curMonth++
 		if (curMonth === 13) {
 			curYear++
@@ -182,7 +174,7 @@
 		res.send("")
 	})
 
-	app.post('/previousMonth', (req, res) => {
+	app.post('/previousMonth', (req, res) => { // route that get's activated by the 'previous' button in calendarview.xsl to get the data for the previous month
 		curMonth--
 		if (curMonth === 0) {
 			curMonth = 12
@@ -191,18 +183,12 @@
 		res.send("")
 	})
 
-	app.get('/today', (req, res) => {
+	app.get('/today', (req, res) => { // route that get's activated by the today button in calendarview.xsl to get the data to jump back to the current month and date
 		resetDate()
 		res.redirect("/calendarview?today=true")
 	})
 
-	app.post("/editEntry", (req,res)=>{
-		console.log(req.body)
-
-		res.send("")
-	})
-
-	app.get("/popup", async (req,res)=>{
+	app.get("/popup", async (req,res)=>{ // route that redirects to the popup.xsl; it receives the id of the selected entry and uses the id to build the xml information based on the id
 		var id = req.query.id
 		res.set('Content-Type', 'text/xml')
 		var data = await handleDBJS.getDataForID(id)
@@ -225,22 +211,19 @@
 		xmlres += '<!DOCTYPE birthdays SYSTEM "/backend/popup.dtd">' + '\n'
 		xmlres += output
 
-		console.log(xmlres)
 		res.send(xmlres)
 	})
 
-	app.post('/createEntry', (req, res) => {
-		console.log(req.body)
+	app.post('/createEntry', (req, res) => { // route that 
 		handleDBJS.createNewEntry(req.body)
-		console.log("finished")
 		res.send("")
 	})
 
-	app.get('/createEntry', (req, res) => {
+	app.get('/createEntry', (req, res) => { // route that redirects to the addview.html
 		res.sendFile(path.join(__dirname, '../frontend/html/addview.html'))
 	})
 
 	app.listen(port, () => {
-		console.log(`Example app listening at http://localhost:${port}`)
+		console.log(`App is listening at http://localhost:${port}`)
 	})
 })()
