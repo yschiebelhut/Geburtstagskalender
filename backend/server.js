@@ -192,7 +192,6 @@
 		var id = req.query.id
 		res.set('Content-Type', 'text/xml')
 		var data = await handleDBJS.getDataForID(id)
-		console.log(data)
 		if(data.month<10)data.month = "0"+data.month
 		if(data.day<10)data.day="0"+data.day
 		data.fulldate=curYear+"-"+data.month+"-"+data.day
