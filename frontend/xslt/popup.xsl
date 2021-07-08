@@ -38,7 +38,7 @@
             <div class="content-area"> <!-- container for the interaction field of the page -->
                <a href="/back"><img class="close" src="/frontend/images/icon/Close.png" /></a> <!-- button that leads back to the origin page -->
                 <h1>
-                    <xsl:value-of select="/birthdays/bday/name" />'s Birthday <!-- get the name of the person by xslt and display as content title -->
+                    Birthday of <xsl:value-of select="/birthdays/bday/name" /> <!-- get the name of the person by xslt and display as content title -->
                 </h1>
                 <p>
                     <input class="input" id="name" type="text" name="name" placeholder="Name">
