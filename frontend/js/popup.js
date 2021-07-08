@@ -6,6 +6,8 @@ function sendData() {
   var month = date[1]
   var year = date[0]
   var notes = document.getElementById("notes").value
+  console.log("I'm here")
+  console.log("Neue Notes: " + notes)
 
   if (name && day && month && year) {
     var data = {

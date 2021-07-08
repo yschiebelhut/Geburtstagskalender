@@ -9,8 +9,7 @@
 
             <link href="frontend/css/default.css" type="text/css" rel="stylesheet" />
             <link href="frontend/css/addview.css" type="text/css" rel="stylesheet" />
-
-            <script type="text/javascript" src="/frontend/js/popup.js"></script>
+            <script src="frontend/js/popup.js"></script>
         </head>
 
         <body>
@@ -57,16 +56,14 @@
                 </p>
                 <p> <!-- Note wird nicht gespeichert Bug -->
                     <textarea id="notes" type="text" name="message" rows="8" cols="60" placeholder="Note">
-                    <xsl:attribute name="text">
                         <xsl:value-of select="/birthdays/bday/notes"/> <!-- textbox that contains all notes that are written for this birthday entry -->
-                    </xsl:attribute>
                     </textarea>
                 </p>
 
                 <div class="button-box">
-                    <input class="Save-btn" type="submit" name="save" value="      Save Changes" onclick="sendData()" /><!-- if data gets changed then the butto will trigger an UPDATE-SQL statement to update the database entry -->
+                    <input id="update_btn" class="Save-btn" type="button" name="save" value="      Save Changes" onclick="sendData()" /><!-- if data gets changed then the butto will trigger an UPDATE-SQL statement to update the database entry -->
                      
-                    <a><xsl:attribute name="href">/delete?id=<xsl:value-of select="birthdays/bday/id" /></xsl:attribute> <input class="Delete-btn" type="submit" name="save" value="        Delete" onclick="sendData()" /><!-- <input id="submit" class="form-button" type="submit" value="Delete" />--> </a> <!-- the birthday entry will be deleted from the database if the button gets clicked -->
+                    <a><xsl:attribute name="href">/delete?id=<xsl:value-of select="birthdays/bday/id" /></xsl:attribute> <input class="Delete-btn" type="button" name="save" value="        Delete"  /><!-- <input id="submit" class="form-button" type="submit" value="Delete" />--> </a> <!-- the birthday entry will be deleted from the database if the button gets clicked -->
                     
                 </div>
             </div>

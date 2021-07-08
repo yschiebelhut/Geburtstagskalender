@@ -48,8 +48,6 @@
 
             <div id="calendar-wrap">
 
-                
-
                 <!-- calendar header line with all weekdays -->
                 <div id="calendar">
                     <ul class="weekdays">

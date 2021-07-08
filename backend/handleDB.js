@@ -113,7 +113,7 @@ function createEntriesFromJSON() { //test function: will be deleted
 }
 
 module.exports.createNewEntry = function (data) { //sql function to insert a new entry into the database
-	db.run("INSERT INTO birthdays (name, day, month, notes) VALUES(?,?,?,?)", data.name, data.day, data.month, data.notes)
+	db.run("INSERT INTO birthdays (name, day, month, year, notes) VALUES(?,?,?,?,?)", data.name, data.day, data.month, data.year, data.notes)
 }
 
 module.exports.deleteEntry = function(id) { //sql function to delete a birthday entry

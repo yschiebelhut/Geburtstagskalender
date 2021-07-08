@@ -24,7 +24,6 @@ function nextMonth(){
   xhr.send();
 }
 
-
 function showToday(){
   var requested = window.location.search
   var today = new Date()
