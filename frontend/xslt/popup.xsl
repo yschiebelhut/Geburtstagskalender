@@ -29,26 +29,27 @@
 						<div id="menue-div-buttons">
 							<a href="/listview"><img height="70%" class="list" src="/frontend/images/icon/List.png"></img></a>
 							<a href="/calendarview"><img class="calendar" height="70%" src="/frontend/images/icon/Calendar.png" ></img></a> 
-					</div>
-					<a href="/createEntry" class="plus-btn"><img src="/frontend/images/icon/Add.png" width="auto" height="70%" /></a>
+					    </div>
+					    <a href="/createEntry" class="plus-btn"><img src="/frontend/images/icon/Add.png" width="auto" height="70%" /></a>
 					</div>
 				</div>
 			</div>
 			<!-- Header/Menu End-->
 
             <div class="content-area"> <!-- container for the interaction field of the page -->
+               <a href="/back"><img class="close" src="/frontend/images/icon/Close.png" /></a> <!-- button that leads back to the origin page -->
                 <h1>
                     <xsl:value-of select="/birthdays/bday/name" />'s Birthday <!-- get the name of the person by xslt and display as content title -->
                 </h1>
                 <p>
-                    <input id="name" type="text" name="name" placeholder="Name">
+                    <input class="input" id="name" type="text" name="name" placeholder="Name">
                     <xsl:attribute name="value">
                         <xsl:value-of select="/birthdays/bday/name" /> <!-- input field for the name that gets automatically filled by xslt -->
                     </xsl:attribute>
                     </input>
                 </p>
                 <p>
-                    <input id="date" type="date" name="date" placeholder="Date">
+                    <input class="input" id="date" type="date" name="date" placeholder="Date">
                     <xsl:attribute name="value">
                         <xsl:value-of select="/birthdays/bday/fulldate" /> <!-- date picker that initially is set with the person's day of birth -->
                     </xsl:attribute>
@@ -63,9 +64,10 @@
                 </p>
 
                 <div class="button-box">
-                    <a><xsl:attribute name="href">/delete?id=<xsl:value-of select="birthdays/bday/id" /></xsl:attribute><input id="submit" class="form-button" type="submit" value="Delete" /></a> <!-- the birthday entry will be deleted from the database if the button gets clicked -->
-                    <input id="submit" class="form-button" type="submit" value="Change" onclick="sendData()" /> <!-- if data gets changed then the butto will trigger an UPDATE-SQL statement to update the database entry -->
-                    <a href="/back"><input id="cancel" class="form-button" type="reset" value="Cancel" /></a> <!-- button leads back to the origin view (list view or calendar view) -->
+                    <input class="Save-btn" type="submit" name="save" value="      Save Changes" onclick="sendData()" /><!-- if data gets changed then the butto will trigger an UPDATE-SQL statement to update the database entry -->
+                     
+                    <a><xsl:attribute name="href">/delete?id=<xsl:value-of select="birthdays/bday/id" /></xsl:attribute> <input class="Delete-btn" type="submit" name="save" value="        Delete" onclick="sendData()" /><!-- <input id="submit" class="form-button" type="submit" value="Delete" />--> </a> <!-- the birthday entry will be deleted from the database if the button gets clicked -->
+                    
                 </div>
             </div>
         </body>

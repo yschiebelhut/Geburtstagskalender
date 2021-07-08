@@ -35,10 +35,10 @@
 
 				<div class="content-area"> <!-- content area of the page -->
 
+					<a href="/back"><img class="close" src="/frontend/images/icon/Close.png" /></a> <!-- button that leads back to the origin page -->
 					<div class="heading-area">
-						<a href="/back"><img class="back" src="/frontend/images/icon/Back.png" /></a> <!-- button that leads back to the origin page -->
 						<h1>Create new Birthday</h1>
-						<a href="/back"><img class="close" src="/frontend/images/icon/Close.png" /></a> <!-- button that leads back to the origin page -->
+						
 					</div>
 					<!-- input fields to create a brithday entry: name, date of birth and notes -->
 					<p><input class="input" id="name" type="text" name="name" placeholder="Name" /></p>

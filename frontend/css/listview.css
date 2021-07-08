@@ -8,28 +8,13 @@ a {
 	height: auto;
 }
 
-.list-element {
-	background-color: rgba(0, 0, 0, 1);
-	width: 100%;
-	height: auto;
-	padding: 10px;
-	color: white;
-	align-items:baseline;
-	vertical-align: middle;
 
-	display: flex;
-	position: relative;
-	border-radius: 18px;
-	border:1px solid rgba(255, 0, 76, 1);
-	margin-top: 5px;
-	margin-bottom: 5px;
-}
 
 .birthdate-element {
 	width: 100%;
 	background-color: rgba(0, 0, 0, 1);
 	
-	padding: 10px;
+	padding: 15px;
 	color: white;
 
 	display: inline-flex;
@@ -39,9 +24,13 @@ a {
 	align-items: center;
 
 	border-radius: 18px;
-	border:1px solid rgba(255, 0, 76, 1);
+	border:1px solid rgb(255, 255, 255);
 	margin-top: 5px;
 	margin-bottom: 5px;
+}
+.birthdate-element:hover{
+color: rgba(255, 0, 76, 1);
+	background: white;
 }
 
 .subdiv {

@@ -1,7 +1,9 @@
 .content-area {
-	margin: 30px 10% 30px 10%;
-	width: 80%;
-	height: auto;
+	margin: 40px;
+	margin-left: 200px;
+	margin-right: 200px;
+	
+	height: fit-content;
 	background-color: rgb(0, 0,0,0.80);
 	color: white;
 	border-radius: 18px;
@@ -12,6 +14,7 @@
 	
 	font-size: 60px;
 	font-weight: 100;
+	text-align: center;
 }
 
 input {
@@ -40,11 +43,20 @@ input {
 .Create-btn{
 	background-image:url(/frontend/images/icon/Save.png);
 	background-repeat:no-repeat;
+	background-size: 12%;
 	background-position: left;
     background-position-x: 8px;
+	
+	
 	color: white;
 	background-color: rgba(233, 35, 0, 0.685);
-	font-size: 50px;
+	
+	
+	font-size: 40px;
+	width: 30%;
+	margin: 10px;
+	height: 60px;
+	
 
 }
 .Create-btn:hover{
@@ -82,20 +94,74 @@ input {
 #cancel {
 	margin-right: 50px;
 }
-.back {
+
+.close {
 	
-	
-	margin-right: 30px;
-	
+	float: right;
+	margin-right: 20px;
+	margin-top: 10px;
 	width: auto;
 	height: 40px;
 
 }
-.close {
+
+.Save-btn{
+	background-image:url(/frontend/images/icon/Save.png);
+	background-repeat:no-repeat;
+	background-size: 12%;
+	background-position: left;
+    background-position-x: 8px;
 	
-	float: right;
-	margin-left: 30px;
+	
+	color: white;
+	background-color: rgba(233, 35, 0, 0.685);
+	
+	
+	font-size: 40px;
 	width: auto;
-	height: 40px;
+	margin: 15px;
+	padding-right: 10px;
+	height: 60px;
+	
+
+}
+.Save-btn:hover{
+	background-image:url(/frontend/images/icon/Save_marked.png);
+	background-repeat:no-repeat;
+	background-position: left;
+    background-position-x: 8px;
+	color: rgba(161, 35, 0, 1);
+	background-color: white;
+	
+
+}
+.Delete-btn{
+	background-image:url(/frontend/images/icon/Delete_Cross.png);
+	background-repeat:no-repeat;
+	background-size: 25%;
+	background-position: left;
+    background-position-x: 8px;
+	padding-right: 10px;
+	
+	
+	color: rgb(255, 42, 42);
+	background-color: white;
+	
+	
+	font-size: 40px;
+	width: auto;
+	margin: 10px;
+	height: 60px;
+	
+
+}
+.Delete-btn:hover{
+	background-image:url(/frontend/images/icon/Delete_Cross.png);
+	background-repeat:no-repeat;
+	background-position: left;
+    background-position-x: 8px;
+	
+	background-color: rgb(0, 0, 0);
+	
 
 }

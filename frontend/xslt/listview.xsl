@@ -49,7 +49,7 @@
 
 						<a>
 							<xsl:attribute name="href">/popup?id=<xsl:value-of select="id" /></xsl:attribute>
-							<div class="list-element">
+							
 								<div class="birthdate-element">
 									<div class="date subdiv"><xsl:value-of select="day" />.<xsl:value-of select="month" />.<xsl:value-of select="year" /></div>
 									<div class="name subdiv"><xsl:value-of select="name" /></div>
@@ -60,7 +60,7 @@
 											<img class="cross-btn" src="/frontend/images/icon/Delete_Cross.png" />
 										</button> -->
 									</div>
-								</div>
+								
 							</div>
 						</a>
 
