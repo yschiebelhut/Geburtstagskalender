@@ -25,10 +25,12 @@ function sendData(){
     xhr.onreadystatechange = function() {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
           console.log("sent data")
+          window.location.href = "/back"
         }
       }
       xhr.send(data);
   }else{
     alert("PLS GIVE MORE INFORMATION!")
   }
+ 
 }
