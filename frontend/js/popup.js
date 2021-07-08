@@ -1,13 +1,14 @@
 function sendData() {
 
+  var url = location.search;
+
   var name = document.getElementById("name").value
   var date = document.getElementById("date").value.split("-")
   var day = date[2]
   var month = date[1]
   var year = date[0]
   var notes = document.getElementById("notes").value
-  console.log("I'm here")
-  console.log("Neue Notes: " + notes)
+  var id = url.substring(1).split('=')[1]
 
   if (name && day && month && year) {
     var data = {
@@ -15,7 +16,8 @@ function sendData() {
       day: day,
       month: month,
       year: year,
-      notes: notes
+      notes: notes,
+      id: id
     }
 
     data = JSON.stringify(data)
@@ -26,7 +28,6 @@ function sendData() {
 
     xhr.onreadystatechange = function () {
       if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-        console.log("sent data")
         window.location.href = "/back"
       }
     }

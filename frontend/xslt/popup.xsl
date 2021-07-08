@@ -9,7 +9,7 @@
 
             <link href="frontend/css/default.css" type="text/css" rel="stylesheet" />
             <link href="frontend/css/addview.css" type="text/css" rel="stylesheet" />
-            <script src="frontend/js/popup.js"></script>
+            <script src="/frontend/js/popup.js"></script>
         </head>
 
         <body>
