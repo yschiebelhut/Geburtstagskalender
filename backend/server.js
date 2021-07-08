@@ -102,6 +102,7 @@
 
 		res.set('Content-Type', 'text/xml')
 		var xmlres = '<calendar>' + '\n'
+		xmlres += '<day>' + new Date().getDate() + '</day>' + '\n'
 		xmlres += "<monthname>" + months[curMonth] + "</monthname>" + "\n"
 		xmlres += "<year>" + curYear + "</year>" + "\n"
 		var abort = false

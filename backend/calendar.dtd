@@ -1,4 +1,4 @@
-<!ELEMENT calendar (monthname, year, row*)>
+<!ELEMENT calendar (day, monthname, year, row*)>
 <!ELEMENT row (entry*)>
 <!ELEMENT entry ((index, inMonth, bday*) | (inMonth))>
 <!ELEMENT bday (daysleft,id,name,day,month,year,notes)>
