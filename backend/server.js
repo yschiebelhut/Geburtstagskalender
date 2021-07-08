@@ -244,6 +244,11 @@
 		res.send(xmlres)
 	})
 
+	app.post('/editEntry', (req, res) => { // route that 
+		handleDBJS.editEntry(req.body)
+		res.redirect("/back")
+	})
+
 	app.get('/delete', (req, res) => {
 		handleDBJS.deleteEntry(req.query.id)
 		res.redirect('/back')
