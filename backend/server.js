@@ -102,9 +102,13 @@
 
 		res.set('Content-Type', 'text/xml')
 		var xmlres = '<calendar>' + '\n'
+		xmlres += '<now>' + '\n'
 		xmlres += '<day>' + new Date().getDate() + '</day>' + '\n'
 		xmlres += '<monthname>' + months[new Date().getMonth() + 1] + '</monthname>'
-		xmlres += "<year>" + curYear + "</year>" + "\n"
+		xmlres += '<year>' + new Date().getFullYear() + '</year>' + '\n'
+		xmlres += '</now>'
+		xmlres += '<monthname>' + months[curMonth] + '</monthname>'
+		xmlres += '<year>' + curYear + '</year>'
 		var abort = false
 
 		while (!abort) { // these loops create the xml for the 2-dimensional calendar

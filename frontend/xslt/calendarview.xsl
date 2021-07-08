@@ -14,26 +14,20 @@
             <!-- header on the page with title and buttons -->
 			<div class="menue">
 				<div class="menue-box">
-					<h1 id="calendar_title" >My Calendar</h1>
+					<h1 id="calendar_title">My Calendar</h1>
 				</div>
 				<div class="menue-box">
 					<a href="/today">
-                        <h3>
-                            <xsl:value-of select="calendar/day" />
-                            &#160;
-                            <xsl:value-of select="calendar/monthname" />
-                            &#160;
-                            <xsl:value-of select="calendar/year" />
-                        </h3>
+                        <h3><xsl:value-of select="calendar/now/day" />&#160;<xsl:value-of select="calendar/now/monthname" />&#160;<xsl:value-of select="calendar/now/year" /></h3>
                     </a>
 				</div>
 				<div class="menue-button-box">
 					<div class="plus">
 						<div id="menue-div-buttons">
-						<a href="/listview"><img height="70%" class="list" src="/frontend/images/icon/List.png"></img></a>
-						<a ><img class="calendar" height="70%" src="/frontend/images/icon/marked_Calendar.png" ></img></a> 
+						    <a href="/listview"><img height="70%" class="list" src="/frontend/images/icon/List.png" /></a>
+						    <a><img class="calendar" height="70%" src="/frontend/images/icon/marked_Calendar.png" /></a> 
 					    </div>
-					<a href="/createEntry" class="plus-btn"><img src="/frontend/images/icon/Add.png" width="auto" height="70%" /></a>
+					    <a href="/createEntry" class="plus-btn"><img src="/frontend/images/icon/Add.png" width="auto" height="70%" /></a>
 					</div>
 				</div>
 			</div>
