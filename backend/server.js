@@ -43,8 +43,8 @@
 		var output = ''
 		output += '<birthdays>' + '\n'
 		output += '<day>' + new Date().getDate() + '</day>' + '\n'
-		output += '<monthname>' + months[curMonth] + '</monthname>' + '\n'
-		output += '<year>' + curYear + '</year>' + '\n'
+		output += '<monthname>' + months[new Date().getMonth() + 1] + '</monthname>' + '\n'
+		output += '<year>' + new Date().getFullYear() + '</year>' + '\n'
 		data.forEach((entry) => {
 			
 			output += '<bday>'
@@ -103,7 +103,7 @@
 		res.set('Content-Type', 'text/xml')
 		var xmlres = '<calendar>' + '\n'
 		xmlres += '<day>' + new Date().getDate() + '</day>' + '\n'
-		xmlres += "<monthname>" + months[curMonth] + "</monthname>" + "\n"
+		xmlres += '<monthname>' + months[new Date().getMonth() + 1] + '</monthname>'
 		xmlres += "<year>" + curYear + "</year>" + "\n"
 		var abort = false
 
@@ -198,7 +198,9 @@
 		data.fulldate=curYear+"-"+data.month+"-"+data.day
 		var output = ''
 		output += '<birthdays>'
-		output += '<monthname>' + months[data.month] + '</monthname>'
+		output += '<day>' + new Date().getDate() + '</day>' + '\n'
+		output += '<monthname>' + months[new Date().getMonth() + 1] + '</monthname>'
+		output += '<year>' + new Date().getFullYear() + '</year>' + '\n'
 		output += '<bday>'
 		output += convert.json2xml(data, json2xmlOptions)
 		output += '</bday>'
@@ -220,7 +222,22 @@
 	})
 
 	app.get('/createEntry', (req, res) => { // route that redirects to the addview.html
-		res.sendFile(path.join(__dirname, '../frontend/html/addview.html'))
+		res.set('Content-Type', 'text/xml')
+		var output = ''
+		output += '<birthdays>'
+		output += '<day>' + new Date().getDate() + '</day>' + '\n'
+		output += '<monthname>' + months[new Date().getMonth() + 1] + '</monthname>'
+		output += '<year>' + new Date().getFullYear() + '</year>' + '\n'
+		output += '</birthdays>'
+		output = prettifyXml(output, xmlFormat)
+
+		res.set('Content-Type', 'text/xml')
+		var xmlres = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
+		xmlres += '<?xml-stylesheet type="text/xsl" href="/frontend/xslt/addview.xsl"?>' + '\n'
+		xmlres += '<!DOCTYPE birthdays SYSTEM "/backend/birthdays.dtd">' + '\n'
+		xmlres += output
+
+		res.send(xmlres)
 	})
 
 	app.get('/delete', (req, res) => {

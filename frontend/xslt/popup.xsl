@@ -20,7 +20,15 @@
 					<h1 id="calendar_title" >My Calendar</h1>
 				</div>
 				<div class="menue-box">
-					<a href="/today"><h3>6 July 2021</h3></a>
+					<a href="/today">
+                        <h3>
+                            <xsl:value-of select="birthdays/day" />
+                            &#160;
+                            <xsl:value-of select="birthdays/monthname" />
+                            &#160;
+                            <xsl:value-of select="birthdays/year" />
+                        </h3
+                    ></a>
 				</div>
 				<div class="menue-button-box">
 					<div class="plus">
