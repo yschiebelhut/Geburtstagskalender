@@ -4,7 +4,7 @@
     <html>
         <head>
             <meta charset="utf-8" />
-            <title>Birthday calendar</title>
+            <title>Birthday Calendar</title>
             <link href="/frontend/css/default.css" type="text/css" rel="stylesheet" />
             <link href="/frontend/css/calendarview.css" type="text/css" rel="stylesheet" />
             <script src="/frontend/js/calendarview.js"></script>
@@ -14,16 +14,16 @@
             <!-- header on the page with title and buttons -->
 			<div class="menue">
 				<div class="menue-box">
-					<h1 id="calendar_title">My Calendar</h1>
+					<h1>My Calendar</h1>
 				</div>
 				<div class="menue-box">
 					<a href="/today">
                         <h3><xsl:value-of select="calendar/now/day" />&#160;<xsl:value-of select="calendar/now/monthname" />&#160;<xsl:value-of select="calendar/now/year" /></h3>
                     </a>
 				</div>
-				<div class="menue-button-box">
+				<div class="menue-btn-box">
 					<div class="plus">
-						<div id="menue-div-buttons">
+						<div class="menue-div-btns">
 						    <a href="/listview"><img height="70%" class="list" src="/frontend/images/icon/List.png" /></a>
 						    <a><img class="calendar" height="70%" src="/frontend/images/icon/marked_Calendar.png" /></a> 
 					    </div>
@@ -36,20 +36,21 @@
             <header>
                 <div class="today-area">
                      
-                    <a onclick="previousMonth()" ><img height="40%" class="next-previous-button" src="/frontend/images/icon/Previous.png"></img></a>
+                    <a onclick="previousMonth()" ><img height="40%" class="next-previous-btn" src="/frontend/images/icon/Previous.png"></img></a>
                   
-                    <h1><xsl:value-of select="calendar/monthname" />&#160;<xsl:value-of select="calendar/year" /></h1>
-                    <!-- <a href="/today" ><button class="changeMonth-button" id="today-button">today</button></a> -->
-                    <a onclick="nextMonth()" ><img height="40%" class="next-previous-button" src="/frontend/images/icon/Next.png"></img></a>
+                    <div class="dateView">
+                        <h1><xsl:value-of select="calendar/monthname" />&#160;<xsl:value-of select="calendar/year" /></h1>
+                    </div>
+                    <a onclick="nextMonth()" ><img height="40%" class="next-previous-btn" src="/frontend/images/icon/Next.png"></img></a>
                     
                 </div>
 
             </header>
 
-            <div id="calendar-wrap">
+            <div class="calendar-wrap">
 
                 <!-- calendar header line with all weekdays -->
-                <div id="calendar">
+                <div class="calendar-div">
                     <ul class="weekdays">
                         <li>Monday</li>
                         <li>Tuesday</li>

@@ -1,33 +1,18 @@
-a {
-	text-decoration: none;
-}
-
 .liste {
 	margin: 30px 10% 30px 10%;
-	width: 80%;
-	height: auto;
 }
-
-
 
 .birthdate-element {
 	width: 100%;
 	background-color: rgba(0, 0, 0, 1);
-	
 	padding: 15px;
-	color: white;
-
 	display: inline-flex;
-	flex-wrap: nowrap;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-
 	border-radius: 18px;
 	border:1px solid rgb(255, 255, 255);
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
+
 .birthdate-element:hover{
 color: rgba(255, 0, 76, 1);
 	background: white;
@@ -35,13 +20,7 @@ color: rgba(255, 0, 76, 1);
 
 .subdiv {
 	display: inline-flex;
-	flex-grow: 1;
 	width: 100%;
-	height: 100%;
-}
-
-.date {
-	justify-content: flex-start;
 }
 
 .name {
@@ -51,10 +30,3 @@ color: rgba(255, 0, 76, 1);
 .countdown {
 	justify-content: flex-end;
 }
-
-/* .cross-btn {
-	margin-right: 10px;
-	height: 1.5em;
-	width: auto;
-	padding: 10px;
-} */

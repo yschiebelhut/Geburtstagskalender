@@ -15,16 +15,16 @@
 				<!-- Header/Menu Start-->
 				<div class="menue">
 					<div class="menue-box">
-						<h1 id="calendar_title">My Calendar</h1>
+						<h1>My Calendar</h1>
 					</div>
 					<div class="menue-box">
 						<a href="/today">
 							<h3><xsl:value-of select="birthdays/day" />&#160;<xsl:value-of select="birthdays/monthname" />&#160;<xsl:value-of select="birthdays/year" /></h3>
 						</a>
 					</div>
-					<div class="menue-button-box">
+					<div class="menue-btn-box">
 						<div class="plus">
-							<div id="menue-div-buttons">
+							<div class="menue-div-btns">
 								<a>
 									<img class="list" height="70%" src="/frontend/images/icon/marked_List.png"></img>
 								</a>
@@ -51,7 +51,7 @@
 							<xsl:attribute name="href">/popup?id=<xsl:value-of select="id" /></xsl:attribute>
 							
 								<div class="birthdate-element">
-									<div class="date subdiv"><xsl:value-of select="day" />.<xsl:value-of select="month" />.<xsl:value-of select="year" /></div>
+									<div class="subdiv"><xsl:value-of select="day" />.<xsl:value-of select="month" />.<xsl:value-of select="year" /></div>
 									<div class="name subdiv"><xsl:value-of select="name" /></div>
 									<div class="countdown subdiv">
 										<xsl:value-of select="daysleft" />&#160;days

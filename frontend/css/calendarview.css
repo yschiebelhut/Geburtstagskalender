@@ -1,46 +1,18 @@
-body {
-	align-items: center;
-	text-align: center;
-}
-
-header {
-	text-align: center;
-}
-
-#calendar-wrap {
-	display: flex;
-	position: relative;
-	visibility: visible;
-	
-	align-self: center;
+.calendar-wrap {
 	margin-left: 100px;
 	margin-right: 100px;
 }
 
-#calendar {
-	width: 100%;
-	visibility: visible;
-	
-}
-
-#calendar a {
-	color: #8e352e;
-	text-decoration: none;
-}
-
-#calendar ul {
-	list-style: none;
+.calendar-div ul {
 	padding: 0;
 	margin: 0;
-	align-items: center;
 }
 
-#calendar li {
+.calendar-div li {
 	display: block;
 	float: left;
 	width: 14.285%;
 	padding: 10px;
-	
 	box-sizing:border-box;
 	border: 1px solid white;
 	border-radius: 30px;
@@ -49,87 +21,51 @@ header {
 	background-color: rgba(0, 0, 0, 0.5);
 }
 
-#calendar ul.weekdays {
+.calendar-div ul.weekdays {
 	height: 40px;
 	background: rgba(0, 0, 0, 0.7);
 	width: 99.45%;
 }
 
-#calendar ul.weekdays li {
-	text-align: center;
+.calendar-div ul.weekdays li {
 	text-transform: uppercase;
-	line-height: 20px;
 	border: none !important;
-	padding: 10px 6px;
-	color: #fff;
-	font-size: 13px;
 }
 
-#calendar .days li {
+.calendar-div .days li {
 	height: 180px;
-	
-	
 }
 
-
-
-#calendar .date {
-	text-align: center;
+.calendar-div .date {
 	margin-bottom: 5px;
 	padding: 4px;
 	background: rgba(255, 0, 76, 1);
-	color: #fff;
 	width: 20px;
 	border-radius: 50%;
 	float: right;
 }
 
-#calendar .details {
+.calendar-div .details {
 	clear: both;
-	display: block;
-	font-size: 13px;
 	border-radius: 20px;
 	padding: 5px;
-	margin-top: 40px;
-	margin-bottom: 5px;
 	line-height: 14px;
-	background: rgba(0,0,0, 1);
-	
-	color: #ffffff;
-	text-decoration: none;
+	background: white;
+	color: black;
 	margin: 3px 0 7px 0;
 }
-#calendar .details:hover{
-	color: rgba(255, 0, 76, 1);
-	background: white;
+
+.calendar-div .details:hover{
+	color: white;
+	background: rgba(255, 0, 76, 1);
 }
 
+.dateView{
+	width: 249px; /* fixed size, because of the arrows should not move. The name of  months have a different length */
+}
 
-
-#calendar .other-month {
+.calendar-div .other-month {
 	background-color: rgba(255, 0, 76, 0.5);
-	color: #666;
-}
-
-.button-div {
-	text-align: center;
-	width: 10%;
-}
-
-
-.button-box {
-	height: auto;
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-}
-
-#cancel {
-	margin-right: 50px;
-}
-
-#today-button{
-	margin-left: 15px;;
 }
 
 .today-area{
@@ -138,12 +74,12 @@ header {
 	align-items: center;
 	margin-right: 10px;
 }
-.next-previous-button{
-	
-	border-style: none;	
+
+.next-previous-btn{
 	margin: 15px;
 	height: 30px;
 }
-.next-previous-button:hover{
-	background-color: grey;	
+
+.next-previous-btn:hover{
+	background-color: rgb(215, 123, 123);	
 }

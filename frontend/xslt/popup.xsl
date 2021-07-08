@@ -5,10 +5,10 @@
 
         <head>
             <meta charset="utf-8" />
-            <title>Birthday calendar</title>
+            <title>Birthday Calendar</title>
 
             <link href="frontend/css/default.css" type="text/css" rel="stylesheet" />
-            <link href="frontend/css/addview.css" type="text/css" rel="stylesheet" />
+            <link href="frontend/css/popup.css" type="text/css" rel="stylesheet" />
             <script src="/frontend/js/popup.js"></script>
         </head>
 
@@ -16,16 +16,16 @@
             <!-- Header/Menu Start-->
 			<div class="menue">
 				<div class="menue-box">
-					<h1 id="calendar_title" >My Calendar</h1>
+					<h1>My Calendar</h1>
 				</div>
 				<div class="menue-box">
 					<a href="/today">
                         <h3><xsl:value-of select="birthdays/day" />&#160;<xsl:value-of select="birthdays/monthname" />&#160;<xsl:value-of select="birthdays/year" /></h3>
                     </a>
 				</div>
-				<div class="menue-button-box">
+				<div class="menue-btn-box">
 					<div class="plus">
-						<div id="menue-div-buttons">
+						<div class="menue-div-btns">
 							<a href="/listview"><img height="70%" class="list" src="/frontend/images/icon/List.png"></img></a>
 							<a href="/calendarview"><img class="calendar" height="70%" src="/frontend/images/icon/Calendar.png" ></img></a> 
 					    </div>
@@ -40,6 +40,7 @@
                 <h1>
                     Birthday of <xsl:value-of select="/birthdays/bday/name" /> <!-- get the name of the person by xslt and display as content title -->
                 </h1>
+                 <h3>Age: <xsl:value-of select="/birthdays/bday/age" /></h3>
                 <p>
                     <input class="input" id="name" type="text" name="name" placeholder="Name">
                     <xsl:attribute name="value">
@@ -60,12 +61,8 @@
                     </textarea>
                 </p>
 
-                <div class="button-box">
-                    <input id="update_btn" class="Save-btn" type="button" name="save" value="      Save Changes" onclick="sendData()" /><!-- if data gets changed then the butto will trigger an UPDATE-SQL statement to update the database entry -->
-                     
-                    <a><xsl:attribute name="href">/delete?id=<xsl:value-of select="birthdays/bday/id" /></xsl:attribute> <input class="Delete-btn" type="button" name="save" value="        Delete"  /><!-- <input id="submit" class="form-button" type="submit" value="Delete" />--> </a> <!-- the birthday entry will be deleted from the database if the button gets clicked -->
-                    
-                </div>
+                <input id="update_btn" class="save-btn" type="button" name="save" value="      Save Changes" onclick="sendData()" /><!-- if data gets changed then the butto will trigger an UPDATE-SQL statement to update the database entry -->
+                <a><xsl:attribute name="href">/delete?id=<xsl:value-of select="birthdays/bday/id" /></xsl:attribute> <input class="delete-btn" type="button" name="save" value="        Delete"  /><!-- <input id="submit" class="form-button" type="submit" value="Delete" />--> </a> <!-- the birthday entry will be deleted from the database if the button gets clicked -->
             </div>
         </body>
 

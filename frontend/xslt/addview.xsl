@@ -4,7 +4,7 @@
 		<html>
 			<head>
 				<meta charset="utf-8" />
-				<title>Birthday calendar</title>
+				<title>Birthday Calendar</title>
 
 				<link href="/frontend/css/default.css" type="text/css" rel="stylesheet" />
 				<link href="/frontend/css/addview.css" type="text/css" rel="stylesheet" />
@@ -15,16 +15,16 @@
 			<body> 
 				<div class="menue"> <!-- header on the page with title and buttons -->
 					<div class="menue-box">
-						<h1 id="calendar_title">My Calendar</h1>
+						<h1>My Calendar</h1>
 					</div>
 					<div class="menue-box">
 						<a href="/today">
 							<h3><xsl:value-of select="birthdays/day" />&#160;<xsl:value-of select="birthdays/monthname" />&#160;<xsl:value-of select="birthdays/year" /></h3>
 						</a>
 					</div>
-					<div class="menue-button-box">
+					<div class="menue-btn-box">
 						<div class="plus">
-							<div id="menue-div-buttons">
+							<div class="menue-div-btns">
 								<a href="/listview"><img height="70%" class="list" src="/frontend/images/icon/List.png"></img></a>
 								<a href="/calendarview"><img class="calendar" height="70%" src="/frontend/images/icon/Calendar.png" /></a> 
 							</div>
@@ -45,9 +45,9 @@
 					<p><input class="input" id="date" type="date" name="date" placeholder="Date" /></p>
 					<p><textarea id="notes" type="text" name="message" placeholder="Note" /></p>
 					
-					<div class="button-box">
-						<input class="create-btn" type="submit" name="save" value="    Create" onclick="sendData()" /> <!-- create button that triggers and INSERT-SQL statement to create a brithday entry in the database -->
-					</div>
+
+					<input class="create-btn" type="submit" name="save" value="    Create" onclick="sendData()" /> <!-- create button that triggers and INSERT-SQL statement to create a brithday entry in the database -->
+
 				</div>
 			</body>
 		</html>
