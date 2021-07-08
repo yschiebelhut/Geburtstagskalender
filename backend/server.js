@@ -223,6 +223,11 @@
 		res.sendFile(path.join(__dirname, '../frontend/html/addview.html'))
 	})
 
+	app.get('/delete', (req, res) => {
+		handleDBJS.deleteEntry(req.query.id)
+		res.redirect('/back')
+	})
+
 	app.listen(port, () => {
 		console.log(`App is listening at http://localhost:${port}`)
 	})

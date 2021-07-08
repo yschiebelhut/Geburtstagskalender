@@ -61,7 +61,7 @@
                 </p>
 
                 <div class="button-box">
-                    <input id="submit" class="form-button" type="submit" value="Delete" /> <!-- the birthday entry will be deleted from the database if the button gets clicked -->
+                    <a><xsl:attribute name="href">/delete?id=<xsl:value-of select="birthdays/bday/id" /></xsl:attribute><input id="submit" class="form-button" type="submit" value="Delete" /></a> <!-- the birthday entry will be deleted from the database if the button gets clicked -->
                     <input id="submit" class="form-button" type="submit" value="Change" onclick="sendData()" /> <!-- if data gets changed then the butto will trigger an UPDATE-SQL statement to update the database entry -->
                     <a href="/back"><input id="cancel" class="form-button" type="reset" value="Cancel" /></a> <!-- button leads back to the origin view (list view or calendar view) -->
                 </div>
