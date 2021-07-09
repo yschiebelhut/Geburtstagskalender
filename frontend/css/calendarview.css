@@ -18,6 +18,9 @@
 	border-radius: 30px;
 	margin-right: -1px;
 	margin-bottom: -1px;
+}
+
+.days li {
 	background-color: rgba(0, 0, 0, 0.5);
 }
 
