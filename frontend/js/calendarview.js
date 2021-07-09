@@ -27,7 +27,7 @@ function showToday(){
     var today = new Date()
     var day = Math.floor(today.toDateString().split(" ")[2])
     var month=today.getMonth()
-    {
+    if(requested){
         document.getElementById(day).setAttribute("style", "border:2px white;  background-color: white; color: rgba(255, 0, 76, 1);;")
     }
 }
