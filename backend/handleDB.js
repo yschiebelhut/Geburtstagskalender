@@ -116,11 +116,11 @@ module.exports.createNewEntry = function (data) { //sql function to insert a new
 	db.run("INSERT INTO birthdays (name, day, month, year, notes) VALUES(?,?,?,?,?)", data.name, data.day, data.month, data.year, data.notes)
 }
 
-module.exports.deleteEntry = function(id) { //sql function to delete a birthday entry
+module.exports.deleteEntry = function (id) { //sql function to delete a birthday entry
 	db.run("DELETE FROM birthdays WHERE id=?", id)
 	console.log("deleted entry successfully")
 }
 
-module.exports.editEntry = function(data){ //sql function to update a birthday entry 
+module.exports.editEntry = function (data) { //sql function to update a birthday entry 
 	db.run("UPDATE birthdays SET name=?, day =?, month=?, year=?, notes=? WHERE id=?", data.name, data.day, data.month, data.year, data.notes, data.id)
 }

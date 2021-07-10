@@ -26,7 +26,7 @@
 
 	var curMonth
 	var curYear
-	var lastPage ="/listview"
+	var lastPage = "/listview"
 	var resetDate = function () { // function to reset date to current month and year
 		curMonth = new Date().getMonth() + 1
 		curYear = new Date().getFullYear()
@@ -46,11 +46,11 @@
 		output += '<monthname>' + months[new Date().getMonth() + 1] + '</monthname>' + '\n'
 		output += '<year>' + new Date().getFullYear() + '</year>' + '\n'
 		data.forEach((entry) => {
-			
+
 			output += '<bday>'
 			var bdDate = new Date()
 			bdDate.setHours(0, 0, 0, 0)
-			bdDate.setMonth(entry["month"]-1)
+			bdDate.setMonth(entry["month"] - 1)
 			bdDate.setDate(entry["day"])
 			bdDate.setFullYear(entry["year"])
 
@@ -63,7 +63,7 @@
 			output += convert.json2xml(entry, json2xmlOptions)
 			output += '</bday>'
 		})
-		
+
 		output += '</birthdays>'
 		output = prettifyXml(output, xmlFormat)
 		return output
@@ -74,7 +74,7 @@
 	})
 
 	app.get('/listview', async (req, res) => { // this route opens listview.xsl with birthdays.dtd as .dtd
-		lastPage="/listview"
+		lastPage = "/listview"
 		res.set('Content-Type', 'text/xml')
 		var xmlres = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
 		xmlres += '<?xml-stylesheet type="text/xsl" href="/frontend/xslt/listview.xsl"?>' + '\n'
@@ -87,7 +87,7 @@
 
 	app.get('/calendarview', async (req, res) => { // this route opens calendarview.xsl with calendar.dtd as .dtd
 
-		lastPage="/calendarview"
+		lastPage = "/calendarview"
 		var date = new Date(), y = curYear, m = curMonth - 1;
 		var firstDay = new Date(y, m, 1);
 		var lastDay = new Date(y, m + 1, 0);
@@ -166,7 +166,7 @@
 		res.send(xmlres)
 	})
 
-	app.get("/back", (req,res)=>{ // route that leads back to the origin page
+	app.get("/back", (req, res) => { // route that leads back to the origin page
 		res.redirect(lastPage)
 	})
 
@@ -193,13 +193,13 @@
 		res.redirect("/calendarview?today=true")
 	})
 
-	app.get("/popup", async (req,res)=>{ // route that redirects to the popup.xsl; it receives the id of the selected entry and uses the id to build the xml information based on the id
+	app.get("/popup", async (req, res) => { // route that redirects to the popup.xsl; it receives the id of the selected entry and uses the id to build the xml information based on the id
 		var id = req.query.id
 		res.set('Content-Type', 'text/xml')
 		var data = await handleDBJS.getDataForID(id)
-		if(data.month<10)data.month = "0"+data.month
-		if(data.day<10)data.day="0"+data.day
-		data.fulldate=curYear+"-"+data.month+"-"+data.day
+		if (data.month < 10) data.month = "0" + data.month
+		if (data.day < 10) data.day = "0" + data.day
+		data.fulldate = data.year + "-" + data.month + "-" + data.day
 
 		var age = curYear - data.year
 
