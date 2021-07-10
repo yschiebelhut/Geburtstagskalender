@@ -13,7 +13,6 @@ var db;
 
 	await db.serialize(async () => {
 		await createDBAndTable()
-		await createEntriesFromJSON()
 	})
 })()
 
@@ -90,26 +89,6 @@ function createDBAndTable() { //sql function that sets up the database structure
 		notes TEXT DEFAULT ""\
 		)')
 	console.log('[i] table checked or created')
-}
-
-function createEntriesFromJSON() { //test function: will be deleted
-	console.log('[i] start reading table data from JSON')
-	let rawdata = fs.readFileSync('testdata.json')
-	let data = JSON.parse(rawdata)
-	data.forEach(entry => {
-		if (entry.year) {
-			if (entry.notes) {
-				db.run('INSERT OR REPLACE INTO birthdays (id, name, day, month, year, notes) VALUES(?,?,?,?,?,?)', entry.id, entry.name, entry.day, entry.month, entry.year, entry.notes)
-			} else {
-				db.run('INSERT OR REPLACE INTO birthdays (id, name, day, month, year) VALUES(?,?,?,?,?)', entry.id, entry.name, entry.day, entry.month, entry.year)
-			}
-		} else if (entry.notes) {
-			db.run('INSERT OR REPLACE INTO birthdays (id, name, day, month, notes) VALUES(?,?,?,?,?)', entry.id, entry.name, entry.day, entry.month, entry.notes)
-		} else {
-			db.run('INSERT OR REPLACE INTO birthdays (id, name, day, month) VALUES(?,?,?,?)', entry.id, entry.name, entry.day, entry.month)
-		}
-	})
-	console.log('[i] finished reading table data from JSON')
 }
 
 module.exports.createNewEntry = function (data) { //sql function to insert a new entry into the database
