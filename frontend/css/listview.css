@@ -1,45 +1,32 @@
-a {
-	text-decoration: none;
-}
-
-.list {
+.liste {
 	margin: 30px 10% 30px 10%;
-	width: 80%;
-	height: auto;
 }
 
-.list-element {
-	background-color: white;
+.birthdate-element {
 	width: 100%;
-	height: auto;
-	padding: 10px;
-	color: black;
-
-	display: flex;
-	position: relative;
+	background-color: rgba(0, 0, 0, 1);
+	padding: 15px;
+	display: inline-flex;
 	border-radius: 18px;
-	margin-top: 10px;
-	margin-bottom: 10px;
+	border:1px solid rgb(255, 255, 255);
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
-.date {
-	width: 33%;
-	float: left;
-	display: flex;
-	align-items: center;
-	margin-left: 10px;
+.birthdate-element:hover{
+color: rgba(255, 0, 76, 1);
+	background: white;
+}
+
+.subdiv {
+	display: inline-flex;
+	width: 100%;
 }
 
 .name {
-	width: 33%;
-	align-items: center;
+	justify-content: center;
 }
 
 .countdown {
-	width: 33%;
-	float: right;
-	display: flex;
 	justify-content: flex-end;
-	align-items: center;
-	margin-right: 10px;
 }
