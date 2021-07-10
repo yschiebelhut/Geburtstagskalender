@@ -11,7 +11,7 @@
                 <script src="/frontend/js/calendarview.js"></script>
             </head>
 
-            <body onload = "showToday()">
+            <body>
                 <!-- header on the page with title and buttons -->
                 <div class="menue">
                     <div class="menue-box">
