@@ -33,8 +33,8 @@ module.exports.getListData = async function () { //sql function to get all data 
 			if (err) {
 				reject(err)
 			}
-			const curDay = new Date().getDay() + 1
-			const curMonth = new Date().getMonth() + 1
+			const curDay = new Date().getDate()
+			const curMonth = new Date().getMonth() + 1 //getMonth() returns an index from 0 to 11, in our structure we have the index 1 to 12 
 			var movedEntries = 0
 			while (true) {
 				if (movedEntries == rows.length) {
