@@ -66,14 +66,8 @@
 								<xsl:value-of select="name" />
 							</div>
 							<div class="countdown subdiv">
-								<xsl:value-of select="daysleft" />
-&#160;days
-																		<!-- <button class="delete-link">
-											<xsl:attribute name="href">/deleteEntry?id=<xsl:value-of select="id" /></xsl:attribute>
-											<img class="cross-btn" src="/frontend/images/icon/Delete_Cross.png" />
-										</button> -->
+								<xsl:value-of select="daysleft" />&#160;days
 							</div>
-
 						</div>
 					</a>
 
