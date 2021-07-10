@@ -58,6 +58,7 @@ input {
 	padding-right: 10px;
 	height: 60px;
 }
+
 .save-btn:hover{
 	background-image:url(/frontend/images/icon/Save_marked.png);
 	color: rgba(161, 35, 0, 1);
