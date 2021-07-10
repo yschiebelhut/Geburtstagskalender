@@ -123,12 +123,11 @@
 					xmlres += '<index>' + index + '</index>' + '\n'
 					xmlres += '<inMonth>true</inMonth>' + '\n'
 
-					if(new Date().getMonth() +1 == curMonth && new Date().getDate() == index){
+					if(new Date().getFullYear() == curYear && new Date().getMonth() +1 == curMonth && new Date().getDate() == index){
 						var today = 'true'
 					}else{
 						var today = 'false'
 					}
-					console.log(today)
 
 					xmlres += '<today>' + today + '</today>\n'
 
