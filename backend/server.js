@@ -200,6 +200,9 @@
 		if(data.month<10)data.month = "0"+data.month
 		if(data.day<10)data.day="0"+data.day
 		data.fulldate=curYear+"-"+data.month+"-"+data.day
+
+		var age = curYear - data.year
+
 		var output = ''
 		output += '<birthdays>'
 		output += '<day>' + new Date().getDate() + '</day>' + '\n'
@@ -207,6 +210,7 @@
 		output += '<year>' + new Date().getFullYear() + '</year>' + '\n'
 		output += '<bday>'
 		output += convert.json2xml(data, json2xmlOptions)
+		output += '<age>' + age + '</age>'
 		output += '</bday>'
 		output += '</birthdays>'
 		output = prettifyXml(output, xmlFormat)
