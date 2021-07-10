@@ -83,8 +83,18 @@
                     <xsl:for-each select="/calendar/row">                        <!-- xsl loop for the calendar's rows -->
                         <ul class="days">
                             <xsl:for-each select="entry">                                <!-- xsl loop for the calendar's day -->
-                                <xsl:if test="inMonth = 'true'">                                    <!-- xsl if statement that checks value 'inMonth'; if inMonth=true then the day will be formatted as a day of the current month  -->
+                                <xsl:if test="inMonth = 'true'">                  <!-- xsl if statement that checks value 'inMonth'; if inMonth=true then the day will be formatted as a day of the current month  -->
                                     <li class="day">
+                                      <xsl:if test="today = 'true'">
+                                        <div class="today">
+                                            <xsl:attribute name = "id">
+                                                <xsl:value-of select="index" />
+                                                <!-- write the day's date in the correspondent calendar field  -->
+                                            </xsl:attribute>
+                                            <xsl:value-of select="index" />
+                                        </div>
+                                      </xsl:if>
+                                      <xsl:if test="today = 'false'">
                                         <div class="date">
                                             <xsl:attribute name = "id">
                                                 <xsl:value-of select="index" />
@@ -92,7 +102,7 @@
                                             </xsl:attribute>
                                             <xsl:value-of select="index" />
                                         </div>
-
+                                      </xsl:if>
                                         <xsl:for-each select="bday">                                            <!-- xsl loop to get all birthday entries for the displayed days -->
                                             <a>
                                                 <xsl:attribute name="href">/popup?id=<xsl:value-of select="id" />

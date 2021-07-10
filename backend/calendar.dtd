@@ -1,7 +1,7 @@
 <!ELEMENT calendar (now, monthname, year, row*)>
 <!ELEMENT now (day, monthname, year)>
 <!ELEMENT row (entry*)>
-<!ELEMENT entry ((index, inMonth, bday*) | (inMonth))>
+<!ELEMENT entry ((index, inMonth, today, bday*) | (inMonth))>
 <!ELEMENT bday (daysleft,id,name,day,month,year,notes)>
 <!ELEMENT daysleft (#PCDATA)>
 <!ELEMENT id (#PCDATA)>
@@ -13,3 +13,4 @@
 <!ELEMENT index (#PCDATA)>
 <!ELEMENT inMonth (#PCDATA)>
 <!ELEMENT monthname (#PCDATA)>
+<!ELEMENT today (#PCDATA)>

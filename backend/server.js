@@ -109,18 +109,27 @@
 		xmlres += '</now>'
 		xmlres += '<monthname>' + months[curMonth] + '</monthname>'
 		xmlres += '<year>' + curYear + '</year>'
+
 		var abort = false
 
 		while (!abort) { // these loops create the xml for the 2-dimensional calendar
 
 			xmlres += '<row>' + '\n'
 
-			for (let j = 0; j < 7; j++) { // to display all date successfully the calendar is created with 6 possible weeks per month 
+			for (let j = 0; j < 7; j++) { // to display all date successfully the calendar is created with 6 possible weeks per month
 
 				xmlres += '<entry>' + '\n'
 				if (index >= 1 && index <= lastDayDate) {
 					xmlres += '<index>' + index + '</index>' + '\n'
 					xmlres += '<inMonth>true</inMonth>' + '\n'
+
+					if(new Date().getFullYear() == curYear && new Date().getMonth() +1 == curMonth && new Date().getDate() == index){
+						var today = 'true'
+					}else{
+						var today = 'false'
+					}
+
+					xmlres += '<today>' + today + '</today>\n'
 
 					var data = await handleDBJS.getDataForDay(curMonth, index)
 
@@ -190,7 +199,7 @@
 
 	app.get('/today', (req, res) => { // route that get's activated by the today button in calendarview.xsl to get the data to jump back to the current month and date
 		resetDate()
-		res.redirect("/calendarview?today=true")
+		res.redirect("/calendarview")
 	})
 
 	app.get("/popup", async (req, res) => { // route that redirects to the popup.xsl; it receives the id of the selected entry and uses the id to build the xml information based on the id
@@ -224,7 +233,7 @@
 		res.send(xmlres)
 	})
 
-	app.post('/createEntry', (req, res) => { // route that 
+	app.post('/createEntry', (req, res) => { // route that
 		handleDBJS.createNewEntry(req.body)
 		res.send("")
 	})
@@ -248,7 +257,7 @@
 		res.send(xmlres)
 	})
 
-	app.post('/editEntry', (req, res) => { // route that 
+	app.post('/editEntry', (req, res) => { // route that
 		handleDBJS.editEntry(req.body)
 		res.send("")
 	})
