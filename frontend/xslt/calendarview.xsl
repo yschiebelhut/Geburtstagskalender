@@ -86,6 +86,11 @@
                                 <xsl:if test="inMonth = 'true'">                                    <!-- xsl if statement that checks value 'inMonth'; if inMonth=true then the day will be formatted as a day of the current month  -->
                                     <li class="day">
                                         <div class="date">
+                                          <xsl:if test="today = 'true'">
+                                            <xsl:attribute name="class">
+                                              today
+                                            </xsl:attribute>
+                                          </xsl:if>
                                             <xsl:attribute name = "id">
                                                 <xsl:value-of select="index" />
                                                 <!-- write the day's date in the correspondent calendar field  -->

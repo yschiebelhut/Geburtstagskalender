@@ -84,5 +84,11 @@
 }
 
 .next-previous-btn:hover{
-	background-color: rgb(215, 123, 123);	
+	background-color: rgb(215, 123, 123);
+}
+
+.today{
+	border:2px white;
+	background-color: white;
+	color: rgba(255, 0, 76, 1)
 }
