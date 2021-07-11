@@ -72,7 +72,7 @@
                         </xsl:attribute>
                     </input>
                 </p>
-                <p>                    <!-- Note wird nicht gespeichert Bug -->
+                <p>
                     <textarea id="notes" type="text" name="message" rows="8" cols="60" placeholder="Note">
                         <xsl:value-of select="/birthdays/bday/notes"/>
                         <!-- textbox that contains all notes that are written for this birthday entry -->
