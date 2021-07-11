@@ -20,9 +20,7 @@
 					<div class="menu-box">
 						<a href="/today">
 							<h3>
-								<xsl:value-of select="calendar/now/day" />
-								&#160;<xsl:value-of select="calendar/now/monthname" />
-								&#160;<xsl:value-of select="calendar/now/year" />
+								<xsl:value-of select="calendar/now/day" />&#160;<xsl:value-of select="calendar/now/monthname" />&#160;<xsl:value-of select="calendar/now/year" />
 							</h3>
 						</a>
 					</div>

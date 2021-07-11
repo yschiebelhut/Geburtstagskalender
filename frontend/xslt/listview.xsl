@@ -20,9 +20,7 @@
 					<div class="menu-box">
 						<a href="/today">
 							<h3>
-								<xsl:value-of select="birthdays/day" />
-									&#160;<xsl:value-of select="birthdays/monthname" />
-									&#160;<xsl:value-of select="birthdays/year" />
+								<xsl:value-of select="birthdays/day" />&#160;<xsl:value-of select="birthdays/monthname" />&#160;<xsl:value-of select="birthdays/year" />
 							</h3>
 						</a>
 					</div>
@@ -54,9 +52,7 @@
 							</xsl:attribute>
 							<div class="birthdate-element">
 								<div class="subdiv">
-									<xsl:value-of select="day" />
-	.								<xsl:value-of select="month" />
-	.								<xsl:value-of select="year" />
+									<xsl:value-of select="day" />.<xsl:value-of select="month" />.<xsl:value-of select="year" />
 								</div>
 								<div class="name subdiv">
 									<xsl:value-of select="name" />
