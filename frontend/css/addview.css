@@ -9,11 +9,11 @@ input {
 }
 
 .create-btn{
-	background-image:url(/frontend/images/icon/Save.png);
-	background-repeat:no-repeat;
+	background-image: url(/frontend/images/icon/Save.png);
+	background-repeat: no-repeat;
 	background-size: 8%;
 	background-position: left;
-    background-position-x: 20px;
+	background-position-x: 20px;
 	color: white;
 	background-color: rgba(233, 35, 0, 0.685);
 	
@@ -25,14 +25,14 @@ input {
 }
 
 .create-btn:hover{
-	background-image:url(/frontend/images/icon/Save_marked.png);
+	background-image: url(/frontend/images/icon/Save_marked.png);
 	color: rgba(161, 35, 0, 1);
 	background-color: white;
 }
 
 .heading-area{
 	width: 100%;
-	float:left;
+	float: left;
 	justify-content: center;
 }
 

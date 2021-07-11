@@ -45,11 +45,11 @@ input {
 }
 
 .save-btn{
-	background-image:url(/frontend/images/icon/Save.png);
-	background-repeat:no-repeat;
+	background-image: url(/frontend/images/icon/Save.png);
+	background-repeat: no-repeat;
 	background-size: 12%;
 	background-position: left;
-    background-position-x: 8px;
+	background-position-x: 8px;
 	color: white;
 	background-color: rgba(233, 35, 0, 0.685);
 	font-size: 40px;
@@ -60,17 +60,17 @@ input {
 }
 
 .save-btn:hover{
-	background-image:url(/frontend/images/icon/Save_marked.png);
+	background-image: url(/frontend/images/icon/Save_marked.png);
 	color: rgba(161, 35, 0, 1);
 	background-color: white;
 }
 
 .delete-btn{
-	background-image:url(/frontend/images/icon/Delete_Cross.png);
-	background-repeat:no-repeat;
+	background-image: url(/frontend/images/icon/Delete_Cross.png);
+	background-repeat: no-repeat;
 	background-size: 25%;
 	background-position: left;
-    background-position-x: 8px;
+	background-position-x: 8px;
 	padding-right: 10px;
 	color: rgb(255, 42, 42);
 	background-color: white;
@@ -81,6 +81,6 @@ input {
 }
 
 .delete-btn:hover{
-	background-image:url(/frontend/images/icon/Delete_Cross.png);
+	background-image: url(/frontend/images/icon/Delete_Cross.png);
 	background-color: rgb(255, 170, 170);
 }
