@@ -34,6 +34,6 @@ function sendData() {
 
     xhr.send(data);
   } else {
-    alert("PLS GIVE MORE INFORMATION!")
+    alert("Please enter at least the name and the birthday of the person.")
   }
 }
