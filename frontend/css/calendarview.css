@@ -71,7 +71,7 @@
 	background-color: rgba(255, 0, 76, 0.5);
 }
 
-.today-area{
+.month-area{
 	display: flex;
 	justify-content: center;
 	align-items: center;
