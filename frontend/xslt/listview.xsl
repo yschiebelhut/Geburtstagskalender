@@ -12,13 +12,13 @@
 			</head>
 
 			<body>
-				<!-- Menue-Leiste -->
-				<!-- Header/Menu Start-->
-				<div class="menue">
-					<div class="menue-box">
+				<!-- menu bar -->
+				<!-- Header/menu start-->
+				<div class="menu">
+					<div class="menu-box">
 						<h1>My Calendar</h1>
 					</div>
-					<div class="menue-box">
+					<div class="menu-box">
 						<a href="/today">
 							<h3>
 								<xsl:value-of select="birthdays/day" />
@@ -27,9 +27,9 @@
 						</h3>
 					</a>
 				</div>
-				<div class="menue-btn-box">
+				<div class="menu-btn-box">
 					<div class="plus">
-						<div class="menue-div-btns">
+						<div class="menu-div-btns">
 							<a>
 								<img class="list" height="70%" src="/frontend/images/icon/marked_List.png"></img>
 							</a>
@@ -44,11 +44,10 @@
 					</div>
 				</div>
 			</div>
-			<!-- Header/Menu End-->
+			<!-- Header/menu end-->
 
-
-			<!-- Listen-Container-->
-			<div class="liste">
+			<!-- list container-->
+			<div class="bdaylist">
 				<xsl:for-each select="birthdays/bday">
 					<!-- xsl loop to display all birthday entries for the coming year -->
 
@@ -66,7 +65,8 @@
 								<xsl:value-of select="name" />
 							</div>
 							<div class="countdown subdiv">
-								<xsl:value-of select="daysleft" />&#160;days
+								<xsl:value-of select="daysleft" />
+&#160;days
 							</div>
 						</div>
 					</a>

@@ -13,11 +13,11 @@
 
             <body>
                 <!-- header on the page with title and buttons -->
-                <div class="menue">
-                    <div class="menue-box">
+                <div class="menu">
+                    <div class="menu-box">
                         <h1>My Calendar</h1>
                     </div>
-                    <div class="menue-box">
+                    <div class="menu-box">
                         <a href="/today">
                             <h3>
                                 <xsl:value-of select="calendar/now/day" />
@@ -26,9 +26,9 @@
                         </h3>
                     </a>
                 </div>
-                <div class="menue-btn-box">
+                <div class="menu-btn-box">
                     <div class="plus">
-                        <div class="menue-div-btns">
+                        <div class="menu-div-btns">
                             <a href="/listview">
                                 <img height="70%" class="list" src="/frontend/images/icon/List.png" />
                             </a>
@@ -42,10 +42,10 @@
                     </div>
                 </div>
             </div>
-            <!-- Header/Menu End-->
+            <!-- Header/menu end-->
 
             <header>
-                <div class="today-area">
+                <div class="month-area">
 
                     <a onclick="previousMonth()">
                         <img height="40%" class="next-previous-btn" src="/frontend/images/icon/Previous.png"></img>
@@ -83,26 +83,26 @@
                     <xsl:for-each select="/calendar/row">                        <!-- xsl loop for the calendar's rows -->
                         <ul class="days">
                             <xsl:for-each select="entry">                                <!-- xsl loop for the calendar's day -->
-                                <xsl:if test="inMonth = 'true'">                  <!-- xsl if statement that checks value 'inMonth'; if inMonth=true then the day will be formatted as a day of the current month  -->
+                                <xsl:if test="inMonth = 'true'">                                    <!-- xsl if statement that checks value 'inMonth'; if inMonth=true then the day will be formatted as a day of the current month  -->
                                     <li class="day">
-                                      <xsl:if test="today = 'true'">
-                                        <div class="today">
-                                            <xsl:attribute name = "id">
+                                        <xsl:if test="today = 'true'">
+                                            <div class="today">
+                                                <xsl:attribute name = "id">
+                                                    <xsl:value-of select="index" />
+                                                    <!-- write the day's date in the correspondent calendar field  -->
+                                                </xsl:attribute>
                                                 <xsl:value-of select="index" />
-                                                <!-- write the day's date in the correspondent calendar field  -->
-                                            </xsl:attribute>
-                                            <xsl:value-of select="index" />
-                                        </div>
-                                      </xsl:if>
-                                      <xsl:if test="today = 'false'">
-                                        <div class="date">
-                                            <xsl:attribute name = "id">
+                                            </div>
+                                        </xsl:if>
+                                        <xsl:if test="today = 'false'">
+                                            <div class="date">
+                                                <xsl:attribute name = "id">
+                                                    <xsl:value-of select="index" />
+                                                    <!-- write the day's date in the correspondent calendar field  -->
+                                                </xsl:attribute>
                                                 <xsl:value-of select="index" />
-                                                <!-- write the day's date in the correspondent calendar field  -->
-                                            </xsl:attribute>
-                                            <xsl:value-of select="index" />
-                                        </div>
-                                      </xsl:if>
+                                            </div>
+                                        </xsl:if>
                                         <xsl:for-each select="bday">                                            <!-- xsl loop to get all birthday entries for the displayed days -->
                                             <a>
                                                 <xsl:attribute name="href">/popup?id=<xsl:value-of select="id" />

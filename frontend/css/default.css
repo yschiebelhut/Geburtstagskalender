@@ -10,7 +10,7 @@ body {
 	padding: 0;
 }
 
-.menue { /*div-box around the complete menu*/
+.menu { /*div-box around the complete menu*/
 	display: flex;
 	background-color: rgba(0, 0, 0, 0.80);
 	color: white;
@@ -20,32 +20,32 @@ body {
 	font-size: 1.5em;
 }
 
-.menue-box { /*Divided into three menu boxes*/
+.menu-box { /*Divided into three menu boxes*/
 	width: 33.3%;
 	justify-content: center;
 	align-items: center;
 	display: flex;
 }
 
-.menue-box h3 {
+.menu-box h3 {
 	border-style:solid;
 	padding: 10px 15px;
 	border-radius: 30px;
 	margin-top: 10px;
 }
 
-.menue-box h3:hover {
+.menu-box h3:hover {
 	border-color: rgba(255, 130, 50, 1);
 	color: rgba(255, 130, 50, 1);
 }
 
-.menue-btn-box{
+.menu-btn-box{
 	width: 33.3%;
 	margin-right: 10px;
 	height: 100%;
 }
 
-.menue-div-btns { 
+.menu-div-btns { 
 	display: flex;
 	margin-right: 30px;
 	height: 40px;

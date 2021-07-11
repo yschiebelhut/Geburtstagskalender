@@ -14,11 +14,11 @@
 			</head>
 
 			<body>
-				<div class="menue">					<!-- header on the page with title and buttons -->
-					<div class="menue-box">
+				<div class="menu">					<!-- header on the page with title and buttons -->
+					<div class="menu-box">
 						<h1>My Calendar</h1>
 					</div>
-					<div class="menue-box">
+					<div class="menu-box">
 						<a href="/today">
 							<h3>
 								<xsl:value-of select="birthdays/day" />
@@ -27,9 +27,9 @@
 						</h3>
 					</a>
 				</div>
-				<div class="menue-btn-box">
+				<div class="menu-btn-box">
 					<div class="plus">
-						<div class="menue-div-btns">
+						<div class="menu-div-btns">
 							<a href="/listview">
 								<img height="70%" class="list" src="/frontend/images/icon/List.png"></img>
 							</a>
