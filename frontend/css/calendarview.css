@@ -64,7 +64,7 @@
 }
 
 .dateView {
-	width: 260px; /* fixed size, because of the arrows should not move. The name of  months have a different length */
+	width: 260px; /* fixed size, because of the arrows should not move. The name of months have a different length */
 }
 
 .calendar-div .other-month {
