@@ -8,7 +8,7 @@ input {
 	background-color: rgba(255, 255, 255, 0.8);	
 }
 
-.create-btn{
+.create-btn {
 	background-image: url(/frontend/images/icon/Save.png);
 	background-repeat: no-repeat;
 	background-size: 8%;
@@ -24,13 +24,13 @@ input {
 	height: 60px;
 }
 
-.create-btn:hover{
+.create-btn:hover {
 	background-image: url(/frontend/images/icon/Save_marked.png);
 	color: rgba(161, 35, 0, 1);
 	background-color: white;
 }
 
-.heading-area{
+.heading-area {
 	width: 100%;
 	float: left;
 	justify-content: center;

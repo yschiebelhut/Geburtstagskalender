@@ -59,13 +59,13 @@ input {
 	height: 60px;
 }
 
-.save-btn:hover{
+.save-btn:hover {
 	background-image: url(/frontend/images/icon/Save_marked.png);
 	color: rgba(161, 35, 0, 1);
 	background-color: white;
 }
 
-.delete-btn{
+.delete-btn {
 	background-image: url(/frontend/images/icon/Delete_Cross.png);
 	background-repeat: no-repeat;
 	background-size: 25%;
@@ -80,7 +80,7 @@ input {
 	height: 60px;
 }
 
-.delete-btn:hover{
+.delete-btn:hover {
 	background-image: url(/frontend/images/icon/Delete_Cross.png);
 	background-color: rgb(255, 170, 170);
 }
