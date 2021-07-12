@@ -45,7 +45,7 @@
 				<header>
 					<div class="month-area">
 						<a onclick="previousMonth()">
-							<img height="40%" class="next-previous-btn" src="/frontend/images/icon/Previous.png"></img>
+							<img height="40%" class="next-previous-btn" src="/frontend/images/icon/Previous.png" />
 						</a>
 						<div class="dateView">
 							<h1>
@@ -54,7 +54,7 @@
 							</h1>
 						</div>
 						<a onclick="nextMonth()">
-							<img height="40%" class="next-previous-btn" src="/frontend/images/icon/Next.png"></img>
+							<img height="40%" class="next-previous-btn" src="/frontend/images/icon/Next.png" />
 						</a>
 					</div>
 				</header>

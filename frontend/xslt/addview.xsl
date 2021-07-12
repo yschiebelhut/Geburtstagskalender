@@ -30,7 +30,7 @@
 							<div class="plus">
 								<div class="menu-div-btns">
 									<a href="/listview">
-										<img height="70%" class="list" src="/frontend/images/icon/List.png"></img>
+										<img height="70%" class="list" src="/frontend/images/icon/List.png" />
 									</a>
 									<a href="/calendarview">
 										<img class="calendar" height="70%" src="/frontend/images/icon/Calendar.png" />

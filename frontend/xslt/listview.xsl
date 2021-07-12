@@ -28,11 +28,11 @@
 						<div class="plus">
 							<div class="menu-div-btns">
 								<a>
-									<img class="list" height="70%" src="/frontend/images/icon/marked_List.png"></img>
+									<img class="list" height="70%" src="/frontend/images/icon/marked_List.png" />
 								</a>
 
 								<a href="/calendarview">
-									<img class="calendar" height="70%" src="/frontend/images/icon/Calendar.png"></img>
+									<img class="calendar" height="70%" src="/frontend/images/icon/Calendar.png" />
 								</a>
 							</div>
 							<a href="/createEntry" class="plus-btn">
