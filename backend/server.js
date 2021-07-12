@@ -28,7 +28,7 @@
 	var curYear
 	var lastPage = "/listview"
 	var resetDate = function () { // function to reset date to current month and year
-		curMonth = new Date().getMonth() + 1
+		curMonth = new Date().getMonth() + 1 //getMonth() returns an index from 0 to 11, in our structure we have the index 1 to 12 
 		curYear = new Date().getFullYear()
 	}
 
