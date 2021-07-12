@@ -252,7 +252,6 @@
 		body += '<age>' + age + '</age>'
 		body += '</bday>'
 		body += '</birthdays>'
-		body = prettifyXml(body, xmlFormat) // format xml to be not only valid but human readable
 
 		var xmlres = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
 		xmlres += '<?xml-stylesheet type="text/xsl" href="/frontend/xslt/popup.xsl"?>' + '\n'
