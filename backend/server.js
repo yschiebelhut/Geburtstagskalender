@@ -78,7 +78,7 @@
 		res.set('Content-Type', 'text/xml')
 		var xmlres = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
 		xmlres += '<?xml-stylesheet type="text/xsl" href="/frontend/xslt/listview.xsl"?>' + '\n'
-		xmlres += '<!DOCTYPE birthdays SYSTEM "/backend/birthdays.dtd">' + '\n'
+		xmlres += '<!DOCTYPE birthdays SYSTEM "/backend/dtd/birthdays.dtd">' + '\n'
 		xmlres += await getXMLBody()
 
 		res.send(xmlres)
@@ -169,7 +169,7 @@
 
 		var xmlhead = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
 		xmlhead += '<?xml-stylesheet type="text/xsl" href="/frontend/xslt/calendarview.xsl"?>' + '\n'
-		xmlhead += '<!DOCTYPE calendar SYSTEM "/backend/calendar.dtd">' + '\n'
+		xmlhead += '<!DOCTYPE calendar SYSTEM "/backend/dtd/calendar.dtd">' + '\n'
 
 		xmlres = xmlhead + xmlres
 		res.send(xmlres)
@@ -227,7 +227,7 @@
 		res.set('Content-Type', 'text/xml')
 		var xmlres = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
 		xmlres += '<?xml-stylesheet type="text/xsl" href="/frontend/xslt/popup.xsl"?>' + '\n'
-		xmlres += '<!DOCTYPE birthdays SYSTEM "/backend/popup.dtd">' + '\n'
+		xmlres += '<!DOCTYPE birthdays SYSTEM "/backend/dtd/popup.dtd">' + '\n'
 		xmlres += output
 
 		res.send(xmlres)
@@ -251,7 +251,7 @@
 		res.set('Content-Type', 'text/xml')
 		var xmlres = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'
 		xmlres += '<?xml-stylesheet type="text/xsl" href="/frontend/xslt/addview.xsl"?>' + '\n'
-		xmlres += '<!DOCTYPE birthdays SYSTEM "/backend/birthdays.dtd">' + '\n'
+		xmlres += '<!DOCTYPE birthdays SYSTEM "/backend/dtd/birthdays.dtd">' + '\n'
 		xmlres += output
 
 		res.send(xmlres)
@@ -268,6 +268,6 @@
 	})
 
 	app.listen(port, () => {
-		console.log(`App is listening at http://localhost:${port}`)
+		console.log(`[i] App is listening at http://localhost:${port}`)
 	})
 })()

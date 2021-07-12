@@ -8,7 +8,7 @@ var db;
 		if (err) {
 			console.error(err.message)
 		}
-		console.log('Connected successfully')
+		console.log('[i] Database connected successfully')
 	})
 
 	await db.serialize(async () => {
@@ -79,7 +79,6 @@ module.exports.getDataForDay = async function (month, day) { //sql select statem
 }
 
 function createDBAndTable() { //sql function that sets up the database structure with all requirements
-	console.log('[i] checking or creating creating table')
 	db.run('CREATE TABLE IF NOT EXISTS birthdays (\
 		id INTEGER PRIMARY KEY,\
 		name TEXT NOT NULL,\
@@ -88,7 +87,6 @@ function createDBAndTable() { //sql function that sets up the database structure
 		year INTEGER,\
 		notes TEXT DEFAULT ""\
 		)')
-	console.log('[i] table checked or created')
 }
 
 module.exports.createNewEntry = function (data) { //sql function to insert a new entry into the database
@@ -97,7 +95,6 @@ module.exports.createNewEntry = function (data) { //sql function to insert a new
 
 module.exports.deleteEntry = function (id) { //sql function to delete a birthday entry
 	db.run("DELETE FROM birthdays WHERE id=?", id)
-	console.log("deleted entry successfully")
 }
 
 module.exports.editEntry = function (data) { //sql function to update a birthday entry 
