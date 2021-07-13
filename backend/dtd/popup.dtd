@@ -1,7 +1,6 @@
 <!ELEMENT birthdays (day, monthname, year, bday*)>
 <!ELEMENT monthname (#PCDATA)>
-<!ELEMENT bday (daysleft,id,name,day,month,year, notes, fulldate)>
-<!ELEMENT daysleft (#PCDATA)>
+<!ELEMENT bday (id, name, day, month, year, notes, fulldate, age)>
 <!ELEMENT id (#PCDATA)>
 <!ELEMENT name (#PCDATA)>
 <!ELEMENT day (#PCDATA)>
@@ -9,3 +8,4 @@
 <!ELEMENT year (#PCDATA)>
 <!ELEMENT notes (#PCDATA)>
 <!ELEMENT fulldate (#PCDATA)>
+<!ELEMENT age (#PCDATA)>
