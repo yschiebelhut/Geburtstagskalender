@@ -1,4 +1,5 @@
 function sendData() {
+  //collecting data from inputs
 	var name = document.getElementById("name").value
 	var date = document.getElementById("date").value.split("-")
 	var day = date[2]
@@ -17,7 +18,7 @@ function sendData() {
 
 		data = JSON.stringify(data)
 		console.log(data)
-
+    //send data to backend
 		var xhr = new XMLHttpRequest();
 		xhr.open("POST", '/createEntry', true);
 		xhr.setRequestHeader("Content-Type", "application/json");
@@ -30,6 +31,6 @@ function sendData() {
 		}
 		xhr.send(data);
 	} else {
-		alert("PLS GIVE MORE INFORMATION!")
+		alert("Please enter at least the name and the birthday of the person.")
 	}
 }

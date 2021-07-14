@@ -1,5 +1,5 @@
 function sendData() {
-
+  //collecting necessary data
 	var url = location.search;
 
 	var name = document.getElementById("name").value
@@ -21,7 +21,7 @@ function sendData() {
 		}
 
 		data = JSON.stringify(data)
-
+    //request to the backend to edit the entry
 		var xhr = new XMLHttpRequest();
 		xhr.open("POST", '/editEntry', true);
 		xhr.setRequestHeader("Content-Type", "application/json");
