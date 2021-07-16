@@ -1,3 +1,4 @@
+![Struktur](https://user-images.githubusercontent.com/85650505/125986840-e4319d4b-d49c-4c9d-9357-f2d85c411192.png)
 # Geburtstagskalender
 
 ## Initial Setup
@@ -55,3 +56,5 @@ Erfolgt die Anfrage über einen XSLT-fähigen Browser, wird mittels der Stylingi
 Die XSLT-Dateien liegen hierbei ebenfalls auf dem Server, in einem eigens dafür angelegten Ordner, welcher als Pfad vom Server angefragt werden kann.
 Die rohen XML-Dateien, die der Browser empfängt, können auf Wunsch über die **view-source** Funktion eingesehen werden.
 (In Firefox oder Chrome basierten Browsern einfach vor die URL `view-source:` setzen.)
+
+![Struktur](/Struktur.png)
