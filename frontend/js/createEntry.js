@@ -1,5 +1,5 @@
 function sendData() {
-  //collecting data from inputs
+	//collecting data from inputs
 	var name = document.getElementById("name").value
 	var date = document.getElementById("date").value.split("-")
 	var day = date[2]
@@ -18,7 +18,7 @@ function sendData() {
 
 		data = JSON.stringify(data)
 		console.log(data)
-    //send data to backend
+		//send data to backend
 		var xhr = new XMLHttpRequest();
 		xhr.open("POST", '/createEntry', true);
 		xhr.setRequestHeader("Content-Type", "application/json");
