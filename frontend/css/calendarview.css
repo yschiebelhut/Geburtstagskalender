@@ -13,7 +13,7 @@
 	float: left;
 	width: 14.285%;
 	padding: 10px;
-	box-sizing:border-box;
+	box-sizing: border-box;
 	border: 1px solid white;
 	border-radius: 30px;
 	margin-right: -1px;
@@ -58,36 +58,36 @@
 	margin: 3px 0 7px 0;
 }
 
-.calendar-div .details:hover{
+.calendar-div .details:hover {
 	color: white;
 	background: rgba(255, 0, 76, 1);
 }
 
-.dateView{
-	width: 260px; /* fixed size, because of the arrows should not move. The name of  months have a different length */
+.dateView {
+	width: 260px; /* fixed size, because of the arrows should not move. The name of months have a different length */
 }
 
 .calendar-div .other-month {
 	background-color: rgba(255, 0, 76, 0.5);
 }
 
-.today-area{
+.month-area {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	margin-right: 10px;
 }
 
-.next-previous-btn{
+.next-previous-btn {
 	margin: 15px;
 	height: 30px;
 }
 
-.next-previous-btn:hover{
+.next-previous-btn:hover {
 	background-color: rgb(215, 123, 123);
 }
 
-.calendar-div .today{
+.calendar-div .today {
 	margin-bottom: 5px;
 	padding: 4px;
 	background: rgba(255, 255, 255, 1);

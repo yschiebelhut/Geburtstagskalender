@@ -1,4 +1,4 @@
-.liste {
+.bdaylist {
 	margin: 30px 10% 30px 10%;
 }
 
@@ -8,12 +8,12 @@
 	padding: 15px;
 	display: inline-flex;
 	border-radius: 18px;
-	border:1px solid rgb(255, 255, 255);
+	border: 1px solid rgb(255, 255, 255);
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
 
-.birthdate-element:hover{
+.birthdate-element:hover {
 color: rgba(255, 0, 76, 1);
 	background: white;
 }

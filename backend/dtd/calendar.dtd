@@ -2,7 +2,7 @@
 <!ELEMENT now (day, monthname, year)>
 <!ELEMENT row (entry*)>
 <!ELEMENT entry ((index, inMonth, today, bday*) | (inMonth))>
-<!ELEMENT bday (daysleft,id,name,day,month,year,notes)>
+<!ELEMENT bday (daysleft, id, name, day, month, year, notes)>
 <!ELEMENT daysleft (#PCDATA)>
 <!ELEMENT id (#PCDATA)>
 <!ELEMENT name (#PCDATA)>
