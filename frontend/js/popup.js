@@ -37,3 +37,10 @@ function sendData() {
 		alert("Please enter at least the name and the birthday of the person.")
 	}
 }
+
+function verifyDeletion(a){
+	var result = confirm("Want to delete?");
+	if (result) {
+    window.location.href="/delete?id="+a.id
+	}
+}
