@@ -77,13 +77,11 @@
 					</p>
 					<input id="update_btn" class="save-btn" type="button" name="save" value="      Save Changes" onclick="sendData()" />
 					<!-- if data gets changed then the butto will trigger an UPDATE-SQL statement to update the database entry -->
-					<a>
-						<input class="delete-btn" type="button" name="save" value="        Delete" onclick="verifyDeletion(this)">
+					<input class="delete-btn" type="button" name="save" value="        Delete" onclick="verifyDeletion(this)">
 						<xsl:attribute name="id"><xsl:value-of select="birthdays/bday/id" />
 						</xsl:attribute>
 					</input>
 						<!-- <input id="submit" class="form-button" type="submit" value="Delete" />-->
-					</a>    <!-- the birthday entry will be deleted from the database if the button gets clicked -->
 				</div>
 			</body>
 		</html>
